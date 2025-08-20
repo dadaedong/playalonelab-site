@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>PLAY ALONE LAB</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- OG / 공유 썸네일 -->
+  <meta property="og:title" content="PLAY ALONE LAB">
+  <meta property="og:description" content="오직 나를 위한 실험실. Play Alone Lab">
+  <meta property="og:image" content="https://playalonelab.com/images/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <style>
+    :root{
+      --ink:#192643;     /* 날짜/헤더 컬러 */
+      --bg:#F6F2E9;      /* 배경 */
+      --accent:#F6D860;  /* 포인트 */
+      --btn:#FBAE91;     /* 버튼 */
+      --text:#000000;    /* 본문 */
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font:16px/1.7 system-ui, -apple-system, Segoe UI, Roboto, Noto Sans KR, Apple SD Gothic Neo, sans-serif;}
+    .wrap{max-width:880px;margin:64px auto;padding:0 20px}
+    header h1{font-size:40px;line-height:1.2;margin:0;color:var(--ink);letter-spacing:0.2px}
+    header p{margin:14px 0 0 2px;color:#333}
+    .hr{height:1px;background:#e6e0d5;margin:28px 0}
+    section h2{font-size:22px;color:var(--ink);margin:28px 0 10px}
+    section p{margin:8px 0}
+    .badge{display:inline-block;background:var(--accent);padding:6px 10px;border-radius:999px;font-weight:600;margin:8px 0 16px;color:#333}
+    .card{background:#fff;border:1px solid #eee;border-radius:14px;padding:18px 16px;margin:12px 0}
+    ul{padding-left:18px;margin:8px 0}
+    .foot{margin:40px 0 0;color:#444;font-size:14px}
+    .cta{display:inline-block;background:var(--btn);color:#000;text-decoration:none;padding:10px 16px;border-radius:10px;border:1px solid rgba(0,0,0,.1);font-weight:600;margin-top:8px}
+    .muted{color:#666}
+    .mono{font-family: ui-monospace,SFMono-Regular,Menlo,monospace}
+    .center{text-align:center}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="center">
+      <div class="badge">PLAY ALONE LAB</div>
+      <h1>오직 나를 위한 실험실</h1>
+      <p>개인의 내적 즐거움과 자기표현을 탐구하는 미니멀 프로젝트 스튜디오.</p>
+    </header>
+
+    <div class="hr"></div>
+
+    <section>
+      <h2>뭐라도 하자.</h2>
+      <div class="card">
+        <p>우리는 작고 단순한 제품을 빠르게 만들고, 스스로 쓰고, 필요하면 바꿔버립니다.</p>
+        <ul>
+          <li>첫 실험: <b>똥글똥글</b> – 오직 나만을 위한 로그 저장소</li>
+          <li>철학: <b>미니멀 · 모던 · 심플</b></li>
+          <li>원칙: 재미가 없으면 갈아엎는다. 규칙은 언제든 재정의.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>연구헌장</h2>
+      <div class="card">
+        <ul>
+          <li>혼자 놀기의 기술, 자발적 몰입, 창작의 지속 가능성을 탐구한다.</li>
+          <li>수익보다 즐거움 우선. 실패할 것 같으면 하지 않는다.</li>
+          <li>모든 사람은 무한한 창작 가능성을 품고 있다.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>문의</h2>
+      <p class="muted">협업/제안/문의는 아래 메일로.</p>
+      <p><a class="cta" href="mailto:contact@playalonelab.com">contact@playalonelab.com</a></p>
+      <p class="muted">Apple/계정/세무: <span class="mono">admin@playalonelab.com</span></p>
+    </section>
+
+    <div class="foot">
+      © <span id="y"></span> Play Alone Lab · Busan, KR
+    </div>
+  </div>
+
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>
