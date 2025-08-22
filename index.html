@@ -1,84 +1,84 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8">
-  <title>PLAY ALONE LAB</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- OG / 공유 썸네일 -->
-  <meta property="og:title" content="PLAY ALONE LAB">
-  <meta property="og:description" content="오직 나를 위한 실험실. Play Alone Lab">
-  <meta property="og:image" content="https://playalonelab.com/images/PLAY_ALONE_LAB_CI.jpg">
-  <meta name="twitter:card" content="summary_large_image">
-  <style>
-    :root{
-      --ink:#192643;     /* 날짜/헤더 컬러 */
-      --bg:#F6F2E9;      /* 배경 */
-      --accent:#F6D860;  /* 포인트 */
-      --btn:#FBAE91;     /* 버튼 */
-      --text:#000000;    /* 본문 */
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font:16px/1.7 system-ui, -apple-system, Segoe UI, Roboto, Noto Sans KR, Apple SD Gothic Neo, sans-serif;}
-    .wrap{max-width:880px;margin:64px auto;padding:0 20px}
-    header h1{font-size:40px;line-height:1.2;margin:0;color:var(--ink);letter-spacing:0.2px}
-    header p{margin:14px 0 0 2px;color:#333}
-    .hr{height:1px;background:#e6e0d5;margin:28px 0}
-    section h2{font-size:22px;color:var(--ink);margin:28px 0 10px}
-    section p{margin:8px 0}
-    .badge{display:inline-block;background:var(--accent);padding:6px 10px;border-radius:999px;font-weight:600;margin:8px 0 16px;color:#333}
-    .card{background:#fff;border:1px solid #eee;border-radius:14px;padding:18px 16px;margin:12px 0}
-    ul{padding-left:18px;margin:8px 0}
-    .foot{margin:40px 0 0;color:#444;font-size:14px}
-    .cta{display:inline-block;background:var(--btn);color:#000;text-decoration:none;padding:10px 16px;border-radius:10px;border:1px solid rgba(0,0,0,.1);font-weight:600;margin-top:8px}
-    .muted{color:#666}
-    .mono{font-family: ui-monospace,SFMono-Regular,Menlo,monospace}
-    .center{text-align:center}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play Alone Lab</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="wrap">
-    <header class="center">
-      <div class="badge">PLAY ALONE LAB</div>
-      <h1>오직 나를 위한 실험실</h1>
-      <p>개인의 내적 즐거움과 자기표현을 탐구하는 미니멀 프로젝트 스튜디오.</p>
+
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <img src="https://via.placeholder.com/100x50?text=Play+Alone+Lab+Logo" alt="Play Alone Lab 로고">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#about">회사 소개</a></li>
+                    <li><a href="#philosophy">설립 이념</a></li>
+                    <li><a href="#projects">프로젝트</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <div class="hr"></div>
+    <main>
+        <section id="hero">
+            <div class="hero-text">
+                <h1>뭐라도 하자!</h1>
+                <p>Play Alone Lab</p>
+            </div>
+        </section>
 
-    <section>
-      <h2>뭐라도 하자.</h2>
-      <div class="card">
-        <p>우리는 작고 단순한 제품을 빠르게 만들고, 스스로 쓰고, 필요하면 바꿔버립니다.</p>
-        <ul>
-          <li>첫 실험: <b>똥글똥글</b> – 오직 나만을 위한 로그 저장소</li>
-          <li>철학: <b>미니멀 · 모던 · 심플</b></li>
-          <li>원칙: 재미가 없으면 갈아엎는다. 규칙은 언제든 재정의.</li>
-        </ul>
-      </div>
-    </section>
+        <section id="about">
+            <h2>회사 소개</h2>
+            <p>
+                Play Alone Lab은 혼자만의 시간을 가치 있게 만들어가는 다양한 프로젝트를 기획하고 개발합니다. 
+                개개인의 내면을 탐구하고 기록하는 도구를 제공함으로써 
+                '나'라는 존재와 더 깊게 소통할 수 있는 경험을 선사합니다.
+            </p>
+        </section>
 
-    <section>
-      <h2>연구헌장</h2>
-      <div class="card">
-        <ul>
-          <li>혼자 놀기의 기술, 자발적 몰입, 창작의 지속 가능성을 탐구한다.</li>
-          <li>수익보다 즐거움 우선. 실패할 것 같으면 하지 않는다.</li>
-          <li>모든 사람은 무한한 창작 가능성을 품고 있다.</li>
-        </ul>
-      </div>
-    </section>
+        <section id="philosophy">
+            <h2>설립 이념</h2>
+            <p class="philosophy-text">
+                시간은 흐른다.<br>
+                언제나 흐르고, 결국은 흘러간다.<br>
+                앞으로도 그럴 것이다.<br>
+                그러므로 이 유한함과 동시에 무한히 계속되는 시간의 흐름 속에서<br>
+                가만히 있기보다는 뭐라도 해보자.<br>
+                그게 누군가에겐 냉소와 조소의 대상이 될지 모르지만,<br>
+                어차피 내 인생은 오롯이 나의 것이며<br>
+                그 결과 역시 나만이 평가할 자격이 있다.<br>
+                그러니 가만히 앉아 시간의 흐름에 휩쓸리고 난 뒤<br>
+                ‘그때 뭐라도 할 걸…’ 하고 후회하지 말자.<br>
+                지금 당장 작은 거라도, 소소한 거라도,<br>
+                그냥 동네 한 바퀴 산책이라도 하자.<br>
+                <br>
+                ✨ 그러면 뭐라도 달라지지 않을까?
+            </p>
+        </section>
 
-    <section>
-      <h2>문의</h2>
-      <p class="muted">협업/제안/문의는 아래 메일로.</p>
-      <p><a class="cta" href="mailto:contact@playalonelab.com">contact@playalonelab.com</a></p>
-    </section>
+        <section id="projects">
+            <h2>프로젝트</h2>
+            <div class="project-card">
+                <div class="project-logo">
+                    <img src="https://via.placeholder.com/150?text=App+Logo" alt="똥글똥글 로고">
+                </div>
+                <h3>똥글똥글</h3>
+                <p>나만이 볼 수 있는 나만의 로그 저장소</p>
+                <p>나와의 SNS</p>
+                <p>사유의 시각화</p>
+            </div>
+        </section>
+    </main>
 
-    <div class="foot">
-      © <span id="y"></span> Play Alone Lab · Busan, KR
-    </div>
-  </div>
+    <footer>
+        <p>&copy; 2025 Play Alone Lab. All Rights Reserved.</p>
+    </footer>
 
-  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+    <script src="script.js"></script>
 </body>
 </html>
