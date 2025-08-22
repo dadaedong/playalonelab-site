@@ -1,0 +1,186 @@
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #34495e;
+    --accent-color: #e74c3c;
+    --background-color: #ecf0f1;
+    --text-color: #2d3436;
+    --font-family: 'Nanum Gothic', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo img {
+    height: 50px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--accent-color);
+}
+
+/* Main Content */
+main {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+section {
+    padding: 60px 0;
+    text-align: center;
+}
+
+section:nth-of-type(even) {
+    background-color: #f8f9fa;
+}
+
+h1, h2, h3 {
+    margin-bottom: 20px;
+    font-weight: 700;
+    color: var(--secondary-color);
+}
+
+/* Hero Section */
+#hero {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1920x1080?text=Hero+Image') no-repeat center center/cover;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    background-position: center; /* 이미지 위치 중앙 정렬 추가 */
+    background-size: cover; /* 이미지가 영역을 꽉 채우도록 추가 */
+}
+
+#hero h1 {
+    font-size: 4rem;
+    margin-bottom: 10px;
+    color: white;
+}
+
+#hero p {
+    font-size: 1.5rem;
+}
+
+/* Philosophy Section */
+.philosophy-text {
+    white-space: pre-wrap;
+    text-align: left;
+    max-width: 800px;
+    margin: auto;
+    line-height: 2;
+}
+
+/* Project Card */
+.project-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    max-width: 400px;
+    margin: auto;
+}
+
+.project-logo img {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+}
+
+/* Footer */
+footer {
+    background-color: var(--secondary-color);
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+/* --- 모바일 대응을 위한 미디어 쿼리 --- */
+@media (max-width: 768px) {
+    /* 헤더 */
+    .header-content {
+        flex-direction: column;
+    }
+    nav {
+        margin-top: 10px;
+    }
+    nav ul {
+        justify-content: center;
+    }
+    nav ul li {
+        margin: 0 10px;
+    }
+
+    /* 히어로 섹션 */
+    #hero {
+        height: 60vh;
+    }
+    #hero h1 {
+        font-size: 2.5rem;
+    }
+    #hero p {
+        font-size: 1.2rem;
+    }
+
+    /* 섹션 공통 */
+    section {
+        padding: 40px 10px;
+    }
+    h2 {
+        font-size: 1.8rem;
+    }
+    p {
+        font-size: 1rem;
+    }
+
+    /* 설립 이념 텍스트 */
+    .philosophy-text {
+        font-size: 0.9rem;
+    }
+}
