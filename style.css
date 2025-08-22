@@ -155,7 +155,14 @@ footer small a { text-decoration: underline; text-underline-offset: 3px; }
 /* =====================
     Motion
     ===================== */
-@media (prefers-reduced-motion: no-preference){
-  [data-animate] { opacity:0; transform: translateY(8px); transition: all .5s ease; }
-  [data-animate].in { opacity:1; transform: none; }
+@media (prefers-reduced-motion: no-preference) {
+  [data-animate] {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  [data-animate].in {
+    opacity: 1;
+    transform: none;
+    transition: all .5s ease;
+  }
 }
