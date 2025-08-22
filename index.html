@@ -135,18 +135,20 @@
     .modal .doc ul{margin: 0 0 10px 18px}
 
     /* ===================== Motion ===================== */
-    @media (prefers-reduced-motion: no-preference) {
-  [data-animate] {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  [data-animate].in {
-    opacity: 1;
-    transform: none;
-    transition: all .5s ease;
+  @media (prefers-reduced-motion: no-preference) {
+    html.js [data-animate] {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    html.js [data-animate].in {
+      opacity: 1;
+      transform: none;
+      transition: all .5s ease;
+    }
   }
 }
   </style>
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
   <a class="skip" href="#main">본문으로 바로가기</a>
@@ -507,5 +509,39 @@
       if (location.hash === '#privacy') openModal('privacy');
     });
   </script>
+  <script>
+  (function () {
+    const els = document.querySelectorAll('[data-animate]');
+    // IO 미지원 또는 에러 시: 전부 즉시 표시
+    function showAll() { els.forEach(el => el.classList.add('in')); }
+
+    try {
+      if (!('IntersectionObserver' in window)) {
+        showAll(); return;
+      }
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('in');
+            io.unobserve(e.target);
+          }
+        });
+      }, { rootMargin: '0px 0px -10% 0px', threshold: 0.01 });
+
+      els.forEach(el => io.observe(el));
+
+      // 로드 타이밍 문제 대비: 첫 페인트 뒤에도 아직 숨겨져 있으면 강제 표시
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          const anyHidden = Array.from(els).some(el => !el.classList.contains('in'));
+          if (anyHidden) showAll();
+        }, 500);
+      });
+    } catch (e) {
+      showAll();
+    }
+  })();
+</script>
+
 </body>
 </html>
