@@ -17,7 +17,6 @@
   <link rel="alternate icon" href="/favicon.png" />
   <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
 
-  <!-- 단일 파일 배포용: style 포함 -->
   <style>
     /* =====================
        Design Tokens
@@ -120,6 +119,20 @@
     .footer-cols{display:grid; grid-template-columns:1.2fr .8fr; gap:var(--space-2)}
     @media (max-width:880px){ .footer-cols{grid-template-columns:1fr} }
     footer small a{text-decoration:underline; text-underline-offset:3px}
+
+    /* ===================== Modal ===================== */
+    .modal{position:fixed; inset:0; display:none; place-items:center; z-index:100}
+    .modal.open{display:grid}
+    .modal .backdrop{position:absolute; inset:0; background:rgba(0,0,0,.45); backdrop-filter: blur(1px)}
+    .modal .dialog{position:relative; width:min(960px, 92vw); max-height:min(88vh, 100vh); background:var(--bg); color:var(--text); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); display:flex; flex-direction:column}
+    .modal header.dialog__head{display:flex; align-items:center; justify-content:space-between; padding:14px 18px; border-bottom:1px solid var(--line)}
+    .modal .dialog__title{margin:0; font-size:18px}
+    .modal .dialog__body{padding:18px 22px; overflow:auto}
+    .modal .close{border:1px solid var(--line); background:var(--surface); border-radius:10px; padding:8px 10px; cursor:pointer}
+    .modal .close:hover{box-shadow:var(--shadow)}
+    .modal .doc h3{margin-top: 18px}
+    .modal .doc p{margin: 0 0 10px}
+    .modal .doc ul{margin: 0 0 10px 18px}
 
     /* ===================== Motion ===================== */
     @media (prefers-reduced-motion:no-preference){ [data-animate]{opacity:0; transform:translateY(8px); transition:all .5s ease} [data-animate].in{opacity:1; transform:none} }
@@ -281,7 +294,7 @@
         <small>
           <strong>Play Alone Lab</strong><br/>
           상호: Play Alone Lab · 대표: 김관대<br/>
-          사업자등록번호: <span id="bizno">[216-19-06708]</span> · 통신판매업 신고번호: <span id="tsno">[발급 후 기입]</span><br/>
+          사업자등록번호: <span id="bizno">[추가 기재]</span> · 통신판매업 신고번호: <span id="tsno">[발급 후 기입]</span><br/>
           소재지: 부산광역시 사하구 (자세한 주소는 통신판매업 신고증 및 공정위 공시시스템 참조)<br/>
           연락처: <span id="phone">[사업자 전용 번호]</span> · 이메일: <a href="mailto:hello@playalonelab.com">hello@playalonelab.com</a><br/>
           D-U-N-S: <span id="duns">[발급 대기/번호 입력]</span>
@@ -289,8 +302,8 @@
       </div>
       <div>
         <small>
-          <a href="#" onclick="alert('준비 중입니다.')">이용약관</a> ·
-          <a href="#" onclick="alert('준비 중입니다.')">개인정보처리방침</a> ·
+          <a href="#terms" id="openTos">이용약관</a> ·
+          <a href="#privacy" id="openPp">개인정보처리방침</a> ·
           <a href="#" id="copyLinkBtn">링크 복사</a><br/>
           <span class="tag">No cookies. No trackers.</span>
         </small>
@@ -298,7 +311,91 @@
     </div>
   </footer>
 
-  <!-- 단일 파일 배포용: script 포함 -->
+  <!-- ===== Modals: Terms & Privacy ===== -->
+  <div id="modal-terms" class="modal" aria-hidden="true">
+    <div class="backdrop" data-close="terms" tabindex="-1"></div>
+    <div role="dialog" aria-modal="true" aria-labelledby="terms-title" class="dialog" tabindex="-1">
+      <header class="dialog__head">
+        <h2 id="terms-title" class="dialog__title">📜 이용약관</h2>
+        <button class="close" aria-label="닫기" data-close="terms">✕</button>
+      </header>
+      <div class="dialog__body doc" id="terms-body">
+        <h3>제1조 (목적)</h3>
+        <p>본 약관은 Play Alone Lab (이하 "회사")가 제공하는 모바일 애플리케이션 「똥글똥글」 서비스의 이용조건 및 절차, 회사와 이용자의 권리·의무 및 책임사항을 규정함을 목적으로 합니다.</p>
+        <h3>제2조 (사업자 정보)</h3>
+        <p>상호: Play Alone Lab<br/>
+        대표자: 김관대<br/>
+        소재지: 부산광역시 사하구 (자세한 주소는 통신판매업 신고증 및 공정거래위원회 통신판매업자 정보공개시스템 참조)<br/>
+        연락처: [전화번호]<br/>
+        이메일: hello@playalonelab.com<br/>
+        사업자등록번호: [추가 기재]<br/>
+        통신판매업 신고번호: [추가 기재]</p>
+        <h3>제3조 (서비스의 내용)</h3>
+        <p>회사는 이용자가 개인적인 감정과 생각을 기록할 수 있는 로그 저장소 앱을 제공합니다. 기본 서비스는 무료로 제공되며, 특정 기능은 <strong>인앱 결제(구독제)</strong>를 통해 유료로 이용 가능합니다. 유료 서비스의 가격, 결제조건, 해지 및 환불 규정은 각 앱스토어(구글 플레이스토어, 애플 앱스토어)의 정책을 따릅니다.</p>
+        <h3>제4조 (이용자의 의무)</h3>
+        <p>이용자는 서비스를 이용함에 있어 관련 법령, 본 약관 및 회사의 안내를 준수하여야 하며, <strong>타인의 권리를 침해하거나 서비스 운영을 방해하는 행위(불법 정보 유포, 악성 프로그램 배포, 해킹 시도, 명예훼손 등)</strong>를 해서는 안 됩니다.</p>
+        <h3>제5조 (서비스의 변경 및 중단)</h3>
+        <p>회사는 서비스 개선을 위해 필요하다고 판단되는 경우 사전 공지 후 서비스 내용을 변경하거나 중단할 수 있습니다. 다만, 부득이한 사유가 있는 경우 사후에 공지할 수 있습니다.</p>
+        <h3>제6조 (환불 및 해지)</h3>
+        <p>인앱 결제된 구독은 앱스토어의 관리 규정에 따라 해지·환불이 가능합니다. 환불 요청은 이용자가 직접 각 스토어 결제 계정을 통해 진행해야 합니다.</p>
+        <h3>제7조 (책임 제한)</h3>
+        <p>회사는 천재지변, 불가항력, 이용자의 귀책사유 등으로 서비스를 제공할 수 없는 경우 책임을 지지 않습니다.</p>
+        <h3>제8조 (준거법 및 관할법원)</h3>
+        <p>본 약관은 대한민국 법률에 따라 해석되며, 회사와 이용자 간 분쟁이 발생할 경우 부산지방법원을 제1심 전속 관할 법원으로 합니다.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-privacy" class="modal" aria-hidden="true">
+    <div class="backdrop" data-close="privacy" tabindex="-1"></div>
+    <div role="dialog" aria-modal="true" aria-labelledby="privacy-title" class="dialog" tabindex="-1">
+      <header class="dialog__head">
+        <h2 id="privacy-title" class="dialog__title">🔒 개인정보처리방침</h2>
+        <button class="close" aria-label="닫기" data-close="privacy">✕</button>
+      </header>
+      <div class="dialog__body doc" id="privacy-body">
+        <h3>제1조 (총칙)</h3>
+        <p>Play Alone Lab(이하 "회사")는 「개인정보 보호법」 등 관련 법령을 준수하며, 이용자의 개인정보를 소중히 보호합니다.</p>
+        <h3>제2조 (사업자 정보)</h3>
+        <p>상호: Play Alone Lab<br/>
+        대표자: 김관대<br/>
+        소재지: 부산광역시 사하구 (자세한 주소는 통신판매업 신고증 및 공정거래위원회 통신판매업자 정보공개시스템 참조)<br/>
+        연락처: [전화번호]<br/>
+        이메일: hello@playalonelab.com<br/>
+        개인정보보호책임자: 김관대 (대표자 동일)</p>
+        <h3>제3조 (수집하는 개인정보 항목 및 방법)</h3>
+        <ul>
+          <li><strong>회원가입 및 계정 관리</strong>: 이메일 주소, 비밀번호(암호화 저장), 닉네임</li>
+          <li><strong>구독 결제 및 관리</strong>: 앱스토어 결제 관련 식별자(구글/애플 제공), 결제 내역, 구독 상태</li>
+          <li><strong>서비스 이용 과정에서 자동 수집</strong>: 기기 식별자(디바이스 ID), OS 정보, 접속 로그, 이용 기록, 에러 로그</li>
+          <li><strong>고객문의 처리 시</strong>: 이메일 주소, 문의 내용</li>
+        </ul>
+        <h3>제4조 (개인정보의 이용 목적)</h3>
+        <ul>
+          <li>서비스 제공 및 기능 개선</li>
+          <li>구독 결제 및 환불 처리</li>
+          <li>불법/부정 이용 방지 및 계정 보호</li>
+          <li>고객 문의 응대</li>
+        </ul>
+        <h3>제5조 (개인정보의 보관 및 파기)</h3>
+        <p>회사는 개인정보를 수집·이용 목적이 달성된 후에는 지체 없이 파기합니다. 다만, 법령에 따라 일정 기간 보관이 필요한 경우에는 아래와 같이 보관합니다.</p>
+        <ul>
+          <li>계약 및 청약철회, 대금 결제 및 재화 등의 공급 기록: 5년 (전자상거래법)</li>
+          <li>소비자 불만 또는 분쟁 처리 기록: 3년 (전자상거래법)</li>
+          <li>접속 로그 등 서비스 이용 기록: 3개월 (통신비밀보호법)</li>
+        </ul>
+        <h3>제6조 (개인정보 제3자 제공 및 처리위탁)</h3>
+        <p>회사는 원칙적으로 이용자의 개인정보를 외부에 제공하지 않습니다. 다만, 결제 및 인증과 관련하여 앱스토어 사업자(구글, 애플)에 한해 제공될 수 있습니다.</p>
+        <h3>제7조 (이용자의 권리와 행사 방법)</h3>
+        <p>이용자는 언제든 자신의 개인정보에 대해 열람, 정정, 삭제, 처리정지, 동의 철회를 요구할 수 있으며, 회사는 관련 법령에 따라 지체 없이 조치합니다.</p>
+        <h3>제8조 (개인정보 보호 책임자)</h3>
+        <p>책임자: 김관대<br/>
+        연락처: [전화번호]<br/>
+        이메일: hello@playalonelab.com</p>
+      </div>
+    </div>
+  </div>
+
   <script>
     // Year
     document.getElementById('year').textContent = new Date().getFullYear();
@@ -335,12 +432,70 @@
         .catch(()=> alert('클립보드 복사 실패'));
     }
 
-    // In-view animation
-    const els = document.querySelectorAll('[data-animate]');
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(entry=>{ if(entry.isIntersecting){ entry.target.classList.add('in'); io.unobserve(entry.target);} });
-    }, { threshold: .12 });
-    els.forEach(el => io.observe(el));
+    // ===== Modal Logic =====
+    const body = document.body;
+    const modals = {
+      terms: document.getElementById('modal-terms'),
+      privacy: document.getElementById('modal-privacy')
+    };
+    const triggers = {
+      terms: document.getElementById('openTos'),
+      privacy: document.getElementById('openPp')
+    };
+
+    function getFocusable(container){
+      return container.querySelectorAll('a[href], button, textarea, input, select, [tabindex]:not([tabindex="-1"])');
+    }
+
+    function openModal(key){
+      const m = modals[key]; if(!m) return;
+      m.classList.add('open'); m.setAttribute('aria-hidden','false');
+      const dialog = m.querySelector('.dialog');
+      const firstFocus = dialog.querySelector('h2') || dialog;
+      firstFocus.setAttribute('tabindex','-1'); firstFocus.focus();
+      body.style.overflow = 'hidden';
+      // hash update
+      if (key==='terms') location.hash = '#terms';
+      if (key==='privacy') location.hash = '#privacy';
+      // trap
+      const focusables = [...getFocusable(dialog)];
+      function trap(e){
+        if(e.key === 'Tab' && focusables.length){
+          const idx = focusables.indexOf(document.activeElement);
+          if(e.shiftKey && (idx <= 0)){ e.preventDefault(); focusables[focusables.length-1].focus(); }
+          else if(!e.shiftKey && (idx === focusables.length-1)){ e.preventDefault(); focusables[0].focus(); }
+        }
+        if(e.key === 'Escape'){ closeModal(key); }
+      }
+      dialog.addEventListener('keydown', trap);
+      m._trap = trap;
+    }
+
+    function closeModal(key){
+      const m = modals[key]; if(!m) return;
+      m.classList.remove('open'); m.setAttribute('aria-hidden','true');
+      body.style.overflow = '';
+      const dialog = m.querySelector('.dialog');
+      dialog.removeEventListener('keydown', m._trap || (()=>{}));
+      // clean hash
+      if (location.hash === '#terms' || location.hash === '#privacy') history.replaceState(null, '', ' ');
+      // return focus
+      (triggers[key]||document.body).focus?.();
+    }
+
+    // click triggers
+    triggers.terms?.addEventListener('click', (e)=>{ e.preventDefault(); openModal('terms'); });
+    triggers.privacy?.addEventListener('click', (e)=>{ e.preventDefault(); openModal('privacy'); });
+
+    // backdrop / close buttons
+    document.querySelectorAll('[data-close="terms"]').forEach(el=> el.addEventListener('click', ()=> closeModal('terms')));
+    document.querySelectorAll('[data-close="privacy"]').forEach(el=> el.addEventListener('click', ()=> closeModal('privacy')));
+
+    // hash open (deep link)
+    window.addEventListener('load', ()=>{
+      if (location.hash === '#terms') openModal('terms');
+      if (location.hash === '#privacy') openModal('privacy');
+    });
   </script>
 </body>
 </html>
