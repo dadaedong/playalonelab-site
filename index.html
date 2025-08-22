@@ -16,138 +16,8 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="alternate icon" href="/favicon.png" />
   <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 
-  <style>
-    /* =====================
-       Design Tokens
-       ===================== */
-    :root {
-      --bg: #ffffff;
-      --surface: #fafafa;
-      --text: #0b1220;     /* slate-900 */
-      --muted: #556070;     /* slate-600 */
-      --line: #e5e7eb;      /* gray-200 */
-      --accent: #111111;    /* brand mono */
-      --accent-contrast: #ffffff;
-      --radius: 18px;
-      --shadow: 0 10px 30px rgba(0,0,0,.08);
-      --container: 1120px;
-      --ring: 0 0 0 3px rgba(17,17,17,.12);
-      --space-1: 12px; --space-2: 18px; --space-3: 22px; --space-4: 32px;
-    }
-    [data-theme="dark"]{
-      --bg: #0b0b0c; --surface:#121315; --text:#f3f5f7; --muted:#9aa4b2; --line:#1f2937; --accent:#ffffff; --accent-contrast:#0b0b0c; --shadow:0 10px 30px rgba(0,0,0,.45); --ring: 0 0 0 3px rgba(255,255,255,.18);
-    }
-
-    /* ===================== Base ===================== */
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{margin:0; font-family:'Nanum Gothic', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Noto Sans KR, "Apple SD Gothic Neo", "Malgun Gothic", Arial, "Segoe UI Emoji"; background:var(--bg); color:var(--text); line-height:1.65; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale}
-    a{color:inherit; text-decoration:none}
-    h1{font-size:clamp(36px,4.8vw,56px); line-height:1.12; margin: 0 0 .5rem; letter-spacing:-.02em}
-    h2{font-size:clamp(28px,3.2vw,40px); margin:0 0 .75rem}
-    h3{font-size:18px; margin:0 0 .5rem}
-    p{margin:0 0 1rem}
-    .container{max-width:var(--container); margin:0 auto; padding:0 var(--space-2)}
-
-    .btn{display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:12px 16px; border-radius:12px; border:1px solid var(--line); background:var(--surface); color:var(--text); font-weight:700; cursor:pointer; transition:transform .12s ease, box-shadow .2s ease, background .2s ease}
-    .btn:hover{transform:translateY(-1px); box-shadow:var(--shadow)}
-    .btn:focus-visible{outline:var(--ring); outline-offset:2px}
-    .btn--primary{background:var(--accent); color:var(--accent-contrast); border-color:transparent}
-    .btn--ghost{background:transparent}
-    .btn--secondary{background:transparent; border-color:transparent; color:var(--muted)}
-
-    .pill{display:inline-flex; align-items:center; gap:8px; border:1px solid var(--line); padding:6px 10px; border-radius:999px; font-size:12px; color:var(--muted)}
-    .card{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow)}
-    .tag{color:var(--muted); font-size:12px}
-
-    .section{scroll-margin-top:72px; padding: 56px 0}
-    @media (max-width:980px){ .section{padding: 44px 0} }
-
-    /* ===================== Header / Nav ===================== */
-    .skip{position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden}
-    .skip:focus{left:12px; top:12px; width:auto; height:auto; padding:8px 12px; background:var(--accent); color:var(--accent-contrast); border-radius:8px; z-index:99}
-
-    header{position:sticky; top:0; backdrop-filter:saturate(180%) blur(8px); background: color-mix(in oklab, var(--bg) 85%, transparent); border-bottom:1px solid var(--line); z-index:50}
-    .nav{display:flex; align-items:center; justify-content:space-between; height:64px}
-    .brand{display:flex; align-items:center; gap:12px; font-weight:900; letter-spacing:.2px}
-    .brand img{width:28px; height:28px}
-    .nav-menu{display:flex; align-items:center; gap:20px}
-    .nav-menu a{color:var(--muted); font-weight:700}
-    .nav-menu a:hover{color:var(--text)}
-    .nav-cta{display:flex; align-items:center; gap:10px}
-    .nav-toggle{display:none}
-    @media (max-width:880px){ .nav-menu{display:none} .nav-toggle{display:inline-flex} .mobile-panel{display:none; position:absolute; top:64px; left:0; right:0; background:var(--bg); border-bottom:1px solid var(--line)} .mobile-panel.open{display:block} .mobile-panel a{display:block; padding:14px var(--space-2); border-top:1px solid var(--line); color:var(--muted); font-weight:700} .mobile-panel a:hover{color:var(--text)} }
-
-    /* ===================== Hero ===================== */
-    .hero{padding-bottom: 32px}
-    .hero__grid{display:grid; grid-template-columns:1.1fr .9fr; gap:var(--space-4); align-items:center}
-    .hero .lead{color:var(--muted); margin:0 0 22px}
-    .hero .preview{aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; border-radius:var(--radius); border:1px solid var(--line); background: repeating-linear-gradient(135deg, var(--surface), var(--surface) 10px, color-mix(in oklab, var(--surface), var(--line)) 10px, color-mix(in oklab, var(--surface), var(--line)) 20px); box-shadow:var(--shadow)}
-    .hero .preview img, .hero .preview svg{width:64%; max-width:460px; height:auto; opacity:.95}
-    .accent-text{font-style:normal; color:var(--accent)}
-    .cta-group{display:flex; gap:12px; flex-wrap:wrap; margin-bottom:8px}
-    .tagline{color:var(--muted); font-size:14px}
-    @media (max-width:980px){ .hero__grid{grid-template-columns:1fr} }
-
-    /* ===================== Features ===================== */
-    .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:var(--space-2)}
-    @media (max-width:980px){ .grid-3{grid-template-columns:1fr} }
-    .feature{padding:var(--space-3)}
-    .feature p{color:var(--muted)}
-
-    /* ===================== Philosophy ===================== */
-    .paper{padding:var(--space-3)}
-    .paper p{margin:0 0 10px}
-
-    /* ===================== Projects ===================== */
-    .cards{display:grid; grid-template-columns:repeat(3,1fr); gap:var(--space-2)}
-    @media (max-width:1100px){ .cards{grid-template-columns:repeat(2,1fr)} }
-    @media (max-width:720px){ .cards{grid-template-columns:1fr} }
-    .card.project{overflow:hidden}
-    .project .thumb{height:180px; border-bottom:1px solid var(--line); display:flex; align-items:center; justify-content:center}
-    .project .thumb img{max-height:140px; max-width:80%; object-fit:contain}
-    .project .body{padding:var(--space-2) var(--space-2) var(--space-3)}
-    .project .meta{color:var(--muted); font-size:12px; margin-bottom:12px}
-
-    /* ===================== Contact / Footer ===================== */
-    .contact-card{padding:var(--space-3); display:flex; flex-wrap:wrap; gap:var(--space-2); align-items:center; justify-content:space-between}
-    .contact .info{color:var(--muted)}
-    .info-link{text-decoration:underline; text-underline-offset:3px}
-
-    footer{padding:36px 0 60px; color:var(--muted); border-top:1px solid var(--line)}
-    .footer-cols{display:grid; grid-template-columns:1.2fr .8fr; gap:var(--space-2)}
-    @media (max-width:880px){ .footer-cols{grid-template-columns:1fr} }
-    footer small a{text-decoration:underline; text-underline-offset:3px}
-
-    /* ===================== Modal ===================== */
-    .modal{position:fixed; inset:0; display:none; place-items:center; z-index:100}
-    .modal.open{display:grid}
-    .modal .backdrop{position:absolute; inset:0; background:rgba(0,0,0,.45); backdrop-filter: blur(1px)}
-    .modal .dialog{position:relative; width:min(960px, 92vw); max-height:min(88vh, 100vh); background:var(--bg); color:var(--text); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); display:flex; flex-direction:column}
-    .modal header.dialog__head{display:flex; align-items:center; justify-content:space-between; padding:14px 18px; border-bottom:1px solid var(--line)}
-    .modal .dialog__title{margin:0; font-size:18px}
-    .modal .dialog__body{padding:18px 22px; overflow:auto}
-    .modal .close{border:1px solid var(--line); background:var(--surface); border-radius:10px; padding:8px 10px; cursor:pointer}
-    .modal .close:hover{box-shadow:var(--shadow)}
-    .modal .doc h3{margin-top: 18px}
-    .modal .doc p{margin: 0 0 10px}
-    .modal .doc ul{margin: 0 0 10px 18px}
-
-    /* ===================== Motion ===================== */
-  @media (prefers-reduced-motion: no-preference) {
-    html.js [data-animate] {
-      opacity: 0;
-      transform: translateY(8px);
-    }
-    html.js [data-animate].in {
-      opacity: 1;
-      transform: none;
-      transition: all .5s ease;
-    }
-  }
-}
-  </style>
   <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
@@ -155,7 +25,7 @@
   <header>
     <div class="container nav">
       <a class="brand" href="#" aria-label="Play Alone Lab Home">
-        <img src="/logo.svg" alt="Play Alone Lab 로고" />
+        <!--<img src="./images/PLAY_ALONE_LAB_CI.jpg" alt="Play Alone Lab 로고" />-->
         <span>Play Alone Lab</span>
       </a>
       <nav class="nav-menu" aria-label="주요 메뉴">
@@ -169,7 +39,7 @@
         <button id="navBtn" class="btn btn--ghost nav-toggle" aria-expanded="false" aria-controls="mobileNav">메뉴</button>
       </div>
     </div>
-    <div id="mobileNav" class="mobile-panel" role="dialog" aria-label="모바일 메뉴">
+    <div id="mobileNav" class="mobile-panel" role="dialog" aria-label="모바일 메뉴"  style="display: none;">
       <a href="#about">About</a>
       <a href="#philosophy">Lab Charter</a>
       <a href="#projects">Projects</a>
@@ -182,29 +52,18 @@
     <section class="section hero" id="about">
       <div class="container hero__grid">
         <div data-animate>
-          <span class="pill">🔬 미니멀 앱 스튜디오</span>
-          <h1>오직 <em class="accent-text">나</em>를 위한 실험.<br/>뭐라도 하자!</h1>
-          <p class="lead">Play Alone Lab은 개인의 내적 즐거움과 자기표현을 확장하는 도구를 만듭니다. Minimal · Modern · Simple.</p>
-          <div class="cta-group">
+          <span class="pill mb20">🔬 미니멀 앱 스튜디오</span>
+          <h2>오직 <em class="accent-text">나</em>를 위한 실험.<br/></h2>
+          <p class="lead"><span style="font-weight: 900;">Play Alone Lab</span>은 개인의 내적 즐거움과 자기표현을 확장하는 도구를 만듭니다.<br> Minimal · Modern · Simple.</p>
+          <div class="cta-group" style="margin-bottom:20px;">
             <a class="btn btn--primary" href="#projects" aria-label="프로젝트 보기">첫 번째 실험 보기</a>
-            <a class="btn" href="#philosophy" aria-label="연구헌장 보기">연구헌장</a>
+            <a class="btn" href="#philosophy" aria-label="그냥 보기">그냥</a>
             <a class="btn btn--ghost" href="mailto:hello@playalonelab.com" aria-label="메일 보내기">문의하기</a>
           </div>
           <p class="tagline">부산 · Saha-gu | © <span id="year"></span> Play Alone Lab</p>
         </div>
-        <div class="preview card" aria-hidden="true" data-animate>
-          <svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Play Alone Lab Icon">
-            <g fill="none" stroke="currentColor" stroke-width="10">
-              <path d="M92 20h72" />
-              <path d="M128 20v58c0 8 3 15 9 21l7 7" />
-              <path d="M128 20v58c0 8-3 15-9 21l-7 7" />
-              <path d="M88 106h80" />
-              <path d="M72 106c-24 0-44 20-44 44 0 9 3 18 8 25l30 42c8 11 21 18 35 18h54c14 0 27-7 35-18l30-42c5-7 8-16 8-25 0-24-20-44-44-44H72Z" />
-              <circle cx="98" cy="144" r="6" fill="currentColor" />
-              <circle cx="158" cy="144" r="6" fill="currentColor" />
-              <path d="M96 176c8 8 24 14 32 14s24-6 32-14" stroke-linecap="round" />
-            </g>
-          </svg>
+        <div class="preview card" aria-hidden="true" data-animate style="--line:0; background-color: #fff8ee; --shadow: 0;">
+          <img src="./images/PLAY_ALONE_LAB_CI.jpg" alt="Play Alone Lab 로고" />
         </div>
       </div>
     </section>
@@ -214,15 +73,15 @@
       <div class="container grid-3">
         <article class="feature card" data-animate>
           <h3>미니멀, 불필요 0%</h3>
-          <p>집중을 방해하는 요소를 덜어낸 단순함. 핵심 경험만 남깁니다.</p>
+          <p>단순한게 아니라 깔끔함. <br>중요한게 뭔지 다시 생각해봐요.</p>
         </article>
         <article class="feature card" data-animate>
           <h3>프라이버시 우선</h3>
-          <p>오직 나만 보는 기록 철학. 설계 단계부터 사생활 보호를 최우선.</p>
+          <p>방해받지 않을 권리 <br>설계 단계부터 사생활 보호를 최우선.</p>
         </article>
         <article class="feature card" data-animate>
-          <h3>만들고, 실험하고, 갈아엎기</h3>
-          <p>재미 없으면 방향 전환. 규칙은 언제든 재정의될 수 있습니다.</p>
+          <h3>생각하고, 만들고, 갈아엎기</h3>
+          <p>해보고 재미 없으면 안하기. <br>규칙은 언제든 바뀔 수 있습니다.</p>
         </article>
       </div>
     </section>
@@ -230,14 +89,15 @@
     <!-- Philosophy / Motto -->
     <section class="section" id="philosophy">
       <div class="container">
-        <h2>설립 이념</h2>
+        <h2>Think about...그냥, 뭐라도 하자!</h2>
         <div class="paper card" data-animate>
-          <p>시간은 흐른다. 언제나 흐르고, 결국은 흘러간다. 앞으로도 그럴 것이다.</p>
-          <p>그러므로 이 유한함과 동시에 무한히 계속되는 시간의 흐름 속에서 가만히 있기보다는 뭐라도 해보자.</p>
-          <p>그게 누군가에겐 냉소와 조소의 대상이 될지 모르지만, 어차피 내 인생은 오롯이 나의 것이며 그 결과 역시 나만이 평가할 자격이 있다.</p>
-          <p>그러니 가만히 앉아 시간의 흐름에 휩쓸리고 난 뒤 ‘그때 뭐라도 할 걸…’ 하고 후회하지 말자.</p>
-          <p>지금 당장 작은 거라도, 소소한 거라도, 그냥 동네 한 바퀴 산책이라도 하자.</p>
-          <p><strong>✨ 그러면 뭐라도 달라지지 않을까?</strong></p>
+          <p>가만히 있기보다는 그냥, 뭐라도 해보자.</p>
+          <p>그게 냉소와 조소의 대상이 될지 모르지만</p>
+          <p>뭐 어쩌라고. 내가 재밌게 살고 싶다는데 </p>
+          <p>‘그때 뭐라도 할 걸…’ 하고 후회하지 말고</p>
+          <p>가만히 있기보다는 그냥, 뭐라도 해보자.</p>
+          <p>그냥 동네 한 바퀴 산책이라도 하자.</p>
+          <p><strong>그냥, 그러면 뭐라도 달라지지 않을까?</strong></p>
         </div>
       </div>
     </section>
@@ -249,15 +109,15 @@
         <div class="cards">
           <article class="card project" data-animate>
             <div class="thumb">
-              <img src="/ddongle.png" alt="똥글똥글 앱 스크린샷 자리" loading="lazy" />
+              <img src="./images/ddongle.jpg" alt="똥글똥글 앱 스크린샷 자리" loading="lazy" />
             </div>
             <div class="body">
-              <h3>똥글똥글</h3>
-              <div class="meta">나만이 볼 수 있는 나만의 로그 저장소 · 나와의 SNS · 사유의 시각화</div>
+              <h3>실험#1 똥글똥글</h3>
+              <div class="meta">나만의 로그 저장소 · 나와의 SNS · 사유의 시각화</div>
               <p>하루의 감정과 생각을 한 줄로 남기는 미니멀 로깅 앱.</p>
               <div class="cta-group">
                 <a class="btn btn--primary" href="#" onclick="alert('출시 준비 중입니다! 출시 알림은 hello@playalonelab.com 로 요청해주세요.')">출시 알림</a>
-                <a class="btn" href="#philosophy">철학 보기</a>
+                <a class="btn" href="#ddongle" id="openDdongle">똥글 소개</a>
               </div>
             </div>
           </article>
@@ -266,7 +126,7 @@
             <div class="thumb"><span class="tag">Next</span></div>
             <div class="body">
               <h3>실험 #2</h3>
-              <p style="color:var(--muted); margin:0 0 12px">준비 중입니다. 아이디어가 떠올랐다면 메일 주세요.</p>
+              <p style="color:var(--muted); margin:0 0 12px">구상완료. 재미 검토 중</p>
               <a class="btn btn--ghost" href="mailto:hello@playalonelab.com?subject=%EC%8B%A4%ED%97%98%20%232%20%EC%95%84%EC%9D%B4%EB%94%94%EC%96%B4">아이디어 보내기</a>
             </div>
           </article>
@@ -275,7 +135,7 @@
             <div class="thumb"><span class="tag">Play</span></div>
             <div class="body">
               <h3>실험 #3</h3>
-              <p style="color:var(--muted); margin:0 0 12px">재미 없으면 갈아엎습니다. 규칙은 언제든 재정의.</p>
+              <p style="color:var(--muted); margin:0 0 12px">또 뭐가 재밌을까 생각중 ㅋ</p>
               <a class="btn btn--ghost" href="#">티저 보기 (Soon)</a>
             </div>
           </article>
@@ -306,10 +166,10 @@
         <small>
           <strong>Play Alone Lab</strong><br/>
           상호: Play Alone Lab · 대표: 김관대<br/>
-          사업자등록번호: <span id="bizno">[추가 기재]</span> · 통신판매업 신고번호: <span id="tsno">[발급 후 기입]</span><br/>
+          사업자등록번호: <span id="bizno">[216-19-06708]</span> · 통신판매업 신고번호: <span id="tsno">[발급 후 기입]</span><br/>
           소재지: 부산광역시 사하구 (자세한 주소는 통신판매업 신고증 및 공정위 공시시스템 참조)<br/>
           연락처: <span id="phone">[사업자 전용 번호]</span> · 이메일: <a href="mailto:hello@playalonelab.com">hello@playalonelab.com</a><br/>
-          D-U-N-S: <span id="duns">[발급 대기/번호 입력]</span>
+          D-U-N-S: <span id="duns">[696250965]</span>
         </small>
       </div>
       <div>
@@ -340,10 +200,10 @@
         소재지: 부산광역시 사하구 (자세한 주소는 통신판매업 신고증 및 공정거래위원회 통신판매업자 정보공개시스템 참조)<br/>
         연락처: [전화번호]<br/>
         이메일: hello@playalonelab.com<br/>
-        사업자등록번호: [추가 기재]<br/>
+        사업자등록번호: [216-19-06708]<br/>
         통신판매업 신고번호: [추가 기재]</p>
         <h3>제3조 (서비스의 내용)</h3>
-        <p>회사는 이용자가 개인적인 감정과 생각을 기록할 수 있는 로그 저장소 앱을 제공합니다. 기본 서비스는 무료로 제공되며, 특정 기능은 <strong>인앱 결제(구독제)</strong>를 통해 유료로 이용 가능합니다. 유료 서비스의 가격, 결제조건, 해지 및 환불 규정은 각 앱스토어(구글 플레이스토어, 애플 앱스토어)의 정책을 따릅니다.</p>
+        <p>회사는 이용자가 개인적인 감정과 생각을 기록할 수 있는 로그 저장소 앱을 제공합니다.<br> 본 서비스는 <strong>인앱 결제(구독제)</strong>를 통해 유료구독을 통해서만 이용 가능합니다.<br> 다만, 회사의 정책이나 프로모션에 따라 일정 기간 동안 무료로 제공될 수 있습니다. <br>유료 서비스의 가격, 결제조건, 해지 및 환불 규정은 각 앱스토어(구글 플레이스토어, 애플 앱스토어)의 정책을 따릅니다.</p>
         <h3>제4조 (이용자의 의무)</h3>
         <p>이용자는 서비스를 이용함에 있어 관련 법령, 본 약관 및 회사의 안내를 준수하여야 하며, <strong>타인의 권리를 침해하거나 서비스 운영을 방해하는 행위(불법 정보 유포, 악성 프로그램 배포, 해킹 시도, 명예훼손 등)</strong>를 해서는 안 됩니다.</p>
         <h3>제5조 (서비스의 변경 및 중단)</h3>
@@ -376,12 +236,16 @@
         이메일: hello@playalonelab.com<br/>
         개인정보보호책임자: 김관대 (대표자 동일)</p>
         <h3>제3조 (수집하는 개인정보 항목 및 방법)</h3>
+        <p>회사는 서비스 제공을 위해 아래와 같은 최소한의 개인정보를 수집합니다.</p>
         <ul>
-          <li><strong>회원가입 및 계정 관리</strong>: 이메일 주소, 비밀번호(암호화 저장), 닉네임</li>
           <li><strong>구독 결제 및 관리</strong>: 앱스토어 결제 관련 식별자(구글/애플 제공), 결제 내역, 구독 상태</li>
           <li><strong>서비스 이용 과정에서 자동 수집</strong>: 기기 식별자(디바이스 ID), OS 정보, 접속 로그, 이용 기록, 에러 로그</li>
           <li><strong>고객문의 처리 시</strong>: 이메일 주소, 문의 내용</li>
         </ul>
+        <p>
+          회사는 별도의 회원가입 절차를 운영하지 않으며, 아이디·비밀번호·닉네임 등 개인정보를 수집하지 않습니다.
+          <br>이용자의 앱 진입 비밀번호는 로컬 기기에만 저장되며, 회사 서버에 전송·보관되지 않습니다.
+        </p>
         <h3>제4조 (개인정보의 이용 목적)</h3>
         <ul>
           <li>서비스 제공 및 기능 개선</li>
@@ -404,6 +268,34 @@
         <p>책임자: 김관대<br/>
         연락처: [전화번호]<br/>
         이메일: hello@playalonelab.com</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-ddongle" class="modal" aria-hidden="true">
+    <div class="backdrop" data-close="ddongle" tabindex="-1"></div>
+    <div role="dialog" aria-modal="true" aria-labelledby="ddongle-title" class="dialog" tabindex="-1">
+      <header class="dialog__head">
+        <h2 id="ddongle-title" class="dialog__title">📜 똥글똥글 - 소개</h2>
+        <button class="close" aria-label="닫기" data-close="ddongle">✕</button>
+      </header>
+      <div class="dialog__body doc" id="ddongle-body">
+          <div class="pb30">
+            <p>감성에 취해,<br>
+               감정에 휩쓸려,<br>
+               성급하게 올려버린 '똥글' 하나.</p>
+            <br>
+            <p>몇 시간 뒤 지워버렸지만,<br>
+            흑역사는 이미 시작됐죠.</p>
+
+            <p>그래서 만들었습니다.<br>
+               누구도 보지 못하고,<br>
+               오직 나만 볼 수 있는 공간.</p><br>
+
+            <p>감정이 지나간 자리마다,<br>
+               조용히 남겨지는 당신만의 로그.<br>
+              <strong>나와의 SNS, 똥글똥글.</strong></p>
+          </div>
       </div>
     </div>
   </div>
@@ -448,11 +340,13 @@
     const body = document.body;
     const modals = {
       terms: document.getElementById('modal-terms'),
-      privacy: document.getElementById('modal-privacy')
+      privacy: document.getElementById('modal-privacy'),
+      ddongle: document.getElementById('modal-ddongle')
     };
     const triggers = {
       terms: document.getElementById('openTos'),
-      privacy: document.getElementById('openPp')
+      privacy: document.getElementById('openPp'),
+      ddongle: document.getElementById('openDdongle')
     };
 
     function getFocusable(container){
@@ -469,6 +363,7 @@
       // hash update
       if (key==='terms') location.hash = '#terms';
       if (key==='privacy') location.hash = '#privacy';
+      if (key==='ddongle') location.hash = '#ddongle';
       // trap
       const focusables = [...getFocusable(dialog)];
       function trap(e){
@@ -490,7 +385,7 @@
       const dialog = m.querySelector('.dialog');
       dialog.removeEventListener('keydown', m._trap || (()=>{}));
       // clean hash
-      if (location.hash === '#terms' || location.hash === '#privacy') history.replaceState(null, '', ' ');
+      if (location.hash === '#terms' || location.hash === '#privacy' || location.hash === '#ddongle') history.replaceState(null, '', ' ');
       // return focus
       (triggers[key]||document.body).focus?.();
     }
@@ -498,15 +393,18 @@
     // click triggers
     triggers.terms?.addEventListener('click', (e)=>{ e.preventDefault(); openModal('terms'); });
     triggers.privacy?.addEventListener('click', (e)=>{ e.preventDefault(); openModal('privacy'); });
+    triggers.ddongle?.addEventListener('click', (e)=>{ e.preventDefault(); openModal('ddongle'); });
 
     // backdrop / close buttons
     document.querySelectorAll('[data-close="terms"]').forEach(el=> el.addEventListener('click', ()=> closeModal('terms')));
     document.querySelectorAll('[data-close="privacy"]').forEach(el=> el.addEventListener('click', ()=> closeModal('privacy')));
+    document.querySelectorAll('[data-close="ddongle"]').forEach(el=> el.addEventListener('click', ()=> closeModal('ddongle')));
 
     // hash open (deep link)
     window.addEventListener('load', ()=>{
       if (location.hash === '#terms') openModal('terms');
       if (location.hash === '#privacy') openModal('privacy');
+      if (location.hash === '#ddongle') openModal('ddongle');
     });
   </script>
   <script>
