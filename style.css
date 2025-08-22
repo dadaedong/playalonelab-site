@@ -30,7 +30,7 @@ h3{font-size:18px; margin:0 0 .5rem}
 p{margin:0 0 1rem}
 .container{max-width:var(--container); margin:0 auto; padding:0 var(--space-2)}
 
-.btn{display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:12px 16px; border-radius:12px; border:1px solid var(--line); background:var(--surface); color:var(--text); font-weight:700; cursor:pointer; transition:transform .12s ease, box-shadow .2s ease, background .2s ease}
+.btn{display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:12px 16px; border-radius:12px; border:1px solid var(--line); background:var(--surface); color:var(--text); font-weight:500; cursor:pointer; transition:transform .12s ease, box-shadow .2s ease, background .2s ease}
 .btn:hover{transform:translateY(-1px); box-shadow:var(--shadow)}
 .btn:focus-visible{outline:var(--ring); outline-offset:2px}
 .btn--primary{background:var(--accent); color:var(--accent-contrast); border-color:transparent}
@@ -61,7 +61,8 @@ header{position:sticky; top:0; backdrop-filter:saturate(180%) blur(8px); backgro
 .nav-cta{display:flex; align-items:center; gap:10px}
 .nav-toggle{display:none}
 @media (max-width:880px){ .nav-menu{display:none} .nav-toggle{display:inline-flex} .mobile-panel{display:none; position:absolute; top:64px; left:0; right:0; background:var(--bg); border-bottom:1px solid var(--line)} .mobile-panel.open{display:block} .mobile-panel a{display:block; padding:14px var(--space-2); border-top:1px solid var(--line); color:var(--muted); font-weight:700} .mobile-panel a:hover{color:var(--text)} }
-/* ===================== Hero ===================== */
+@media (min-width: 881px){#mobileNav{display: none}}
+  /* ===================== Hero ===================== */
 .hero{padding-bottom: 32px}
 .hero__grid{display:grid; grid-template-columns:1.1fr .9fr; gap:var(--space-4); align-items:center}
 .hero .lead{color:var(--muted); margin:0 0 22px}

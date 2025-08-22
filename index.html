@@ -27,6 +27,7 @@
       <a class="brand" href="#" aria-label="Play Alone Lab Home">
         <!--<img src="./images/PLAY_ALONE_LAB_CI.jpg" alt="Play Alone Lab 로고" />-->
         <span>Play Alone Lab</span>
+
       </a>
       <nav class="nav-menu" aria-label="주요 메뉴">
         <a href="#about">About</a>
@@ -35,11 +36,11 @@
         <a href="#contact">Contact</a>
       </nav>
       <div class="nav-cta">
-        <button id="themeBtn" class="btn btn--ghost" aria-label="테마 전환">🌓</button>
-        <button id="navBtn" class="btn btn--ghost nav-toggle" aria-expanded="false" aria-controls="mobileNav">메뉴</button>
+        <!--<button id="themeBtn" class="btn btn&#45;&#45;ghost" aria-label="테마 전환">🌓</button>-->
+        <button id="navBtn" class="btn btn--ghost nav-toggle" aria-expanded="false" aria-controls="mobileNav">menu</button>
       </div>
     </div>
-    <div id="mobileNav" class="mobile-panel" role="dialog" aria-label="모바일 메뉴"  style="display: none;">
+    <div id="mobileNav" class="mobile-panel" role="dialog" aria-label="모바일 메뉴">
       <a href="#about">About</a>
       <a href="#philosophy">Lab Charter</a>
       <a href="#projects">Projects</a>
@@ -54,16 +55,16 @@
         <div data-animate>
           <span class="pill mb20">🔬 미니멀 앱 스튜디오</span>
           <h2>오직 <em class="accent-text">나</em>를 위한 실험.<br/></h2>
-          <p class="lead"><span style="font-weight: 900;">Play Alone Lab</span>은 개인의 내적 즐거움과 자기표현을 확장하는 도구를 만듭니다.<br> Minimal · Modern · Simple.</p>
+          <p class="lead"><span style="font-weight: 900;">Play Alone Lab</span>은 즐겁고 재밌는 무엇인가?를 개발하고 연구합니다 .<br> Minimal · Modern · Simple.</p>
           <div class="cta-group" style="margin-bottom:20px;">
             <a class="btn btn--primary" href="#projects" aria-label="프로젝트 보기">첫 번째 실험 보기</a>
             <a class="btn" href="#philosophy" aria-label="그냥 보기">그냥</a>
-            <a class="btn btn--ghost" href="mailto:hello@playalonelab.com" aria-label="메일 보내기">문의하기</a>
+            <a class="btn btn--ghost" href="mailto:hello@playalonelab.com" aria-label="메일 보내기" style="background-color: #ffaf77;">문의하기</a>
           </div>
-          <p class="tagline">부산 · Saha-gu | © <span id="year"></span> Play Alone Lab</p>
+          <p class="tagline">Busan · dadaedong | © <span id="year"></span> Play Alone Lab</p>
         </div>
         <div class="preview card" aria-hidden="true" data-animate style="--line:0; background-color: #fff8ee; --shadow: 0;">
-          <img src="./images/PLAY_ALONE_LAB_CI.jpg" alt="Play Alone Lab 로고" />
+          <img src="./images/PLAY_ALONE_LAB_CI.png" alt="Play Alone Lab 로고" />
         </div>
       </div>
     </section>
@@ -116,7 +117,7 @@
               <div class="meta">나만의 로그 저장소 · 나와의 SNS · 사유의 시각화</div>
               <p>하루의 감정과 생각을 한 줄로 남기는 미니멀 로깅 앱.</p>
               <div class="cta-group">
-                <a class="btn btn--primary" href="#" onclick="alert('출시 준비 중입니다! 출시 알림은 hello@playalonelab.com 로 요청해주세요.')">출시 알림</a>
+                <a class="btn btn--primary" href="#none">10월 출시 예정</a>
                 <a class="btn" href="#ddongle" id="openDdongle">똥글 소개</a>
               </div>
             </div>
@@ -126,8 +127,8 @@
             <div class="thumb"><span class="tag">Next</span></div>
             <div class="body">
               <h3>실험 #2</h3>
-              <p style="color:var(--muted); margin:0 0 12px">구상완료. 재미 검토 중</p>
-              <a class="btn btn--ghost" href="mailto:hello@playalonelab.com?subject=%EC%8B%A4%ED%97%98%20%232%20%EC%95%84%EC%9D%B4%EB%94%94%EC%96%B4">아이디어 보내기</a>
+              <p style="color:var(--muted); margin:0 0 12px">구상완료. 근데 과연 재밌을까??</p>
+              <a class="btn btn--ghost" href="#none">시뮬레이션 진행 중...</a>
             </div>
           </article>
 
@@ -136,7 +137,7 @@
             <div class="body">
               <h3>실험 #3</h3>
               <p style="color:var(--muted); margin:0 0 12px">또 뭐가 재밌을까 생각중 ㅋ</p>
-              <a class="btn btn--ghost" href="#">티저 보기 (Soon)</a>
+              <a class="btn btn--ghost" href="mailto:hello@playalonelab.com?subject=%EC%8B%A4%ED%97%98%20%232%20%EC%95%84%EC%9D%B4%EB%94%94%EC%96%B4">아이디어 보내기</a>
             </div>
           </article>
         </div>
@@ -175,8 +176,8 @@
       <div>
         <small>
           <a href="#terms" id="openTos">이용약관</a> ·
-          <a href="#privacy" id="openPp">개인정보처리방침</a> ·
-          <a href="#" id="copyLinkBtn">링크 복사</a><br/>
+          <a href="#privacy" id="openPp">개인정보처리방침</a> <br>
+          <!--<a href="#" id="copyLinkBtn">링크 복사</a><br/>-->
           <span class="tag">No cookies. No trackers.</span>
         </small>
       </div>
