@@ -2,118 +2,71 @@
 <html lang="ko">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>개인정보 처리방침 | 똥글똥글 (Play Alone Lab)</title>
-    <meta name="robots" content="index,follow" />
+    <title>개인정보 처리방침 | 똥글똥글</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <style>
-        :root{--bg:#fff;--ink:#192643;--sub:#606a80;--line:#e6e0d4;--accent:#FBAE91}
-        html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;line-height:1.65}
-        .wrap{max-width:860px;margin:0 auto;padding:48px 20px}
-        h1{font-size:28px;margin:0 0 6px}
-        .muted{color:var(--sub);font-size:14px;margin-bottom:28px}
-        h2{font-size:20px;margin:32px 0 12px;padding-top:8px;border-top:1px solid var(--line)}
-        h3{font-size:16px;margin:20px 0 8px}
-        p,li{font-size:15px}
-        code, .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
-        .box{border:1px solid var(--line);border-radius:12px;padding:16px;background:#fff}
-        a{color:#0a58ca;text-decoration:none}
-        a:hover{text-decoration:underline}
-        .footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);color:var(--sub);font-size:14px}
-        .chip{display:inline-block;background:var(--accent);color:#222;padding:2px 8px;border-radius:999px;font-size:12px;margin-left:8px}
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR", Arial, sans-serif; line-height: 1.6; color: #192643; background:#F6F2E9; margin:0; }
+        .container { max-width: 860px; margin: 0 auto; padding: 28px 20px 64px; background:#fff; }
+        h1 { font-size: 28px; margin: 0 0 8px; }
+        .meta { color:#7c8599; font-size: 14px; margin-bottom: 22px; }
+        h2 { font-size: 20px; margin-top: 28px; }
+        .box { background:#faf7f0; border:1px solid #E6E0D4; border-radius:12px; padding:14px 16px; }
+        ul, ol { padding-left: 20px; }
+        .footer { margin-top: 36px; color:#7c8599; font-size: 14px; }
+        a { color:#0a7; text-decoration: underline; }
+        .biz { margin-top: 8px; }
     </style>
 </head>
 <body>
-<main class="wrap">
-    <h1>개인정보 처리방침 <span class="chip">PRIVACY_VERSION: 2025-09-06</span></h1>
-    <p class="muted">
-        본 방침은 Play Alone Lab(이하 “회사”)이 제공하는 <strong>똥글똥글</strong> 모바일 애플리케이션(번들 ID: <span class="mono">com.playalonelab.ddongle</span>)과
-        관련하여 이용자의 개인정보를 어떻게 수집·이용·보관·파기하는지에 대해 설명합니다. 본 방침은 앱과 관련 웹사이트(예: <span class="mono">playalonelab.com</span>)에 모두 적용됩니다.
-    </p>
+<main class="container">
+    <h1>개인정보 처리방침</h1>
+    <div class="meta">PRIVACY_VERSION: 2025-09-06</div>
 
-    <h2>1) 수집하는 항목</h2>
+    <h2>제1조 (수집하는 개인정보 항목)</h2>
+    <ol>
+        <li>소셜 로그인 시 제공: 이메일, 이름(선택), 프로필 이미지(선택)</li>
+        <li>서비스 이용 시 자동 수집: 기기 정보, 로그 기록, 접속 IP 등</li>
+        <li>결제 시: 인앱결제 사업자(Apple/Google)가 결제정보를 처리하며, 회사는 결제수단 정보를 직접 보관하지 않음</li>
+    </ol>
+
+    <h2>제2조 (수집 및 이용 목적)</h2>
+    <ol>
+        <li>회원 관리(가입, 본인확인, 서비스 제공)</li>
+        <li>서비스 이용 기록 저장 및 보안 관리</li>
+        <li>유료 구독 결제·환불 처리</li>
+        <li>법령 준수 및 분쟁 해결</li>
+    </ol>
+
+    <h2>제3조 (보관 및 파기)</h2>
+    <ol>
+        <li>회원탈퇴 시 개인정보는 즉시 파기됩니다.</li>
+        <li>단, 법령에 따른 보존 의무가 있는 경우 해당 기간 보관 후 파기합니다.</li>
+    </ol>
+
+    <h2>제4조 (제3자 제공)</h2>
+    <div class="box">원칙적으로 제3자에게 제공하지 않으며, 이용자 동의 또는 법령상 요청 시 예외적으로 제공할 수 있습니다.</div>
+
+    <h2>제5조 (처리 위탁)</h2>
     <div class="box">
-        <ul>
-            <li><strong>필수</strong>
-                <ul>
-                    <li>계정 식별 정보: 이메일 주소(소셜 로그인 제공자로부터 제공), Supabase 사용자 ID</li>
-                    <li>인증/접근 토큰: 세션 토큰(앱 동작을 위해 필수)</li>
-                </ul>
-            </li>
-            <li><strong>선택</strong>
-                <ul>
-                    <li>마케팅 수신 동의(이메일/푸시): 동의 여부 플래그</li>
-                    <li>비밀번호 힌트: 사용자가 직접 입력한 힌트 문자열</li>
-                </ul>
-            </li>
-            <li><strong>앱 내 사용자 생성 데이터(UGC)</strong>
-                <ul>
-                    <li>똥글/댓글 콘텐츠: <em>사용자 단말에서 암호화(AES) 후</em> 서버에 저장</li>
-                </ul>
-            </li>
-            <li><strong>자동 수집</strong>
-                <ul>
-                    <li>기기/앱 정보: 앱 버전, 플랫폼(OS), 오류 로그(치명 크래시 추적 목적, 민감정보 제외)</li>
-                </ul>
-            </li>
-        </ul>
+        서비스 운영을 위해 다음과 같이 위탁할 수 있습니다.<br />
+        - 구독 결제 처리: Apple Inc., Google LLC (인앱결제 시스템)
     </div>
 
-    <h2>2) 수집·이용 목적</h2>
-    <ul>
-        <li>회원 식별 및 로그인 제공(구글/애플 등 OAuth)</li>
-        <li>서비스 제공: 개인 기록 저장, 조회, 동기화</li>
-        <li>보안: 세션 관리, 무단 접근 방지, 암호화 키 관리</li>
-        <li>고객지원: 장애 분석, 버그 대응, 공지 전달(동의 시 마케팅 커뮤니케이션 포함)</li>
-    </ul>
+    <h2>제6조 (이용자 권리)</h2>
+    <ol>
+        <li>이용자는 언제든지 본인의 개인정보를 조회·수정할 수 있습니다.</li>
+        <li>회원탈퇴 시 계정 및 개인정보는 즉시 삭제됩니다.</li>
+    </ol>
 
-    <h2>3) 처리 및 보관 기간</h2>
-    <ul>
-        <li>계정 및 약관·동의 이력: 계정 삭제 시까지 보관</li>
-        <li>UGC(똥글/댓글): 이용자가 삭제하거나 계정 삭제 시 즉시/지연 파기(백업 지연 기간 존재 가능)</li>
-        <li>오류/접속 로그: 문제 분석 목적의 합리적 기간 보관 후 파기 또는 비식별화</li>
-    </ul>
+    <h2>제7조 (보안 조치)</h2>
+    <div class="box">암호화, 접근통제 등 합리적 보호조치를 적용합니다.</div>
 
-    <h2>4) 제3자 제공 및 국외 이전</h2>
-    <p>회사는 아래 수탁/연동 서비스와 데이터를 처리할 수 있습니다. 각 제공처의 서버 위치에 따라 국외로 이전될 수 있습니다.</p>
+    <h2>제8조 (개인정보보호책임자 및 문의)</h2>
     <div class="box">
-        <ul>
-            <li><strong>Supabase</strong> (인증/DB/스토리지) — 계정, 동의 플래그, 암호화된 UGC 저장</li>
-            <li><strong>Apple / Google OAuth</strong> — 로그인/계정 연동에 필요한 최소한의 프로필(이메일 등)를 제공받음</li>
-            <li><strong>Expo / Apple / Google</strong> 배포 인프라 — 앱 업데이트/배포 및 기기 호환성</li>
-            <!-- 필요 시 실제 사용하는 분석/푸시 서비스가 있다면 여기에 추가 -->
-        </ul>
+        책임자: 김관대<br />
+        이메일: <a href="mailto:hello@playalonelab.com">hello@playalonelab.com</a><br />
+        주소: 부산광역시 사하구 (문의 시 안내)
     </div>
-    <p>회사는 법령에 근거하거나 이용자의 사전 동의 없이 개인 정보를 임의로 판매하거나 임대하지 않습니다.</p>
-
-    <h2>5) 보안조치</h2>
-    <ul>
-        <li><strong>콘텐츠 단말 암호화</strong>: 사용자의 비밀번호로 파생된 키로 UGC를 AES 암호화한 뒤 서버에 저장</li>
-        <li><strong>전송 구간 보호</strong>: TLS(HTTPS)</li>
-        <li><strong>접근통제</strong>: Row Level Security(RLS) 등 DB 레벨 보호 적용</li>
-    </ul>
-
-    <h2>6) 이용자의 권리</h2>
-    <ul>
-        <li>개인정보 조회/수정/삭제 및 동의 철회 요청 가능</li>
-        <li>계정 삭제(회원탈퇴) 시 관련 데이터는 복구 불가하게 삭제 처리</li>
-        <li>문의처를 통해 권리 행사 가능(아래 연락처)</li>
-    </ul>
-
-    <h2>7) 아동의 개인정보</h2>
-    <p>본 서비스는 만 13세 미만 아동을 대상으로 하지 않으며, 해당 연령대의 정보를 고의로 수집하지 않습니다.</p>
-
-    <h2>8) 개인정보보호책임자 및 문의</h2>
-    <div class="box">
-        <p>
-            개인정보보호책임자: 김관대 (대표)<br/>
-            이메일: <a href="mailto:hello@playalonelab.com">hello@playalonelab.com</a><br/>
-            연락처: 010-4865-5914<br/>
-            주소: 부산광역시 사하구 (자세한 주소는 통신판매업 신고증 및 공정위 공시시스템 참조)
-        </p>
-    </div>
-
-    <h2>9) 방침의 변경</h2>
-    <p>법령 또는 서비스 변경에 따라 본 방침은 업데이트될 수 있으며, 중요한 변경 시 앱 공지 또는 이메일로 고지합니다.</p>
 
     <div class="footer">
         <div>시행일: 2025-09-06</div>
