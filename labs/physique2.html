@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LAB.8 Physique Project — Mounjaro Log</title>
+  <style>
+    :root{--bg:#F6F2E9;--ink:#192643;--sub:#7c8599;--line:#E6E0D4;--accent:#FBAE91;--card:#fff;--radius:16px;--shadow:0 6px 20px rgba(25,38,67,.06)}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,"Noto Sans KR","Pretendard",sans-serif}
+    a{color:inherit;text-decoration:none}.wrap{max-width:1100px;margin:0 auto;padding:32px 20px 80px}
+    .crumbs{font-size:13px;color:var(--sub)}h1{font-size:clamp(28px,4.5vw,44px);margin:8px 0 6px;font-weight:900}
+    .lead{color:var(--sub)}.meta{display:grid;gap:12px;grid-template-columns:repeat(2,1fr);margin:16px 0 24px}
+    .item{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px 14px;box-shadow:var(--shadow)}
+    .k{font-size:12px;color:var(--sub)}.v{font-weight:700}
+    .weeks{display:grid;gap:16px;grid-template-columns:repeat(12,1fr)}
+    .week{grid-column:span 12;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:var(--shadow)}
+    .week h2{margin:0 0 8px;font-size:20px}
+    .grid{display:grid;gap:10px;grid-template-columns:repeat(12,1fr)}
+    .cell{grid-column:span 12;border:1px dashed var(--line);border-radius:12px;padding:10px;background:rgba(246,242,233,.55)}
+    .label{font-size:12px;color:var(--sub)}.val{font-size:15px}
+    .quote{margin-top:10px;border-left:3px solid var(--accent);background:rgba(251,174,145,.09);padding:10px 12px;border-radius:8px;color:#3b4050;font-size:14px}
+    @media(min-width:900px){.cell.col-6{grid-column:span 6}.meta{grid-template-columns:repeat(4,1fr)}.week{grid-column:span 6}}
+  </style>
+</head>
+<body>
+<main class="wrap">
+  <div class="crumbs"><a href="/labs/lab8.html">← LAB.8</a></div>
+  <h1>Physique Project — 마운자로 투약 실험</h1>
+  <p class="lead">몸도 나의 실험실이다. 식욕·감정·집중·수면의 변화를 주차별로 기록한다.</p>
+
+
+  <section class="meta">
+    <div class="item"><div class="k">실험코드</div><div class="v">LAB8-MOUNJARO-2025</div></div>
+    <div class="item"><div class="k">투약 시작</div><div class="v">2025.10.14</div></div>
+    <div class="item"><div class="k">주기</div><div class="v">주 1회</div></div>
+    <div class="item"><div class="k">관찰 항목</div><div class="v">식욕 · 감정 · 체중 · 집중력 · 수면</div></div>
+  </section>
+
+
+  <section class="weeks">
+    <article class="week">
+      <h2>WEEK 1 — 투약 시작 <small style="color:var(--sub);font-weight:400">2025.10.14–10.20</small></h2>
+      <div class="grid">
+        <div class="cell col-6"><div class="label">용량</div><div class="val">2.5 mg</div></div>
+        <div class="cell col-6"><div class="label">체중</div><div class="val">78.4 → 77.1 (−1.3kg)</div></div>
+        <div class="cell col-6"><div class="label">식욕</div><div class="val">저녁 섭취량 체감 60% 감소, 폭식 충동 약화</div></div>
+        <div class="cell col-6"><div class="label">감정/집중</div><div class="val">공복 스트레스 약간, 집중도 상승</div></div>
+        <div class="cell"><div class="label">부작용</div><div class="val">경미한 메스꺼움, 오후 피로감</div></div>
+      </div>
+      <p class="quote">“배고픔이 잦아드니, 생각이 선명해졌다.”</p>
+    </article>
+
+
+    <article class="week">
+      <h2>WEEK 2 — 적응기 <small style="color:var(--sub);font-weight:400">2025.10.21–10.27</small></h2>
+      <div class="grid">
+        <div class="cell col-6"><div class="label">용량</div><div class="val">2.5 mg (예정)</div></div>

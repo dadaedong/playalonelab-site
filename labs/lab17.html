@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PLAY ALONE LAB — LAB.17</title>
+  <style>
+    :root{--bg:#F6F2E9;--ink:#192643;--sub:#7c8599;--line:#E6E0D4;--accent:#FBAE91;--card:#fff;--radius:16px;--shadow:0 6px 20px rgba(25,38,67,.06)}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,"Noto Sans KR","Pretendard",sans-serif}
+    a{color:inherit;text-decoration:none}.wrap{max-width:1100px;margin:0 auto;padding:32px 20px 80px}
+    header{display:grid;gap:12px;padding:20px 0 8px}.crumbs{font-size:13px;color:var(--sub)}
+    .title{font-weight:900;letter-spacing:-.02em;font-size:clamp(28px,4.5vw,44px);margin:0}.lead{color:var(--sub)}
+    .badge{display:inline-flex;gap:8px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:8px 12px;box-shadow:var(--shadow);width:fit-content}
+    .badge .dot{width:10px;height:10px;border-radius:50%;background:var(--ink);opacity:.2}
+    .grid{display:grid;gap:16px;grid-template-columns:repeat(12,1fr)}.card{grid-column:span 12;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px}
+    .card h2{margin:0 0 6px;font-size:22px}.muted{color:var(--sub);font-size:14px}
+    @media(min-width:900px){.half{grid-column:span 6}.third{grid-column:span 4}}
+  </style>
+</head>
+<body>
+<main class="wrap">
+  <header>
+    <div class="crumbs"><a href="/labs/index.html">← Studios</a></div>
+    <div class="badge"><span class="dot"></span><strong>LAB.17</strong></div>
+    <h1 class="title">고뇌와 성찰의 실험실</h1>
+    <p class="lead">고통과 회의, 그 모든 잔해를 창작의 불꽃으로 바꾸는 곳. 『개발하는 개똥철학자』 프로젝트가 여기서 자라고 있다.</p>
+  </header>
+
+
+  <section class="grid">
+    <article class="card half">
+      <h2>브랜드 모토</h2>
+      <p class="muted">“고뇌가 없다면, 성찰도 없다.”</p>
+    </article>
+    <article class="card half">
+      <h2>주요 테마</h2>
+      <p class="muted">삶의 상처, 선택의 역설, 실존적 유머, 자기 구원.</p>
+    </article>
+  </section>
+
+
+  <section class="grid">
+    <article class="card third">
+      <h2>Project — 『개발하는 개똥철학자』</h2>
+      <p class="muted">개발과 철학이 만나는 경계선에서 쓰는 실험적 에세이. 100부 한정 인쇄 목표.</p>
+    </article>
+    <article class="card third">
+      <h2>Project — 연설/강연</h2>
+      <p class="muted">실패와 선택, 그리고 자유에 관한 이야기들.</p>
+    </article>
+    <article class="card third">
+      <h2>Archive</h2>
+      <p class="muted">초안·메모·인용문 아카이브 정리 예정.</p>
+    </article>
+  </section>
+</main>
+</body>
+</html>
