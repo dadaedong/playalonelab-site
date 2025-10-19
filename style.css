@@ -1,28 +1,29 @@
-  /* =====================
-     Design Tokens
-     ===================== */
+/* =====================
+   Design Tokens
+   ===================== */
 :root {
-  --bg: #ffffff;
-  --surface: #fafafa;
-  --text: #0b1220;     /* slate-900 */
-  --muted: #556070;     /* slate-600 */
-  --line: #e5e7eb;      /* gray-200 */
-  --accent: #111111;    /* brand mono */
-  --accent-contrast: #ffffff;
-  --radius: 18px;
-  --shadow: 0 10px 30px rgba(0,0,0,.08);
-  --container: 1120px;
-  --ring: 0 0 0 3px rgba(17,17,17,.12);
-  --space-1: 12px; --space-2: 18px; --space-3: 22px; --space-4: 32px;
+    --bg: #F6F2E9;
+    --surface: #fffef8;
+    --text: #192643;
+    --muted: #7c8599;
+    --line: #E6E0D4;
+    --accent: #FBAE91;
+    --accent-contrast: #192643;
+    --note: #fffef8;
+    --radius: 18px;
+    --shadow: 0 10px 30px rgba(0,0,0,.08);
+    --container: 1120px;
+    --ring: 0 0 0 3px rgba(25,38,67,.15);
+    --space-1: 12px; --space-2: 18px; --space-3: 22px; --space-4: 32px;
 }
 [data-theme="dark"]{
-  --bg: #0b0b0c; --surface:#121315; --text:#f3f5f7; --muted:#9aa4b2; --line:#1f2937; --accent:#ffffff; --accent-contrast:#0b0b0c; --shadow:0 10px 30px rgba(0,0,0,.45); --ring: 0 0 0 3px rgba(255,255,255,.18);
+    --bg: #0b0b0c; --surface:#121315; --text:#f3f5f7; --muted:#9aa4b2; --line:#1f2937; --accent:#ffffff; --accent-contrast:#0b0b0c; --shadow:0 10px 30px rgba(0,0,0,.45); --ring: 0 0 0 3px rgba(255,255,255,.18);
 }
 
 /* ===================== Base ===================== */
 *{box-sizing:border-box}
 html,body{height:100%}
-body{margin:0; font-family:'Nanum Gothic', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Noto Sans KR, "Apple SD Gothic Neo", "Malgun Gothic", Arial, "Segoe UI Emoji"; /*background:var(--bg);*/ background-color: #fff8ee; color:var(--text); line-height:1.65; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale}
+body{margin:0; font-family:'Nanum Gothic', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Noto Sans KR, "Apple SD Gothic Neo", "Malgun Gothic", Arial, "Segoe UI Emoji"; background-color: #fff8ee; color:var(--text); line-height:1.65; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale}
 a{color:inherit; text-decoration:none}
 h1{font-size:clamp(36px,4.8vw,56px); line-height:1.12; margin: 0 0 .5rem; letter-spacing:-.02em}
 h2{font-size:clamp(28px,3.2vw,40px); margin:0 0 .75rem}
@@ -33,11 +34,9 @@ p{margin:0 0 1rem}
 .btn{display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:12px 16px; border-radius:12px; border:1px solid var(--line); background:var(--surface); color:var(--text); font-weight:500; cursor:pointer; transition:transform .12s ease, box-shadow .2s ease, background .2s ease}
 .btn:hover{transform:translateY(-1px); box-shadow:var(--shadow)}
 .btn:focus-visible{outline:var(--ring); outline-offset:2px}
-.btn--primary{background:var(--accent); color:var(--accent-contrast); border-color:transparent}
-.btn--ghost{background:transparent}
-.btn--secondary{background:transparent; border-color:transparent; color:var(--muted)}
+.btn--primary{background: var(--text); color:var(--accent-contrast); border-color: transparent; color:var(--bg)}
 
-.pill{display:inline-flex; align-items:center; gap:8px; border:1px solid var(--line); padding:6px 10px; border-radius:999px; font-size:12px; color:var(--muted)}
+.pill{display:inline-flex; align-items:center; gap:8px; border:1px solid var(--line); padding:6px 10px; border-radius:999px; font-size:12px; color:var(--text);}
 .card{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow)}
 .tag{color:var(--muted); font-size:42px}
 
@@ -62,11 +61,12 @@ header{position:sticky; top:0; backdrop-filter:saturate(180%) blur(8px); backgro
 .nav-toggle{display:none}
 @media (max-width:880px){ .nav-menu{display:none} .nav-toggle{display:inline-flex} .mobile-panel{display:none; position:absolute; top:64px; left:0; right:0; background:var(--bg); border-bottom:1px solid var(--line)} .mobile-panel.open{display:block} .mobile-panel a{display:block; padding:14px var(--space-2); border-top:1px solid var(--line); color:var(--muted); font-weight:700} .mobile-panel a:hover{color:var(--text)} }
 @media (min-width: 881px){#mobileNav{display: none}}
-  /* ===================== Hero ===================== */
+
+/* ===================== Hero ===================== */
 .hero{padding-bottom: 32px}
 .hero__grid{display:grid; grid-template-columns:1.1fr .9fr; gap:var(--space-4); align-items:center}
 .hero .lead{color:var(--muted); margin:0 0 22px}
-.hero .preview{/*aspect-ratio:4/3;*/ display:flex; align-items:center; justify-content:center; border-radius:var(--radius); border:1px solid var(--line); /*background: repeating-linear-gradient(135deg, var(--surface), var(--surface) 10px, color-mix(in oklab, var(--surface), var(--line)) 10px, color-mix(in oklab, var(--surface), var(--line)) 20px);*/ box-shadow:var(--shadow)}
+.hero .preview{display:flex; align-items:center; justify-content:center; border-radius:var(--radius); border:1px solid var(--line); box-shadow:var(--shadow)}
 .hero .preview img, .hero .preview svg{width:64%; max-width:460px; height:auto;  border-radius:var(--radius); border:1px solid var(--line); opacity:.95}
 .accent-text{font-style:normal; color:var(--accent)}
 .cta-group{display:flex; gap:12px; flex-wrap:wrap; margin-bottom:8px}
@@ -119,13 +119,135 @@ footer small a{text-decoration:underline; text-underline-offset:3px}
 
 /* ===================== Motion ===================== */
 @media (prefers-reduced-motion: no-preference) {
-  html.js [data-animate] {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  html.js [data-animate].in {
-    opacity: 1;
-    transform: none;
-    transition: all .5s ease;
-  }
+    html.js [data-animate] {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    html.js [data-animate].in {
+        opacity: 1;
+        transform: none;
+        transition: all .5s ease;
+    }
+}
+
+
+.note-surface { background: var(--note); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); padding: var(--space-3); }
+/* 기존 .quote-source 스타일을 유지 */
+.quote-source {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-top: 4px;
+}
+
+/* ===================== Inner Labs / 산하 스투디오 ===================== */
+
+/* 이너 랩스 섹션 전체 스타일 */
+.inner-labs-section { /* 새로운 클래스를 추가해서 이 섹션에만 적용 */
+    background-color: color-mix(in oklab, var(--bg) 85%, var(--text)); /* 배경색을 살짝 어둡게 해서 대비감 주기 */
+    padding: var(--space-4) 0; /* 상하 패딩을 더 넓게 */
+}
+[data-theme="dark"] .inner-labs-section {
+    background-color: color-mix(in oklab, var(--surface) 80%, var(--text)); /* 다크모드에서는 더 어둡게 */
+}
+
+
+.section-head {
+    text-align: center;
+    padding-bottom: var(--space-3);
+    border-bottom: 1px solid var(--line);
+    margin-bottom: var(--space-4);
+}
+
+.section-head h2 {
+    font-size: clamp(28px, 3.2vw, 40px);
+    margin: 0 0 5px;
+    letter-spacing: -0.02em;
+    color: var(--text); /* 제목은 그대로 기본 텍스트 색상 */
+}
+
+.section-head .sub {
+    font-size: 1.1rem;
+    color: var(--muted);
+}
+
+/* 4열 그리드 정의 (프로젝트 카드와 겹치지 않게 새로운 클래스 사용) */
+.grid-4{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap: var(--space-3); /* 22px 간격 */
+}
+@media (max-width: 1120px) {
+    .grid-4{grid-template-columns:repeat(2,1fr);}
+}
+@media (max-width: 600px) {
+    .grid-4{grid-template-columns:1fr;}
+}
+
+/* LAB 카드의 핵심 스타일 */
+.card.lab { /* card 클래스에 .lab을 추가하여 특정 섹션 카드만 스타일링 */
+    padding: var(--space-3);
+    transition: transform .2s ease, box-shadow .3s ease;
+    position: relative;
+    overflow: hidden;
+    background-color: var(--surface); /* 카드는 표면색으로 유지 */
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+/* 호버 시 깊이감 부여 */
+.card.lab:hover {
+    transform: translateY(-5px); /* 좀 더 크게 움직여서 강조 */
+    box-shadow: 0 15px 35px rgba(0,0,0,.15); /* 호버 섀도우 더 진하게 */
+}
+[data-theme="dark"] .card.lab:hover {
+    box-shadow: 0 15px 35px rgba(255,255,255,.1); /* 다크 모드 섀도우도 강화 */
+}
+
+/* LAB Pill 스타일 오버라이드: 강조 색상 사용 */
+.card.lab .pill {
+    /* 기존 pill 스타일을 오버라이드하여 LAB 번호를 강조 */
+    border: 1px solid var(--accent);
+    color: var(--accent-contrast); /* accent-contrast로 텍스트 대비 */
+    background-color: var(--accent);
+    font-weight: 700;
+    padding: 4px 10px;
+    margin-bottom: var(--space-2);
+    border-radius: 999px; /* 완전한 둥근 모양 */
+    font-size: 12px;
+}
+
+/* 인용구 제목 스타일 */
+.card.lab h3 {
+    min-height: 80px; /* 제목 높이 고정으로 레이아웃 흐트러짐 방지 (필요 시 조절) */
+    font-size: 1.15rem; /* 약간 더 크게 */
+    font-weight: 600;
+    margin-top: var(--space-1);
+    margin-bottom: var(--space-2);
+    line-height: 1.3;
+    color: var(--text); /* 텍스트 강조 */
+}
+
+/* 인용구 출처 스타일 */
+.card.lab .quote-source {
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-style: italic;
+    display: block;
+    margin-top: 5px;
+}
+
+/* 상세 설명 문구 스타일 */
+.card.lab p {
+    font-size: 0.9rem;
+    color: var(--text); /* 텍스트 강조 */
+    margin-top: var(--space-1);
+    margin-bottom: 0;
+}
+.card.lab p br {
+    margin-top: 0; /* br 태그 간격은 p 태그 line-height로 조절 */
+}
+
+.pd3 {
+    padding: 3px;
 }

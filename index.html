@@ -1,308 +1,380 @@
-<!doctype html>
-<html lang="ko" data-theme="light">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Play Alone Lab — 뭐라도 하자</title>
-  <meta name="description" content="Play Alone Lab — 다양한 시각과 끊임없는 호기심으로 바라보는 나만의 세상. 미니멀 앱 스튜디오." />
-  <meta name="theme-color" content="#0b0b0c" media="(prefers-color-scheme: dark)">
-  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Play Alone Lab" />
-  <meta property="og:description" content="지속가능한 재미 연구." />
-  <meta property="og:image" content="./images/PLAY_ALONE_LAB_CI.png" />
-  <meta property="og:url" content="https://playalonelab.com" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-  <link rel="alternate icon" href="/favicon.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+<!DOCTYPE html>
 
-  <script>document.documentElement.classList.add('js');</script>
+<html data-theme="light" lang="ko">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Play Alone Lab — 뭐라도 하자</title>
+    <meta content="Play Alone Lab — 다양한 시각과 끊임없는 호기심으로 바라보는 나만의 세상. 미니멀 앱 스튜디오." name="description"/>
+    <meta content="#0b0b0c" media="(prefers-color-scheme: dark)" name="theme-color"/>
+    <meta content="#ffffff" media="(prefers-color-scheme: light)" name="theme-color"/>
+    <meta content="website" property="og:type">
+    <meta content="Play Alone Lab" property="og:title">
+    <meta content="지속가능한 재미 연구." property="og:description"/>
+    <meta content="./images/PLAY_ALONE_LAB_CI.png" property="og:image"/>
+    <meta content="https://playalonelab.com" property="og:url"/>
+    <meta content="summary_large_image" name="twitter:card"/>
+    <link href="/favicon.svg" rel="icon" type="image/svg+xml"/>
+    <link href="/favicon.png" rel="alternate icon"/>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&amp;display=swap" rel="stylesheet"/>
+    <link href="style.css" rel="stylesheet"/>
+    <script>document.documentElement.classList.add('js');</script>
+    </meta></meta><link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700&amp;display=swap" rel="stylesheet"/>
+    <style>
+
+    </style>
+
 </head>
 <body>
-  <a class="skip" href="#main">본문으로 바로가기</a>
-  <header>
+<a class="skip" href="#main">본문으로 바로가기</a>
+<header>
     <div class="container nav">
-      <a class="brand" href="#" aria-label="Play Alone Lab Home">
-        <!--<img src="./images/PLAY_ALONE_LAB_CI.jpg" alt="Play Alone Lab 로고" />-->
-        <span>Play Alone Lab</span>
-
-      </a>
-      <nav class="nav-menu" aria-label="주요 메뉴">
+        <a aria-label="Play Alone Lab Home" class="brand" href="#">
+            <!--<img src="./images/PLAY_ALONE_LAB_CI.jpg" alt="Play Alone Lab 로고" />-->
+            <span>Play Alone Lab</span>
+        </a>
+        <nav aria-label="주요 메뉴" class="nav-menu">
+            <a href="#about">About</a>
+            <a href="#philosophy">Lab Charter</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <div class="nav-cta">
+            <!--<button id="themeBtn" class="btn btn&#45;&#45;ghost" aria-label="테마 전환">🌓</button>-->
+            <button aria-controls="mobileNav" aria-expanded="false" class="btn btn--ghost nav-toggle" id="navBtn">menu</button>
+        </div>
+    </div>
+    <div aria-label="모바일 메뉴" class="mobile-panel" id="mobileNav" role="dialog">
         <a href="#about">About</a>
         <a href="#philosophy">Lab Charter</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
-      </nav>
-      <div class="nav-cta">
-        <!--<button id="themeBtn" class="btn btn&#45;&#45;ghost" aria-label="테마 전환">🌓</button>-->
-        <button id="navBtn" class="btn btn--ghost nav-toggle" aria-expanded="false" aria-controls="mobileNav">menu</button>
-      </div>
     </div>
-    <div id="mobileNav" class="mobile-panel" role="dialog" aria-label="모바일 메뉴">
-      <a href="#about">About</a>
-      <a href="#philosophy">Lab Charter</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </header>
-
-  <main id="main">
+</header>
+<main id="main">
     <!-- Hero -->
     <section class="section hero" id="about">
-      <div class="container hero__grid">
-        <div data-animate>
-          <span class="pill mb20">🔬 미니멀 앱 스튜디오</span>
-          <h2>오직 재미와 즐거움을 위한 실험.<br/></h2>
-          <p class="lead"><span style="font-weight: 900;">Play Alone Lab</span><br>다양한 시각과 끊임없는 호기심으로 바라보는 나만의 세상.<br> 우린 그것을 연구합니다.<br> Minimal · Modern · Simple.</p>
-          <div class="cta-group" style="margin-bottom:20px;">
-            <a class="btn btn--primary" href="#projects" aria-label="프로젝트 보기">첫 번째 실험 보기</a>
-            <a class="btn" href="#philosophy" aria-label="그냥 보기">그냥</a>
-            <a class="btn btn--ghost" href="mailto:hello@playalonelab.com" aria-label="메일 보내기" style="background-color: #ffaf77;">문의하기</a>
-          </div>
-          <p class="tagline">Busan · dadaedong | © <span id="year"></span> Play Alone Lab</p>
+        <div class="container hero__grid">
+            <div data-animate="">
+                <span class="pill mb20">🔬 미니멀 앱 스튜디오</span>
+                <h2>오직 재미와 즐거움을 위한 실험.<br/></h2>
+                <p class="lead"><span style="font-weight: 900;">Play Alone Lab</span><br/>다양한 시각과 끊임없는 호기심으로 바라보는 나만의 세상.<br/> 우린 그것을 연구합니다.<br/> Minimal · Modern · Simple.</p>
+                <div class="cta-group" style="margin-bottom:20px;">
+                    <a aria-label="프로젝트 보기" class="btn btn--primary" href="#projects">첫 번째 실험 보기</a>
+                    <a aria-label="그냥 보기" class="btn" href="#philosophy">그냥</a>
+                    <a aria-label="메일 보내기" class="btn btn--ghost" href="mailto:hello@playalonelab.com" style="background-color: #ffaf77;">문의하기</a>
+                </div>
+                <p class="tagline">Busan · dadaedong | © <span id="year"></span> Play Alone Lab</p>
+            </div>
+            <div aria-hidden="true" class="preview card" data-animate="" style="--line:0; background-color: #fff8ee; --shadow: 0;">
+                <img alt="Play Alone Lab 로고" src="./images/PLAY_ALONE_LAB_CI.png"/>
+            </div>
         </div>
-        <div class="preview card" aria-hidden="true" data-animate style="--line:0; background-color: #fff8ee; --shadow: 0;">
-          <img src="./images/PLAY_ALONE_LAB_CI.png" alt="Play Alone Lab 로고" />
-        </div>
-      </div>
     </section>
+    <div class="container">
+        <div class="section-head">
+            <h2>Play Alone Lab의 가치</h2>
+            <p class="sub">Play Alone Lab은 즐거움의 본질, 창작의 지속성을 실험합니다.</p>
+        </div>
+    </div>
 
     <!-- Feature highlights -->
-    <section class="section" id="features">
-      <div class="container grid-3">
-        <article class="feature card" data-animate>
-          <h3>미니멀, 불필요 0%</h3>
-          <p>단순한게 아니라 깔끔함. <br>중요한게 뭔지 다시 생각해봐요.</p>
-        </article>
-        <article class="feature card" data-animate>
-          <h3>프라이버시 우선</h3>
-          <p>방해받지 않을 권리 <br>설계 단계부터 사생활 보호를 최우선.</p>
-        </article>
-        <article class="feature card" data-animate>
-          <h3>생각하고, 만들고, 갈아엎기</h3>
-          <p>해보고 재미 없으면 안하기. <br>규칙은 언제든 바뀔 수 있습니다.</p>
-        </article>
-      </div>
-    </section>
+    <section class="section" id="features" style="padding-top:0px;">
+        <div class="container grid-3">
+            <article class="feature card" data-animate="">
+                <h3>작게 시작하고 확장하자</h3>
+                <p>계획보단 실행.<br>
+                    완벽한 계획은 없다고 생각해요.</p>
+            </article>
+            <article class="feature card" data-animate="">
+                <h3>재미는 최고의 가치이자 동기</h3>
+                <p>몰입과 집중이 주는 즐거움.<br>
+                    지속가능한 재밋거리를 찾는건 궁극의 목표</p>
+            </article>
+            <article class="feature card" data-animate="">
+                <h3>사유하는 삶</h3>
+                <p>니에게 하는 질문</br>
+                    세상을 조금 더 알아가는 질문.</p>
+            </article>
+            <article class="feature card" data-animate="">
+                <h3>미니멀, 불필요 0%</h3>
+                <p>단순한게 아니라 깔끔함. <br/>중요한게 뭔지 다시 생각해봐요.</p>
+            </article>
+            <article class="feature card" data-animate="">
+                <h3>프라이버시 우선</h3>
+                <p>방해받지 않을 권리 <br/>온전히 나 자신에게만.</p>
+            </article>
+            <article class="feature card" data-animate="">
+                <h3>생각하고, 만들고, 갈아엎기</h3>
+                <p>해보고 재미 없으면 안하기. <br/>재미 없는데 억지로 하는건 '일'이니까요</p>
+            </article>
 
+        </div>
+    </section>
     <!-- Philosophy / Motto -->
     <section class="section" id="philosophy">
-      <div class="container">
-        <h2>Think about...그냥, 뭐라도 하자!</h2>
-        <div class="paper card" data-animate>
-          <p>가만히 있기보다는 그냥, 뭐라도 해보자.</p>
-          <p>그게 냉소와 조소의 대상이 될지 모르지만</p>
-          <p>뭐 어쩌라고. 내가 재밌게 살고 싶다는데 </p>
-          <p>‘그때 뭐라도 할 걸…’ 하고 후회하지 말고</p>
-          <p>가만히 있기보다는 그냥, 뭐라도 해보자.</p>
-          <p>그냥 동네 한 바퀴 산책이라도 하자.</p>
-          <p><strong>그냥, 그러면 뭐라도 달라지지 않을까?</strong></p>
+        <div class="container">
+            <h2>Play Alone, Do Something.</h2>
+            <div class="paper card" data-animate="">
+                <p><strong>가만히 있기보다는 그냥, 뭐라도 해보자.</strong></p>
+                <br>
+                <p>어차피 세상은 그리고 사람들은 </p>
+                <p>내 생각 이상으로 나에게 별로 관심이 없다. </p>
+                <p>그러니 남이 어떻게 생각할지 걱정하지말고</p>
+                <p>가만히 있기보다는 그냥, 뭐라도 해보자. </p>
+                <br>
+                <p>시간이 지나 허무하고 공허한 마음에 </p>
+                <p>‘그때 뭐라도 할 걸…’ 하고 후회하지 말고</p>
+                <p>가만히 있기보다는 그냥, 뭐라도 해보자.</p>
+                <br>
+                <p>그냥 동네 한 바퀴 산책이라도 하자.</p>
+                <p><strong>그냥, 그러면 뭐라도 달라지지 않을까?</strong></p>
+            </div>
         </div>
-      </div>
     </section>
+    <div class="container">
+        <div class="section-head">
+            <h2>Inner Labs</h2>
+            <p class="sub">각기 다른 시선과 실험의 방향</p>
+        </div>
+        <div class="grid grid-4">
+            <div class="card pd3">
+                <div class="pill">LAB.8</div>
+                <h3>
+                    "무한대를 그려주려 쓰러진 8자"<br>
+                    <span class="quote-source"> &nbsp; Epik High, <em>『Born Hater』</em></span>
+                </h3>
+                <p>
+                    코드에는 제약이 없어요.<br>
+                    무한한 상상과 그것에 대한 구현.<br> 프로젝트: 『똥글똥글』
+                </p>
+            </div>
+            <div class="card pd3">
+                <div class="pill">LAB.17</div>
+                <h3>
+                    “Don’t worry about me.<br> I always land on my feet.”<br>
+                    <span class="quote-source"> &nbsp; Sgt. J.J. Sefton, <em>『Stalag 17』</em></span>
+                </h3>
+                <p>
+                    실패해도 별로 상관없어요.<br>
+                    어차피 또 할 거니까.<br> 프로젝트: 『개발하는 개똥철학자』
+                </p>
+            </div>
+            <div class="card pd3">
+                <div class="pill">LAB.42</div>
+                <h3>
+                    “42 — 삶, 우주, 그리고 모든 것에 대한 궁극적인 질문의 해답”<br>
+                    <span class="quote-source"> &nbsp; Douglas Adams, <em>『은하수를 여행하는 히치하이커를 위한 안내서』</em></span>
+                </h3>
+                <p>
+                    나만의 질문과 답을 찾아가는 여정,<br>
+                    그리고 그 과정을 기록하는 실험.
+                </p>
+            </div>
+            <div class="card pd3">
+                <div class="pill">LAB.141</div>
+                <h3>
+                    “Impossible?”<br>
+                    “Not for the One-Four-One.”<br>
+                    <span class="quote-source"> &nbsp; Captain Price,<em>『Call of Duty: Modern Warfare』</em></span>
+                </h3>
+                <p>
+                    <!--불가능을 실험하는 마지막 스테이지.<br>-->
+                    팔랩의 모든 실험이 이곳으로 모여듭니다.
+                </p>
+            </div>
+        </div>
+    </div>
 
     <!-- Projects -->
     <section class="section" id="projects">
-      <div class="container">
-        <h2>Projects</h2>
-        <div class="cards">
-          <article class="card project" data-animate>
-            <div class="thumb">
-              <img src="./images/ddongle.jpg" alt="똥글똥글 앱 스크린샷 자리" loading="lazy" />
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="cards">
+                <article class="card project" data-animate="">
+                    <div class="thumb">
+                        <img alt="똥글똥글 앱 스크린샷 자리" loading="lazy" src="./images/ddongle.jpg"/>
+                    </div>
+                    <div class="body">
+                        <h3>실험#1 똥글똥글</h3>
+                        <div class="meta">나만의 로그 저장소 · 나와의 SNS · 사유의 시각화</div>
+                        <p>자신의 감정과 생각을 한 줄로 남기는 미니멀 로깅 앱.</p>
+                        <div class="cta-group">
+                            <a class="btn btn--primary" href="#none">10월 출시 예정</a>
+                            <a class="btn" href="#ddongle" id="openDdongle">똥글 소개</a>
+                        </div>
+                    </div>
+                </article>
+                <article class="card project" data-animate="">
+                    <div class="thumb"><span class="tag">Next</span></div>
+                    <div class="body">
+                        <h3>실험 #2</h3>
+                        <p style="color:var(--muted); margin:0 0 12px">구상완료. 근데 과연 재밌을까??</p>
+                        <a class="btn btn--ghost" href="#none">시뮬레이션 진행 중...</a>
+                    </div>
+                </article>
+                <article class="card project" data-animate="">
+                    <div class="thumb"><span class="tag">Play</span></div>
+                    <div class="body">
+                        <h3>실험 #3</h3>
+                        <p style="color:var(--muted); margin:0 0 12px">또 뭐가 재밌을까 생각중 ㅋ</p>
+                        <a class="btn btn--ghost" href="mailto:hello@playalonelab.com?subject=%EC%8B%A4%ED%97%98%20%232%20%EC%95%84%EC%9D%B4%EB%94%94%EC%96%B4">아이디어 보내기</a>
+                    </div>
+                </article>
             </div>
-            <div class="body">
-              <h3>실험#1 똥글똥글</h3>
-              <div class="meta">나만의 로그 저장소 · 나와의 SNS · 사유의 시각화</div>
-              <p>자신의 감정과 생각을 한 줄로 남기는 미니멀 로깅 앱.</p>
-              <div class="cta-group">
-                <a class="btn btn--primary" href="#none">10월 출시 예정</a>
-                <a class="btn" href="#ddongle" id="openDdongle">똥글 소개</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="card project" data-animate>
-            <div class="thumb"><span class="tag">Next</span></div>
-            <div class="body">
-              <h3>실험 #2</h3>
-              <p style="color:var(--muted); margin:0 0 12px">구상완료. 근데 과연 재밌을까??</p>
-              <a class="btn btn--ghost" href="#none">시뮬레이션 진행 중...</a>
-            </div>
-          </article>
-
-          <article class="card project" data-animate>
-            <div class="thumb"><span class="tag">Play</span></div>
-            <div class="body">
-              <h3>실험 #3</h3>
-              <p style="color:var(--muted); margin:0 0 12px">또 뭐가 재밌을까 생각중 ㅋ</p>
-              <a class="btn btn--ghost" href="mailto:hello@playalonelab.com?subject=%EC%8B%A4%ED%97%98%20%232%20%EC%95%84%EC%9D%B4%EB%94%94%EC%96%B4">아이디어 보내기</a>
-            </div>
-          </article>
         </div>
-      </div>
     </section>
-
-    <!-- Contact -->
     <section class="section contact" id="contact">
-      <div class="container">
-        <div class="card contact-card" data-animate>
-          <div>
-            <h3>Contact</h3>
-            <p class="info">대표 이메일: <a class="info-link" href="mailto:hello@playalonelab.com">hello@playalonelab.com</a></p>
-          </div>
-          <div class="cta-group">
-            <a class="btn btn--ghost" href="mailto:hello@playalonelab.com?subject=%EA%B4%80%EB%A0%A8%20%EB%AC%B8%EC%9D%98">메일 보내기</a>
-            <button class="btn btn--secondary" id="scrollToTopBtn">맨 위로</button>
-          </div>
+        <div class="container">
+            <div class="card contact-card" data-animate="">
+                <div>
+                    <h3>Contact</h3>
+                    <p class="info">대표 이메일: <a class="info-link" href="mailto:hello@playalonelab.com">hello@playalonelab.com</a></p>
+                </div>
+                <div class="cta-group">
+                    <a class="btn btn--ghost" href="mailto:hello@playalonelab.com?subject=%EA%B4%80%EB%A0%A8%20%EB%AC%B8%EC%9D%98">메일 보내기</a>
+                    <button class="btn btn--secondary" id="scrollToTopBtn">맨 위로</button>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
-  </main>
-
-  <footer>
+</main>
+<footer>
     <div class="container footer-cols">
-      <div>
-        <small>
-          <strong>Play Alone Lab</strong><br/>
-          상호: Play Alone Lab · 대표: 김관대<br/>
-          사업자등록번호: <span id="bizno">[216-19-06708]</span> · 통신판매업 신고번호: <span id="tsno">[2025-부산사하-0556]</span><br/>
-          소재지: 부산광역시 사하구 (자세한 주소는 통신판매업 신고증 및 공정위 공시시스템 참조)<br/>
-          연락처: <span id="phone">[010-4865-5914]</span> · 이메일: <a href="mailto:hello@playalonelab.com">hello@playalonelab.com</a><br/>
-          D-U-N-S: <span id="duns">[696250965]</span><br>
-          <strong>© 2025 Play Alone Lab. All rights reserved.</strong>
-        </small>
-      </div>
-      <div>
-        <small>
-          <a href="/terms">이용약관</a> ·
-          <a href="/privacy">개인정보처리방침</a> <br>
-          <!--<a href="#" id="copyLinkBtn">링크 복사</a><br/>-->
-          <span class="tag_1">Defined by no one but myself.</span>
-        </small>
-      </div>
+        <div>
+            <small>
+                <strong>Play Alone Lab</strong><br>
+                상호: Play Alone Lab · 대표: 김관대<br>
+                사업자등록번호: <span id="bizno">[216-19-06708]</span> · 통신판매업 신고번호: <span id="tsno">[2025-부산사하-0556]</span><br>
+                소재지: 부산광역시 사하구 (자세한 주소는 통신판매업 신고증 및 공정위 공시시스템 참조)<br>
+                연락처: <span id="phone">[010-4865-5914]</span> · 이메일: <a href="mailto:hello@playalonelab.com">hello@playalonelab.com</a><br>
+                D-U-N-S: <span id="duns">[696250965]</span><br/>
+                <strong>© 2025 Play Alone Lab. All rights reserved.</strong>
+                </br></br></br></br></br></small>
+        </div>
+        <div>
+            <small>
+                <a href="/terms">이용약관</a> ·
+                <a href="/privacy">개인정보처리방침</a> <br/>
+                <!--<a href="#" id="copyLinkBtn">링크 복사</a><br/>-->
+                <span>Defined by no one but myself.</span>
+            </small>
+        </div>
     </div>
-  </footer>
-
-  <!-- ===== Modals: Terms & Privacy ===== -->
-  <div id="modal-terms" class="modal" aria-hidden="true">
+</footer>
+<!-- ===== Modals: Terms & Privacy ===== -->
+<div aria-hidden="true" class="modal" id="modal-terms">
     <div class="backdrop" data-close="terms" tabindex="-1"></div>
-    <div role="dialog" aria-modal="true" aria-labelledby="terms-title" class="dialog" tabindex="-1">
-      <header class="dialog__head">
-        <h2 id="terms-title" class="dialog__title">📜 이용약관</h2>
-        <button class="close" aria-label="닫기" data-close="terms">✕</button>
-      </header>
-      <div class="dialog__body doc" id="terms-body">
-        <h3>제1조 (목적)</h3>
-        <p>본 약관은 Play Alone Lab (이하 "회사")가 제공하는 모바일 애플리케이션 「똥글똥글」 서비스의 이용조건 및 절차, 회사와 이용자의 권리·의무 및 책임사항을 규정함을 목적으로 합니다.</p>
-        <h3>제2조 (사업자 정보)</h3>
-        <p>상호: Play Alone Lab<br/>
-        대표자: 김관대<br/>
-        소재지: 부산광역시 사하구 (자세한 주소는 통신판매업 신고증 및 공정거래위원회 통신판매업자 정보공개시스템 참조)<br/>
-        연락처: [010-4865-5914]<br/>
-        이메일: hello@playalonelab.com<br/>
-        사업자등록번호: [216-19-06708]<br/>
-        통신판매업 신고번호: [2025-부산사하-0556]</p>
-        <h3>제3조 (서비스의 내용)</h3>
-        <p>회사는 이용자가 개인적인 감정과 생각을 기록할 수 있는 로그 저장소 앱을 제공합니다.<br> 본 서비스는 <strong>인앱 결제(구독제)</strong>를 통해 유료구독을 통해서만 이용 가능합니다.<br> 다만, 회사의 정책이나 프로모션에 따라 일정 기간 동안 무료로 제공될 수 있습니다. <br>유료 서비스의 가격, 결제조건, 해지 및 환불 규정은 각 앱스토어(구글 플레이스토어, 애플 앱스토어)의 정책을 따릅니다.</p>
-        <h3>제4조 (이용자의 의무)</h3>
-        <p>이용자는 서비스를 이용함에 있어 관련 법령, 본 약관 및 회사의 안내를 준수하여야 하며, <strong>타인의 권리를 침해하거나 서비스 운영을 방해하는 행위(불법 정보 유포, 악성 프로그램 배포, 해킹 시도, 명예훼손 등)</strong>를 해서는 안 됩니다.</p>
-        <h3>제5조 (서비스의 변경 및 중단)</h3>
-        <p>회사는 서비스 개선을 위해 필요하다고 판단되는 경우 사전 공지 후 서비스 내용을 변경하거나 중단할 수 있습니다. 다만, 부득이한 사유가 있는 경우 사후에 공지할 수 있습니다.</p>
-        <h3>제6조 (환불 및 해지)</h3>
-        <p>인앱 결제된 구독은 앱스토어의 관리 규정에 따라 해지·환불이 가능합니다. 환불 요청은 이용자가 직접 각 스토어 결제 계정을 통해 진행해야 합니다.</p>
-        <h3>제7조 (책임 제한)</h3>
-        <p>회사는 천재지변, 불가항력, 이용자의 귀책사유 등으로 서비스를 제공할 수 없는 경우 책임을 지지 않습니다.</p>
-        <h3>제8조 (준거법 및 관할법원)</h3>
-        <p>본 약관은 대한민국 법률에 따라 해석되며, 회사와 이용자 간 분쟁이 발생할 경우 부산지방법원을 제1심 전속 관할 법원으로 합니다.</p>
-      </div>
+    <div aria-labelledby="terms-title" aria-modal="true" class="dialog" role="dialog" tabindex="-1">
+        <header class="dialog__head">
+            <h2 class="dialog__title" id="terms-title">📜 이용약관</h2>
+            <button aria-label="닫기" class="close" data-close="terms">✕</button>
+        </header>
+        <div class="dialog__body doc" id="terms-body">
+            <h3>제1조 (목적)</h3>
+            <p>본 약관은 Play Alone Lab (이하 "회사")가 제공하는 모바일 애플리케이션 「똥글똥글」 서비스의 이용조건 및 절차, 회사와 이용자의 권리·의무 및 책임사항을 규정함을 목적으로 합니다.</p>
+            <h3>제2조 (사업자 정보)</h3>
+            <p>상호: Play Alone Lab<br>
+                대표자: 김관대<br>
+                소재지: 부산광역시 사하구 (자세한 주소는 통신판매업 신고증 및 공정거래위원회 통신판매업자 정보공개시스템 참조)<br>
+                연락처: [010-4865-5914]<br/>
+                이메일: hello@playalonelab.com<br/>
+                사업자등록번호: [216-19-06708]<br/>
+                통신판매업 신고번호: [2025-부산사하-0556]</br></br></br></p>
+            <h3>제3조 (서비스의 내용)</h3>
+            <p>회사는 이용자가 개인적인 감정과 생각을 기록할 수 있는 로그 저장소 앱을 제공합니다.<br/> 본 서비스는 <strong>인앱 결제(구독제)</strong>를 통해 유료구독을 통해서만 이용 가능합니다.<br/> 다만, 회사의 정책이나 프로모션에 따라 일정 기간 동안 무료로 제공될 수 있습니다. <br/>유료 서비스의 가격, 결제조건, 해지 및 환불 규정은 각 앱스토어(구글 플레이스토어, 애플 앱스토어)의 정책을 따릅니다.</p>
+            <h3>제4조 (이용자의 의무)</h3>
+            <p>이용자는 서비스를 이용함에 있어 관련 법령, 본 약관 및 회사의 안내를 준수하여야 하며, <strong>타인의 권리를 침해하거나 서비스 운영을 방해하는 행위(불법 정보 유포, 악성 프로그램 배포, 해킹 시도, 명예훼손 등)</strong>를 해서는 안 됩니다.</p>
+            <h3>제5조 (서비스의 변경 및 중단)</h3>
+            <p>회사는 서비스 개선을 위해 필요하다고 판단되는 경우 사전 공지 후 서비스 내용을 변경하거나 중단할 수 있습니다. 다만, 부득이한 사유가 있는 경우 사후에 공지할 수 있습니다.</p>
+            <h3>제6조 (환불 및 해지)</h3>
+            <p>인앱 결제된 구독은 앱스토어의 관리 규정에 따라 해지·환불이 가능합니다. 환불 요청은 이용자가 직접 각 스토어 결제 계정을 통해 진행해야 합니다.</p>
+            <h3>제7조 (책임 제한)</h3>
+            <p>회사는 천재지변, 불가항력, 이용자의 귀책사유 등으로 서비스를 제공할 수 없는 경우 책임을 지지 않습니다.</p>
+            <h3>제8조 (준거법 및 관할법원)</h3>
+            <p>본 약관은 대한민국 법률에 따라 해석되며, 회사와 이용자 간 분쟁이 발생할 경우 부산지방법원을 제1심 전속 관할 법원으로 합니다.</p>
+        </div>
     </div>
-  </div>
-
-  <div id="modal-privacy" class="modal" aria-hidden="true">
+</div>
+<div aria-hidden="true" class="modal" id="modal-privacy">
     <div class="backdrop" data-close="privacy" tabindex="-1"></div>
-    <div role="dialog" aria-modal="true" aria-labelledby="privacy-title" class="dialog" tabindex="-1">
-      <header class="dialog__head">
-        <h2 id="privacy-title" class="dialog__title">🔒 개인정보처리방침</h2>
-        <button class="close" aria-label="닫기" data-close="privacy">✕</button>
-      </header>
-      <div class="dialog__body doc" id="privacy-body">
-        <h3>제1조 (총칙)</h3>
-        <p>Play Alone Lab(이하 "회사")는 「개인정보 보호법」 등 관련 법령을 준수하며, 이용자의 개인정보를 소중히 보호합니다.</p>
-        <h3>제2조 (사업자 정보)</h3>
-        <p>상호: Play Alone Lab<br/>
-        대표자: 김관대<br/>
-        소재지: 부산광역시 사하구 (자세한 주소는 통신판매업 신고증 및 공정거래위원회 통신판매업자 정보공개시스템 참조)<br/>
-        연락처: [010-4865-5914]<br/>
-        이메일: hello@playalonelab.com<br/>
-        개인정보보호책임자: 김관대 (대표자 동일)</p>
-        <h3>제3조 (수집하는 개인정보 항목 및 방법)</h3>
-        <p>회사는 서비스 제공을 위해 아래와 같은 최소한의 개인정보를 수집합니다.</p>
-        <ul>
-          <li><strong>구독 결제 및 관리</strong>: 앱스토어 결제 관련 식별자(구글/애플 제공), 결제 내역, 구독 상태</li>
-          <li><strong>서비스 이용 과정에서 자동 수집</strong>: 기기 식별자(디바이스 ID), OS 정보, 접속 로그, 이용 기록, 에러 로그</li>
-          <li><strong>고객문의 처리 시</strong>: 이메일 주소, 문의 내용</li>
-        </ul>
-        <p>
-          회사는 별도의 회원가입 절차를 운영하지 않으며, 아이디·비밀번호·닉네임 등 개인정보를 수집하지 않습니다.
-          <br>이용자의 앱 진입 비밀번호는 로컬 기기에만 저장되며, 회사 서버에 전송·보관되지 않습니다.
-        </p>
-        <h3>제4조 (개인정보의 이용 목적)</h3>
-        <ul>
-          <li>서비스 제공 및 기능 개선</li>
-          <li>구독 결제 및 환불 처리</li>
-          <li>불법/부정 이용 방지 및 계정 보호</li>
-          <li>고객 문의 응대</li>
-        </ul>
-        <h3>제5조 (개인정보의 보관 및 파기)</h3>
-        <p>회사는 개인정보를 수집·이용 목적이 달성된 후에는 지체 없이 파기합니다. 다만, 법령에 따라 일정 기간 보관이 필요한 경우에는 아래와 같이 보관합니다.</p>
-        <ul>
-          <li>계약 및 청약철회, 대금 결제 및 재화 등의 공급 기록: 5년 (전자상거래법)</li>
-          <li>소비자 불만 또는 분쟁 처리 기록: 3년 (전자상거래법)</li>
-          <li>접속 로그 등 서비스 이용 기록: 3개월 (통신비밀보호법)</li>
-        </ul>
-        <h3>제6조 (개인정보 제3자 제공 및 처리위탁)</h3>
-        <p>회사는 원칙적으로 이용자의 개인정보를 외부에 제공하지 않습니다. 다만, 결제 및 인증과 관련하여 앱스토어 사업자(구글, 애플)에 한해 제공될 수 있습니다.</p>
-        <h3>제7조 (이용자의 권리와 행사 방법)</h3>
-        <p>이용자는 언제든 자신의 개인정보에 대해 열람, 정정, 삭제, 처리정지, 동의 철회를 요구할 수 있으며, 회사는 관련 법령에 따라 지체 없이 조치합니다.</p>
-        <h3>제8조 (개인정보 보호 책임자)</h3>
-        <p>책임자: 김관대<br/>
-        연락처: [010-4865-5914]<br/>
-        이메일: hello@playalonelab.com</p>
-      </div>
+    <div aria-labelledby="privacy-title" aria-modal="true" class="dialog" role="dialog" tabindex="-1">
+        <header class="dialog__head">
+            <h2 class="dialog__title" id="privacy-title">🔒 개인정보처리방침</h2>
+            <button aria-label="닫기" class="close" data-close="privacy">✕</button>
+        </header>
+        <div class="dialog__body doc" id="privacy-body">
+            <h3>제1조 (총칙)</h3>
+            <p>Play Alone Lab(이하 "회사")는 「개인정보 보호법」 등 관련 법령을 준수하며, 이용자의 개인정보를 소중히 보호합니다.</p>
+            <h3>제2조 (사업자 정보)</h3>
+            <p>상호: Play Alone Lab<br>
+                대표자: 김관대<br>
+                소재지: 부산광역시 사하구 (자세한 주소는 통신판매업 신고증 및 공정거래위원회 통신판매업자 정보공개시스템 참조)<br>
+                연락처: [010-4865-5914]<br/>
+                이메일: hello@playalonelab.com<br/>
+                개인정보보호책임자: 김관대 (대표자 동일)</br></br></br></p>
+            <h3>제3조 (수집하는 개인정보 항목 및 방법)</h3>
+            <p>회사는 서비스 제공을 위해 아래와 같은 최소한의 개인정보를 수집합니다.</p>
+            <ul>
+                <li><strong>구독 결제 및 관리</strong>: 앱스토어 결제 관련 식별자(구글/애플 제공), 결제 내역, 구독 상태</li>
+                <li><strong>서비스 이용 과정에서 자동 수집</strong>: 기기 식별자(디바이스 ID), OS 정보, 접속 로그, 이용 기록, 에러 로그</li>
+                <li><strong>고객문의 처리 시</strong>: 이메일 주소, 문의 내용</li>
+            </ul>
+            <p>
+                회사는 별도의 회원가입 절차를 운영하지 않으며, 아이디·비밀번호·닉네임 등 개인정보를 수집하지 않습니다.
+                <br/>이용자의 앱 진입 비밀번호는 로컬 기기에만 저장되며, 회사 서버에 전송·보관되지 않습니다.
+            </p>
+            <h3>제4조 (개인정보의 이용 목적)</h3>
+            <ul>
+                <li>서비스 제공 및 기능 개선</li>
+                <li>구독 결제 및 환불 처리</li>
+                <li>불법/부정 이용 방지 및 계정 보호</li>
+                <li>고객 문의 응대</li>
+            </ul>
+            <h3>제5조 (개인정보의 보관 및 파기)</h3>
+            <p>회사는 개인정보를 수집·이용 목적이 달성된 후에는 지체 없이 파기합니다. 다만, 법령에 따라 일정 기간 보관이 필요한 경우에는 아래와 같이 보관합니다.</p>
+            <ul>
+                <li>계약 및 청약철회, 대금 결제 및 재화 등의 공급 기록: 5년 (전자상거래법)</li>
+                <li>소비자 불만 또는 분쟁 처리 기록: 3년 (전자상거래법)</li>
+                <li>접속 로그 등 서비스 이용 기록: 3개월 (통신비밀보호법)</li>
+            </ul>
+            <h3>제6조 (개인정보 제3자 제공 및 처리위탁)</h3>
+            <p>회사는 원칙적으로 이용자의 개인정보를 외부에 제공하지 않습니다. 다만, 결제 및 인증과 관련하여 앱스토어 사업자(구글, 애플)에 한해 제공될 수 있습니다.</p>
+            <h3>제7조 (이용자의 권리와 행사 방법)</h3>
+            <p>이용자는 언제든 자신의 개인정보에 대해 열람, 정정, 삭제, 처리정지, 동의 철회를 요구할 수 있으며, 회사는 관련 법령에 따라 지체 없이 조치합니다.</p>
+            <h3>제8조 (개인정보 보호 책임자)</h3>
+            <p>책임자: 김관대<br>
+                연락처: [010-4865-5914]<br/>
+                이메일: hello@playalonelab.com</br></p>
+        </div>
     </div>
-  </div>
-
-  <div id="modal-ddongle" class="modal" aria-hidden="true">
+</div>
+<div aria-hidden="true" class="modal" id="modal-ddongle">
     <div class="backdrop" data-close="ddongle" tabindex="-1"></div>
-    <div role="dialog" aria-modal="true" aria-labelledby="ddongle-title" class="dialog" tabindex="-1">
-      <header class="dialog__head">
-        <h2 id="ddongle-title" class="dialog__title">📜 똥글똥글 - 소개</h2>
-        <button class="close" aria-label="닫기" data-close="ddongle">✕</button>
-      </header>
-      <div class="dialog__body doc" id="ddongle-body">
-          <div class="pb30">
-            <p>감성에 취해,<br>
-               감정에 휩쓸려,<br>
-               성급하게 올려버린 '똥글' 하나.</p>
-            <br>
-            <p>몇 시간 뒤 지워버렸지만,<br>
-            흑역사는 이미 시작됐죠.</p>
-
-            <p>그래서 만들었습니다.<br>
-               누구도 보지 못하고,<br>
-               오직 나만 볼 수 있는 공간.</p><br>
-
-            <p>감정이 지나간 자리마다,<br>
-               조용히 남겨지는 당신만의 로그.<br>
-              <strong>나와의 SNS, 똥글똥글.</strong></p>
-          </div>
-      </div>
+    <div aria-labelledby="ddongle-title" aria-modal="true" class="dialog" role="dialog" tabindex="-1">
+        <header class="dialog__head">
+            <h2 class="dialog__title" id="ddongle-title">📜 똥글똥글 - 소개</h2>
+            <button aria-label="닫기" class="close" data-close="ddongle">✕</button>
+        </header>
+        <div class="dialog__body doc" id="ddongle-body">
+            <div class="pb30">
+                <p>감성에 취해,<br/>
+                    감정에 휩쓸려,<br/>
+                    성급하게 올려버린 '똥글' 하나.</p>
+                <br/>
+                <p>몇 시간 뒤 지워버렸지만,<br/>
+                    흑역사는 이미 시작됐죠.</p>
+                <p>그래서 만들었습니다.<br/>
+                    누구도 보지 못하고,<br/>
+                    오직 나만 볼 수 있는 공간.</p><br/>
+                <p>감정이 지나간 자리마다,<br/>
+                    조용히 남겨지는 당신만의 로그.<br/>
+                    <strong>나와의 SNS, 똥글똥글.</strong></p>
+            </div>
+        </div>
     </div>
-  </div>
-
-  <script>
+</div>
+<script>
     // Year
     document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -311,8 +383,8 @@
     const mobileNav = document.getElementById('mobileNav');
     function closeMobile(){ mobileNav.classList.remove('open'); navBtn.setAttribute('aria-expanded','false'); }
     navBtn?.addEventListener('click', () => {
-      const isOpen = mobileNav.classList.toggle('open');
-      navBtn.setAttribute('aria-expanded', String(isOpen));
+        const isOpen = mobileNav.classList.toggle('open');
+        navBtn.setAttribute('aria-expanded', String(isOpen));
     });
     mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMobile));
 
@@ -323,9 +395,9 @@
     if (saved) root.setAttribute('data-theme', saved);
     else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) { root.setAttribute('data-theme', 'dark'); }
     themeBtn?.addEventListener('click', () => {
-      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      root.setAttribute('data-theme', next);
-      localStorage.setItem('pal-theme', next);
+        const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        localStorage.setItem('pal-theme', next);
     });
 
     // Copy helpers & scroll
@@ -334,62 +406,62 @@
     document.getElementById('scrollToTopBtn')?.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
 
     function copyToClipboard(text, ok='✓ 복사됨'){
-      navigator.clipboard.writeText(text).then(()=>{ const t=document.title; document.title=ok; setTimeout(()=>document.title=t, 800); })
-        .catch(()=> alert('클립보드 복사 실패'));
+        navigator.clipboard.writeText(text).then(()=>{ const t=document.title; document.title=ok; setTimeout(()=>document.title=t, 800); })
+            .catch(()=> alert('클립보드 복사 실패'));
     }
 
     // ===== Modal Logic =====
     const body = document.body;
     const modals = {
-      terms: document.getElementById('modal-terms'),
-      privacy: document.getElementById('modal-privacy'),
-      ddongle: document.getElementById('modal-ddongle')
+        terms: document.getElementById('modal-terms'),
+        privacy: document.getElementById('modal-privacy'),
+        ddongle: document.getElementById('modal-ddongle')
     };
     const triggers = {
-      terms: document.getElementById('openTos'),
-      privacy: document.getElementById('openPp'),
-      ddongle: document.getElementById('openDdongle')
+        terms: document.getElementById('openTos'),
+        privacy: document.getElementById('openPp'),
+        ddongle: document.getElementById('openDdongle')
     };
 
     function getFocusable(container){
-      return container.querySelectorAll('a[href], button, textarea, input, select, [tabindex]:not([tabindex="-1"])');
+        return container.querySelectorAll('a[href], button, textarea, input, select, [tabindex]:not([tabindex="-1"])');
     }
 
     function openModal(key){
-      const m = modals[key]; if(!m) return;
-      m.classList.add('open'); m.setAttribute('aria-hidden','false');
-      const dialog = m.querySelector('.dialog');
-      const firstFocus = dialog.querySelector('h2') || dialog;
-      firstFocus.setAttribute('tabindex','-1'); firstFocus.focus();
-      body.style.overflow = 'hidden';
-      // hash update
-      if (key==='terms') location.hash = '#terms';
-      if (key==='privacy') location.hash = '#privacy';
-      if (key==='ddongle') location.hash = '#ddongle';
-      // trap
-      const focusables = [...getFocusable(dialog)];
-      function trap(e){
-        if(e.key === 'Tab' && focusables.length){
-          const idx = focusables.indexOf(document.activeElement);
-          if(e.shiftKey && (idx <= 0)){ e.preventDefault(); focusables[focusables.length-1].focus(); }
-          else if(!e.shiftKey && (idx === focusables.length-1)){ e.preventDefault(); focusables[0].focus(); }
+        const m = modals[key]; if(!m) return;
+        m.classList.add('open'); m.setAttribute('aria-hidden','false');
+        const dialog = m.querySelector('.dialog');
+        const firstFocus = dialog.querySelector('h2') || dialog;
+        firstFocus.setAttribute('tabindex','-1'); firstFocus.focus();
+        body.style.overflow = 'hidden';
+        // hash update
+        if (key==='terms') location.hash = '#terms';
+        if (key==='privacy') location.hash = '#privacy';
+        if (key==='ddongle') location.hash = '#ddongle';
+        // trap
+        const focusables = [...getFocusable(dialog)];
+        function trap(e){
+            if(e.key === 'Tab' && focusables.length){
+                const idx = focusables.indexOf(document.activeElement);
+                if(e.shiftKey && (idx <= 0)){ e.preventDefault(); focusables[focusables.length-1].focus(); }
+                else if(!e.shiftKey && (idx === focusables.length-1)){ e.preventDefault(); focusables[0].focus(); }
+            }
+            if(e.key === 'Escape'){ closeModal(key); }
         }
-        if(e.key === 'Escape'){ closeModal(key); }
-      }
-      dialog.addEventListener('keydown', trap);
-      m._trap = trap;
+        dialog.addEventListener('keydown', trap);
+        m._trap = trap;
     }
 
     function closeModal(key){
-      const m = modals[key]; if(!m) return;
-      m.classList.remove('open'); m.setAttribute('aria-hidden','true');
-      body.style.overflow = '';
-      const dialog = m.querySelector('.dialog');
-      dialog.removeEventListener('keydown', m._trap || (()=>{}));
-      // clean hash
-      if (location.hash === '#terms' || location.hash === '#privacy' || location.hash === '#ddongle') history.replaceState(null, '', ' ');
-      // return focus
-      (triggers[key]||document.body).focus?.();
+        const m = modals[key]; if(!m) return;
+        m.classList.remove('open'); m.setAttribute('aria-hidden','true');
+        body.style.overflow = '';
+        const dialog = m.querySelector('.dialog');
+        dialog.removeEventListener('keydown', m._trap || (()=>{}));
+        // clean hash
+        if (location.hash === '#terms' || location.hash === '#privacy' || location.hash === '#ddongle') history.replaceState(null, '', ' ');
+        // return focus
+        (triggers[key]||document.body).focus?.();
     }
 
     // click triggers
@@ -404,89 +476,88 @@
 
     // hash open (deep link)
     window.addEventListener('load', ()=>{
-      if (location.hash === '#terms') openModal('terms');
-      if (location.hash === '#privacy') openModal('privacy');
-      if (location.hash === '#ddongle') openModal('ddongle');
+        if (location.hash === '#terms') openModal('terms');
+        if (location.hash === '#privacy') openModal('privacy');
+        if (location.hash === '#ddongle') openModal('ddongle');
     });
-  </script>
-  <script>
-  (function () {
-    const els = document.querySelectorAll('[data-animate]');
-    // IO 미지원 또는 에러 시: 전부 즉시 표시
-    function showAll() { els.forEach(el => el.classList.add('in')); }
+</script>
+<script>
+    (function () {
+        const els = document.querySelectorAll('[data-animate]');
+        // IO 미지원 또는 에러 시: 전부 즉시 표시
+        function showAll() { els.forEach(el => el.classList.add('in')); }
 
-    try {
-      if (!('IntersectionObserver' in window)) {
-        showAll(); return;
-      }
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-          if (e.isIntersecting) {
-            e.target.classList.add('in');
-            io.unobserve(e.target);
-          }
-        });
-      }, { rootMargin: '0px 0px -10% 0px', threshold: 0.01 });
+        try {
+            if (!('IntersectionObserver' in window)) {
+                showAll(); return;
+            }
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) {
+                        e.target.classList.add('in');
+                        io.unobserve(e.target);
+                    }
+                });
+            }, { rootMargin: '0px 0px -10% 0px', threshold: 0.01 });
 
-      els.forEach(el => io.observe(el));
+            els.forEach(el => io.observe(el));
 
-      // 로드 타이밍 문제 대비: 첫 페인트 뒤에도 아직 숨겨져 있으면 강제 표시
-      window.addEventListener('load', () => {
-        setTimeout(() => {
-          const anyHidden = Array.from(els).some(el => !el.classList.contains('in'));
-          if (anyHidden) showAll();
-        }, 500);
-      });
-    } catch (e) {
-      showAll();
-    }
-  })();
+            // 로드 타이밍 문제 대비: 첫 페인트 뒤에도 아직 숨겨져 있으면 강제 표시
+            window.addEventListener('load', () => {
+                setTimeout(() => {
+                    const anyHidden = Array.from(els).some(el => !el.classList.contains('in'));
+                    if (anyHidden) showAll();
+                }, 500);
+            });
+        } catch (e) {
+            showAll();
+        }
+    })();
 </script>
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Play Alone Lab",
-  "url": "https://playalonelab.com",
-  "logo": "https://playalonelab.com/images/PLAY_ALONE_LAB_CI.png",
-  "founder": "김관대",
-  "foundingDate": "2025",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "사하구",
-    "addressRegion": "부산광역시",
-    "addressCountry": "KR"
-  },
-  "contactPoint": [{
-    "@type": "ContactPoint",
-    "contactType": "customer support",
-    "email": "hello@playalonelab.com",
-    "telephone": "+82-10-4865-5914",
-    "areaServed": "KR",
-    "availableLanguage": ["ko"]
-  }],
-  "identifier": [
     {
-      "@type": "PropertyValue",
-      "propertyID": "Business Registration No.",
-      "value": "216-19-06708"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "Mail-order Business Report No.",
-      "value": "2025-부산사하-0556"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "D-U-N-S",
-      "value": "696250965"
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Play Alone Lab",
+        "url": "https://playalonelab.com",
+        "logo": "https://playalonelab.com/images/PLAY_ALONE_LAB_CI.png",
+        "founder": "김관대",
+        "foundingDate": "2025",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "사하구",
+            "addressRegion": "부산광역시",
+            "addressCountry": "KR"
+        },
+        "contactPoint": [{
+            "@type": "ContactPoint",
+            "contactType": "customer support",
+            "email": "hello@playalonelab.com",
+            "telephone": "+82-10-4865-5914",
+            "areaServed": "KR",
+            "availableLanguage": ["ko"]
+        }],
+        "identifier": [
+            {
+                "@type": "PropertyValue",
+                "propertyID": "Business Registration No.",
+                "value": "216-19-06708"
+            },
+            {
+                "@type": "PropertyValue",
+                "propertyID": "Mail-order Business Report No.",
+                "value": "2025-부산사하-0556"
+            },
+            {
+                "@type": "PropertyValue",
+                "propertyID": "D-U-N-S",
+                "value": "696250965"
+            }
+        ],
+        "sameAs": [
+            "https://playalonelab.com"
+        ]
     }
-  ],
-  "sameAs": [
-    "https://playalonelab.com"
-  ]
-}
 </script>
-
 </body>
 </html>
