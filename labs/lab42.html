@@ -4,54 +4,56 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PLAY ALONE LAB — LAB.42</title>
-  <style>
-    :root{--bg:#F6F2E9;--ink:#192643;--sub:#7c8599;--line:#E6E0D4;--accent:#FBAE91;--card:#fff;--radius:16px;--shadow:0 6px 20px rgba(25,38,67,.06)}
-    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,"Noto Sans KR","Pretendard",sans-serif}
-    a{color:inherit;text-decoration:none}.wrap{max-width:1100px;margin:0 auto;padding:32px 20px 80px}
-    header{display:grid;gap:12px;padding:20px 0 8px}.crumbs{font-size:13px;color:var(--sub)}
-    .title{font-weight:900;letter-spacing:-.02em;font-size:clamp(28px,4.5vw,44px);margin:0}.lead{color:var(--sub)}
-    .badge{display:inline-flex;gap:8px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:8px 12px;box-shadow:var(--shadow);width:fit-content}
-    .badge .dot{width:10px;height:10px;border-radius:50%;background:var(--accent);opacity:.4}
-    .grid{display:grid;gap:16px;grid-template-columns:repeat(12,1fr)}.card{grid-column:span 12;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px}
-    .card h2{margin:0 0 6px;font-size:22px}.muted{color:var(--sub);font-size:14px}
-    @media(min-width:900px){.half{grid-column:span 6}.third{grid-column:span 4}}
-  </style>
+  <meta name="description" content="LAB.42: 여행과 관찰로 관점을 수집하는 실험실">
+  <link rel="stylesheet" href="/labs/labs.css">
 </head>
 <body>
 <main class="wrap">
-  <header>
-    <div class="crumbs"><a href="/labs/index.html">← Studios</a></div>
-    <div class="badge"><span class="dot"></span><strong>LAB.42</strong></div>
-    <h1 class="title">탐험과 사유의 실험실</h1>
-    <p class="lead">여행, 관찰, 질문. 나는 세상을 돌아다니며 나만의 관점을 수집한다. 기록은 곧 나의 지도가 된다.</p>
+  <header class="lab-hero">
+    <div>
+      <div class="lab-crumbs"><a href="/labs/index">Studios</a> · LAB.42</div>
+      <div class="lab-badge"><span class="dot" aria-hidden="true"></span><strong>LAB.42</strong></div>
+      <h1 class="lab-title">탐험과 사유의 실험실</h1>
+      <p class="lab-lead">여행, 관찰, 질문. 세상을 돌아다니며 나만의 관점을 수집한다. 기록은 곧 나의 지도가 된다.</p>
+      <div class="lab-keywords">
+        <span class="lab-pill">Z-Mupsi</span>
+        <span class="lab-pill">혼자놀기</span>
+        <span class="lab-pill">관점 수집</span>
+        <span class="lab-pill">다큐 기록</span>
+      </div>
+    </div>
   </header>
 
-
-  <section class="grid">
-    <article class="card half">
-      <h2>브랜드 모토</h2>
-      <p class="muted">“생각은 여행이고, 여행은 또 다른 사유다.”</p>
-    </article>
-    <article class="card half">
-      <h2>프로젝트 축</h2>
-      <p class="muted">노 캐리어·노 플랜(Z-Mupsi) / 혼자놀기 실험 / 관점 수집 다큐.</p>
-    </article>
+  <section class="lab-section">
+    <div class="lab-grid lab-cards--split">
+      <article class="lab-card">
+        <h2>브랜드 모토</h2>
+        <p>“생각은 여행이고, 여행은 또 다른 사유다.” 떠나야만 발견할 수 있는 질문들이 있다.</p>
+      </article>
+      <article class="lab-card">
+        <h2>프로젝트 축</h2>
+        <p>노 캐리어·노 플랜(Z-Mupsi) · 혼자놀기 실험 · 관점 수집 다큐. 이동 자체가 실험이 된다.</p>
+      </article>
+    </div>
   </section>
 
+  <hr class="lab-divider" aria-hidden="true">
 
-  <section class="grid">
-    <article class="card third">
-      <h2>Project — Z‑Mupsi</h2>
-      <p class="muted">짐 없이, 계획 없이. 우연이 만든 서사를 기록한다.</p>
-    </article>
-    <article class="card third">
-      <h2>Project — 혼자놀기 지도</h2>
-      <p class="muted">혼밥·혼술·혼창작 장소 아카이브. ‘나만의 시간’을 위한 지도.</p>
-    </article>
-    <article class="card third">
-      <h2>Project — 사유의 필름</h2>
-      <p class="muted">짧은 다큐·에세이 영상으로 관점의 파편을 기록.</p>
-    </article>
+  <section class="lab-section">
+    <div class="lab-grid lab-cards--thirds">
+      <article class="lab-card">
+        <h2>Project — Z‑Mupsi</h2>
+        <p>짐 없이, 계획 없이 떠나 우연이 만들어주는 서사를 기록한다.</p>
+      </article>
+      <article class="lab-card">
+        <h2>Project — 혼자놀기 지도</h2>
+        <p>혼밥·혼술·혼창작 장소를 아카이브. 침잠과 재충전을 위한 개인 지도를 만든다.</p>
+      </article>
+      <article class="lab-card">
+        <h2>Project — 사유의 필름</h2>
+        <p>짧은 다큐·에세이 영상으로 관점의 파편을 기록해 나만의 필름으로 엮는다.</p>
+      </article>
+    </div>
   </section>
 </main>
 </body>

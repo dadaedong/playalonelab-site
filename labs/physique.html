@@ -4,205 +4,124 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PLAY ALONE LAB — LAB.8 Physique Project</title>
-  <style>
-    :root {
-      --bg: #F6F2E9;      /* PAL background */
-      --ink: #192643;     /* primary text */
-      --sub: #7c8599;     /* secondary text */
-      --line: #E6E0D4;    /* divider */
-      --accent: #FBAE91;  /* accent */
-      --card: #ffffff;    /* card bg */
-      --radius: 16px;
-      --shadow: 0 6px 20px rgba(25,38,67,.06);
-    }
-    * { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans KR", Apple SD Gothic Neo, "Pretendard", sans-serif; color: var(--ink); background: var(--bg); }
-    a { color: inherit; text-decoration: none; }
-
-    .wrap { max-width: 1100px; margin: 0 auto; padding: 32px 20px 72px; }
-
-    /* Header */
-    .lab-header { display: grid; grid-template-columns: 1fr; gap: 16px; align-items: start; }
-    .lab-badge { display: inline-flex; align-items: center; gap: 10px; background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 8px 14px; box-shadow: var(--shadow); width: fit-content; }
-    .lab-badge .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px rgba(251,174,145,.25); }
-    .lab-title { font-size: clamp(24px, 4vw, 40px); line-height: 1.15; margin: 4px 0 6px; font-weight: 800; letter-spacing: -0.02em; }
-    .lab-sub { font-size: clamp(14px, 2.4vw, 18px); color: var(--sub); margin: 0 0 8px; }
-
-    /* Meta */
-    .meta { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; margin: 20px 0 28px; }
-    .meta .item { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 16px; box-shadow: var(--shadow); }
-    .meta .k { display: block; font-size: 12px; color: var(--sub); margin-bottom: 6px; letter-spacing: .02em; }
-    .meta .v { font-size: 16px; font-weight: 700; }
-
-    /* Divider */
-    .divider { height: 1px; background: linear-gradient(90deg, transparent, var(--line), transparent); margin: 24px 0; }
-
-    /* Week List */
-    .weeks { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
-    .week-card { grid-column: span 12; background: var(--card); border: 1px solid var(--line); border-radius: calc(var(--radius) + 4px); padding: 18px 18px 16px; box-shadow: var(--shadow); position: relative; overflow: hidden; }
-    .week-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 10px; }
-    .week-title { font-weight: 800; letter-spacing: -0.01em; }
-    .week-date { font-size: 13px; color: var(--sub); }
-
-    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 12px; }
-    .cell { grid-column: span 12; border: 1px dashed var(--line); border-radius: 12px; padding: 12px; background: rgba(246,242,233,.55); }
-    .cell .label { font-size: 12px; color: var(--sub); display: block; margin-bottom: 6px; }
-    .cell .val { font-size: 15px; line-height: 1.5; }
-
-    .quote { margin-top: 12px; border-left: 3px solid var(--accent); padding: 10px 12px; background: rgba(251,174,145,.09); border-radius: 8px; color: #3b4050; font-size: 14px; }
-
-    /* Footer */
-    .foot { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; color: var(--sub); font-size: 13px; }
-    .tag { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--line); border-radius: 999px; padding: 6px 10px; background: var(--card); }
-    .tag .mini { width: 8px; height: 8px; background: var(--ink); border-radius: 50%; opacity: .2; }
-
-    /* Responsive */
-    @media (min-width: 720px) {
-      .lab-header { grid-template-columns: 1.3fr .7fr; }
-      .meta { grid-template-columns: repeat(4, minmax(0,1fr)); }
-      .week-card .grid .cell.col-6 { grid-column: span 6; }
-      .weeks { grid-template-columns: repeat(12, 1fr); }
-      .week-card { grid-column: span 6; }
-    }
-    @media (min-width: 1024px) {
-      .week-card { grid-column: span 4; }
-    }
-  </style>
+  <link rel="stylesheet" href="/labs/labs.css">
 </head>
 <body>
 <main class="wrap" id="lab8-physique">
-
-  <!-- Header / Intro -->
-  <div class="lab-header">
+  <header class="lab-hero">
     <div>
+      <div class="lab-crumbs"><a href="/labs/lab8.html">LAB.8</a> · Physique Project</div>
       <div class="lab-badge" aria-label="LAB.8 badge">
         <span class="dot" aria-hidden="true"></span>
         <strong>LAB.8 · Physique Project</strong>
       </div>
       <h1 class="lab-title">마운자로 투약 실험 — 몸·감정·창작 리듬 관찰</h1>
-      <p class="lab-sub">몸도 나의 실험실이다. 약물(마운자로)을 통해 식욕·감정·집중력·수면이 어떻게 바뀌는지 기록한다.<br/>목표는 감량만이 아니라, <strong>창작 리듬의 회복</strong>이다.</p>
+      <p class="lab-lead">몸도 나의 실험실이다. 약물(마운자로)을 통해 식욕·감정·집중력·수면 변화를 기록한다. 목표는 감량이 아닌 <strong>창작 리듬 회복</strong>.</p>
     </div>
-  </div>
+  </header>
 
-  <!-- Meta -->
-  <section class="meta" aria-label="실험 메타">
-    <div class="item"><span class="k">실험코드</span><span class="v">LAB8-MOUNJARO-2025</span></div>
-    <div class="item"><span class="k">투약 시작</span><span class="v">2025.10.14</span></div>
-    <div class="item"><span class="k">투약 주기</span><span class="v">주 1회</span></div>
-    <div class="item"><span class="k">관찰 항목</span><span class="v">식욕 · 감정 · 체중 · 집중력 · 수면</span></div>
+  <section class="lab-meta" aria-label="실험 메타">
+    <div class="lab-meta__item"><span class="lab-meta__label">실험코드</span><span class="lab-meta__value">LAB8-MOUNJARO-2025</span></div>
+    <div class="lab-meta__item"><span class="lab-meta__label">투약 시작</span><span class="lab-meta__value">2025.10.14</span></div>
+    <div class="lab-meta__item"><span class="lab-meta__label">투약 주기</span><span class="lab-meta__value">주 1회</span></div>
+    <div class="lab-meta__item"><span class="lab-meta__label">관찰 항목</span><span class="lab-meta__value">식욕 · 감정 · 체중 · 집중력 · 수면</span></div>
   </section>
 
-  <div class="divider" role="separator" aria-hidden="true"></div>
+  <hr class="lab-divider" role="separator" aria-hidden="true">
 
-  <!-- Weeks Grid (example cards; duplicate & edit per week) -->
-  <section class="weeks" aria-label="주차별 기록">
+  <section class="lab-timeline" aria-label="주차별 기록">
 
     <!-- Week 1 Card -->
     <article class="week-card" aria-labelledby="week1-title">
-      <div class="week-head">
+      <div>
         <h2 class="week-title" id="week1-title">WEEK 1 — 투약 시작</h2>
-        <time class="week-date" datetime="2025-10-14">2025.10.14–2025.10.20</time>
+        <time datetime="2025-10-14">2025.10.14–2025.10.20</time>
       </div>
-      <div class="grid">
-        <div class="cell col-6">
-          <span class="label">용량</span>
-          <div class="val">2.5 mg (주 1회)</div>
+      <div class="week-grid">
+        <div class="week-cell">
+          <span class="week-label">용량</span>
+          <span class="week-value">2.5 mg (주 1회)</span>
         </div>
-        <div class="cell col-6">
-          <span class="label">체중 변화</span>
-          <div class="val">78.4 kg → 77.1 kg (−1.3 kg)</div>
+        <div class="week-cell">
+          <span class="week-label">체중 변화</span>
+          <span class="week-value">78.4 kg → 77.1 kg (−1.3 kg)</span>
         </div>
-        <div class="cell col-6">
-          <span class="label">식욕 변화</span>
-          <div class="val">저녁 섭취량 체감 60% ↓, 폭식 충동 현저히 감소</div>
+        <div class="week-cell">
+          <span class="week-label">식욕 변화</span>
+          <span class="week-value">저녁 섭취량 체감 60% 감소, 폭식 충동 완화</span>
         </div>
-        <div class="cell col-6">
-          <span class="label">감정/집중</span>
-          <div class="val">공복 스트레스 약간 있으나 집중도 상승, 코딩 지속시간 증가</div>
+        <div class="week-cell">
+          <span class="week-label">감정/집중</span>
+          <span class="week-value">공복 스트레스 약간 있으나 집중도 상승, 코딩 지속시간 증가</span>
         </div>
-        <div class="cell">
-          <span class="label">부작용</span>
-          <div class="val">가벼운 메스꺼움, 오후 피로감. 수분 섭취로 완화됨</div>
+        <div class="week-cell full">
+          <span class="week-label">부작용</span>
+          <span class="week-value">가벼운 메스꺼움, 오후 피로감 — 수분 섭취로 완화</span>
         </div>
       </div>
-      <p class="quote">“배고픔은 줄었는데, 생각은 더 선명해졌다.”</p>
-      <div class="foot">
-        <span class="tag"><span class="mini"></span> 마운자로</span>
-        <span class="tag"><span class="mini"></span> LAB.8</span>
-        <span class="tag"><span class="mini"></span> Self‑Experiment</span>
-      </div>
+      <p class="week-quote">“배고픔은 줄었는데, 생각은 더 선명해졌다.”</p>
     </article>
 
     <!-- Week 2 Card (placeholder) -->
     <article class="week-card" aria-labelledby="week2-title">
-      <div class="week-head">
+      <div>
         <h2 class="week-title" id="week2-title">WEEK 2 — 적응기</h2>
-        <time class="week-date" datetime="2025-10-21">2025.10.21–2025.10.27</time>
+        <time datetime="2025-10-21">2025.10.21–2025.10.27</time>
       </div>
-      <div class="grid">
-        <div class="cell col-6">
-          <span class="label">용량</span>
-          <div class="val">2.5 mg (or 조정값 입력)</div>
+      <div class="week-grid">
+        <div class="week-cell">
+          <span class="week-label">용량</span>
+          <span class="week-value">2.5 mg (or 조정값 입력)</span>
         </div>
-        <div class="cell col-6">
-          <span class="label">체중 변화</span>
-          <div class="val">—</div>
+        <div class="week-cell">
+          <span class="week-label">체중 변화</span>
+          <span class="week-value">—</span>
         </div>
-        <div class="cell col-6">
-          <span class="label">식욕 변화</span>
-          <div class="val">—</div>
+        <div class="week-cell">
+          <span class="week-label">식욕 변화</span>
+          <span class="week-value">—</span>
         </div>
-        <div class="cell col-6">
-          <span class="label">감정/집중</span>
-          <div class="val">—</div>
+        <div class="week-cell">
+          <span class="week-label">감정/집중</span>
+          <span class="week-value">—</span>
         </div>
-        <div class="cell">
-          <span class="label">부작용</span>
-          <div class="val">—</div>
+        <div class="week-cell full">
+          <span class="week-label">부작용</span>
+          <span class="week-value">—</span>
         </div>
       </div>
-      <p class="quote">“욕구가 잦아드니, 집중이 선명해졌다.”</p>
-      <div class="foot">
-        <span class="tag"><span class="mini"></span> 마운자로</span>
-        <span class="tag"><span class="mini"></span> LAB.8</span>
-        <span class="tag"><span class="mini"></span> Physique</span>
-      </div>
+      <p class="week-quote">“욕구가 잦아드니, 집중이 선명해졌다.”</p>
     </article>
 
     <!-- Week 3 Card (placeholder) -->
     <article class="week-card" aria-labelledby="week3-title">
-      <div class="week-head">
+      <div>
         <h2 class="week-title" id="week3-title">WEEK 3 — 관찰기</h2>
-        <time class="week-date" datetime="2025-10-28">2025.10.28–2025.11.03</time>
+        <time datetime="2025-10-28">2025.10.28–2025.11.03</time>
       </div>
-      <div class="grid">
-        <div class="cell col-6">
-          <span class="label">용량</span>
-          <div class="val">—</div>
+      <div class="week-grid">
+        <div class="week-cell">
+          <span class="week-label">용량</span>
+          <span class="week-value">—</span>
         </div>
-        <div class="cell col-6">
-          <span class="label">체중 변화</span>
-          <div class="val">—</div>
+        <div class="week-cell">
+          <span class="week-label">체중 변화</span>
+          <span class="week-value">—</span>
         </div>
-        <div class="cell col-6">
-          <span class="label">식욕 변화</span>
-          <div class="val">—</div>
+        <div class="week-cell">
+          <span class="week-label">식욕 변화</span>
+          <span class="week-value">—</span>
         </div>
-        <div class="cell col-6">
-          <span class="label">감정/집중</span>
-          <div class="val">—</div>
+        <div class="week-cell">
+          <span class="week-label">감정/집중</span>
+          <span class="week-value">—</span>
         </div>
-        <div class="cell">
-          <span class="label">부작용</span>
-          <div class="val">—</div>
+        <div class="week-cell full">
+          <span class="week-label">부작용</span>
+          <span class="week-value">—</span>
         </div>
       </div>
-      <p class="quote">“몸이 가벼워지면, 사유도 가벼워진다.”</p>
-      <div class="foot">
-        <span class="tag"><span class="mini"></span> 마운자로</span>
-        <span class="tag"><span class="mini"></span> LAB.8</span>
-        <span class="tag"><span class="mini"></span> Observation</span>
-      </div>
+      <p class="week-quote">“몸이 가벼워지면, 사유도 가벼워진다.”</p>
     </article>
 
   </section>
