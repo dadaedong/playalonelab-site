@@ -93,6 +93,8 @@ header{position:sticky; top:0; backdrop-filter:saturate(180%) blur(8px); backgro
 .project .body{padding:var(--space-2) var(--space-2) var(--space-3)}
 .project .meta{color:var(--muted); font-size:12px; margin-bottom:12px}
 
+.pallab_variable {object-fit: cover; object-position: center; width: 300px; height: 140px;}
+
 /* ===================== Contact / Footer ===================== */
 .contact-card{padding:var(--space-3); display:flex; flex-wrap:wrap; gap:var(--space-2); align-items:center; justify-content:space-between}
 .contact .info{color:var(--muted)}
