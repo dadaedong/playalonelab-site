@@ -4,8 +4,9 @@
     <meta charset="utf-8" />
     <title>계정 및 데이터 삭제 안내 | 똥글똥글</title>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="/site-header.css" />
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR", Arial, sans-serif; line-height: 1.6; color: #192643; background:#F6F2E9; margin:0; padding: 20px; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR", Arial, sans-serif; line-height: 1.6; color: #192643; background:#F6F2E9; margin:0; padding: 0; }
         .container { max-width: 800px; margin: 20px auto; padding: 30px; background:#fff; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
         h1 { font-size: 24px; margin: 0 0 5px; color: #333; }
         .subtitle { color:#6c757d; font-size: 14px; margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
@@ -18,7 +19,36 @@
     </style>
 </head>
 <body>
-<main class="container">
+<a class="skip" href="#main">본문으로 바로가기</a>
+<header class="site-header">
+    <div class="container nav">
+        <a aria-label="Play Alone Lab Home" class="brand" href="/">Play Alone Lab</a>
+        <nav aria-label="주요 메뉴" class="nav-menu">
+            <a href="/#about">About</a>
+            <a href="/#philosophy">Lab Charter</a>
+            <a href="/#projects">Projects</a>
+            <a href="/labs/index">Studios</a>
+            <a href="/#contact">Contact</a>
+            <a href="/terms">Terms</a>
+            <a href="/privacy">Privacy</a>
+            <a aria-current="page" href="/account-deletion">Delete Account</a>
+        </nav>
+        <div class="nav-cta">
+            <button aria-controls="mobileNav" aria-expanded="false" class="btn btn--ghost nav-toggle" id="navBtn">menu</button>
+        </div>
+    </div>
+    <div aria-label="모바일 메뉴" class="mobile-panel" id="mobileNav" role="dialog">
+        <a href="/#about">About</a>
+        <a href="/#philosophy">Lab Charter</a>
+        <a href="/#projects">Projects</a>
+        <a href="/labs/index">Studios</a>
+        <a href="/#contact">Contact</a>
+        <a href="/terms">Terms</a>
+        <a href="/privacy">Privacy</a>
+        <a aria-current="page" href="/account-deletion">Delete Account</a>
+    </div>
+</header>
+<main class="container" id="main">
     <header>
         <h1>똥글똥글: 계정 및 데이터 삭제 안내</h1>
         <p class="subtitle">Play Alone Lab</p>
@@ -65,5 +95,6 @@
     </p>
 
 </main>
+<script src="/site-header.js"></script>
 </body>
 </html>
