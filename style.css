@@ -50,7 +50,7 @@ p{margin:0 0 1rem}
 .skip{position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden}
 .skip:focus{left:12px; top:12px; width:auto; height:auto; padding:8px 12px; background:var(--accent); color:var(--accent-contrast); border-radius:8px; z-index:99}
 
-header{position:sticky; top:0; backdrop-filter:saturate(180%) blur(8px); background: color-mix(in oklab, var(--bg) 85%, transparent); border-bottom:1px solid var(--line); z-index:50}
+.site-header{position:sticky; top:0; backdrop-filter:saturate(180%) blur(8px); background: color-mix(in oklab, var(--bg) 85%, transparent); border-bottom:1px solid var(--line); z-index:50}
 .nav{display:flex; align-items:center; justify-content:space-between; height:64px}
 .brand{display:flex; align-items:center; gap:12px; font-weight:900; letter-spacing:.2px}
 .brand img{width:28px; height:28px}

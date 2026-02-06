@@ -5,9 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LAB.8 Physique Project — Mounjaro Log</title>
   <link rel="stylesheet" href="/labs/labs.css">
+  <link rel="stylesheet" href="/site-header.css">
 </head>
 <body>
-<main class="wrap">
+<a class="skip" href="#main">본문으로 바로가기</a>
+<header class="site-header">
+  <div class="container nav">
+    <a aria-label="Play Alone Lab Home" class="brand" href="/">Play Alone Lab</a>
+    <nav aria-label="주요 메뉴" class="nav-menu">
+      <a href="/#about">About</a>
+      <a href="/#philosophy">Lab Charter</a>
+      <a href="/#projects">Projects</a>
+      <a aria-current="page" href="/labs/index">Studios</a>
+      <a href="/#contact">Contact</a>
+      <a href="/terms">Terms</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/account-deletion">Delete Account</a>
+    </nav>
+    <div class="nav-cta">
+      <button aria-controls="mobileNav" aria-expanded="false" class="btn btn--ghost nav-toggle" id="navBtn">menu</button>
+    </div>
+  </div>
+  <div aria-label="모바일 메뉴" class="mobile-panel" id="mobileNav" role="dialog">
+    <a href="/#about">About</a>
+    <a href="/#philosophy">Lab Charter</a>
+    <a href="/#projects">Projects</a>
+    <a aria-current="page" href="/labs/index">Studios</a>
+    <a href="/#contact">Contact</a>
+    <a href="/terms">Terms</a>
+    <a href="/privacy">Privacy</a>
+    <a href="/account-deletion">Delete Account</a>
+  </div>
+</header>
+<main class="wrap" id="main">
   <header class="lab-hero">
     <div>
       <div class="lab-crumbs"><a href="/labs/lab8.html">LAB.8</a> · Physique Project Log</div>
@@ -58,5 +88,6 @@
   </section>
 
 </main>
+<script src="/site-header.js"></script>
 </body>
 </html>

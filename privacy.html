@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <title>개인정보 처리방침 | 똥글똥글</title>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="/site-header.css" />
     <style>
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR", Arial, sans-serif; line-height: 1.6; color: #192643; background:#F6F2E9; margin:0; }
         .container { max-width: 860px; margin: 0 auto; padding: 28px 20px 64px; background:#fff; }
@@ -18,7 +19,36 @@
     </style>
 </head>
 <body>
-<main class="container">
+<a class="skip" href="#main">본문으로 바로가기</a>
+<header class="site-header">
+    <div class="container nav">
+        <a aria-label="Play Alone Lab Home" class="brand" href="/">Play Alone Lab</a>
+        <nav aria-label="주요 메뉴" class="nav-menu">
+            <a href="/#about">About</a>
+            <a href="/#philosophy">Lab Charter</a>
+            <a href="/#projects">Projects</a>
+            <a href="/labs/index">Studios</a>
+            <a href="/#contact">Contact</a>
+            <a href="/terms">Terms</a>
+            <a aria-current="page" href="/privacy">Privacy</a>
+            <a href="/account-deletion">Delete Account</a>
+        </nav>
+        <div class="nav-cta">
+            <button aria-controls="mobileNav" aria-expanded="false" class="btn btn--ghost nav-toggle" id="navBtn">menu</button>
+        </div>
+    </div>
+    <div aria-label="모바일 메뉴" class="mobile-panel" id="mobileNav" role="dialog">
+        <a href="/#about">About</a>
+        <a href="/#philosophy">Lab Charter</a>
+        <a href="/#projects">Projects</a>
+        <a href="/labs/index">Studios</a>
+        <a href="/#contact">Contact</a>
+        <a href="/terms">Terms</a>
+        <a aria-current="page" href="/privacy">Privacy</a>
+        <a href="/account-deletion">Delete Account</a>
+    </div>
+</header>
+<main class="container" id="main">
     <h1>개인정보 처리방침</h1>
     <div class="meta">PRIVACY_VERSION: 2025-09-06</div>
     본 방침은 Play Alone Lab(이하 “회사”)이 제공하는 똥글똥글 모바일 애플리케이션(번들 ID: com.playalonelab.ddongle)과
@@ -105,5 +135,6 @@
         <div>관련 문서: <a href="/terms">이용약관</a></div>
     </div>
 </main>
+<script src="/site-header.js"></script>
 </body>
 </html>
