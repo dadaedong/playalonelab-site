@@ -1,0 +1,118 @@
+/* 공통 문서 페이지 스타일 (privacy, terms, account-deletion) */
+body.doc {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR", Arial, sans-serif;
+  line-height: 1.6;
+  color: #192643;
+  background: #F6F2E9;
+  margin: 0;
+}
+
+.doc main.container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 28px 20px 64px;
+  background: #fff;
+}
+
+.doc main h1 {
+  font-size: 28px;
+  margin: 0 0 8px;
+}
+
+.doc main .meta {
+  color: #7c8599;
+  font-size: 14px;
+  margin-bottom: 22px;
+}
+
+.doc main h2 {
+  font-size: 20px;
+  margin-top: 28px;
+}
+
+.doc main h3 {
+  font-size: 18px;
+  margin-top: 25px;
+  color: #555;
+}
+
+.doc main .box {
+  background: #faf7f0;
+  border: 1px solid #E6E0D4;
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+
+.doc main ul,
+.doc main ol {
+  padding-left: 20px;
+}
+
+.doc.doc--deletion main ul,
+.doc.doc--deletion main ol {
+  padding-left: 25px;
+  margin-top: 10px;
+}
+
+.doc main li {
+  margin-bottom: 8px;
+}
+
+.doc main p strong {
+  font-weight: 700;
+}
+
+.doc main .footer {
+  margin-top: 36px;
+  color: #7c8599;
+  font-size: 14px;
+}
+
+.doc main a {
+  color: #0a7;
+  text-decoration: underline;
+}
+
+.doc main .biz {
+  margin-top: 8px;
+}
+
+/* account-deletion 전용 */
+.doc.doc--deletion {
+  padding: 20px;
+}
+
+.doc.doc--deletion main.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.doc.doc--deletion main h1 {
+  font-size: 24px;
+  margin: 0 0 5px;
+  color: #333;
+}
+
+.doc main .subtitle {
+  color: #6c757d;
+  font-size: 14px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.doc main .warning {
+  padding: 15px;
+  background: #fff3cd;
+  border-left: 5px solid #ffc107;
+  color: #856404;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.doc.doc--deletion main a {
+  color: #007bff;
+}

@@ -1,17 +1,11 @@
 /* =====================
    Design Tokens
    ===================== */
+@import url("tokens.css");
+
 :root {
-    --bg: #F6F2E9;
-    --surface: #fffef8;
-    --text: #192643;
-    --muted: #7c8599;
-    --line: #E6E0D4;
-    --accent: #FBAE91;
     --accent-contrast: #192643;
     --note: #fffef8;
-    --radius: 18px;
-    --shadow: 0 10px 30px rgba(0,0,0,.08);
     --container: 1120px;
     --ring: 0 0 0 3px rgba(25,38,67,.15);
     --space-1: 12px; --space-2: 18px; --space-3: 22px; --space-4: 32px;

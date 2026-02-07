@@ -1,0 +1,11 @@
+/* 공통 디자인 토큰 (style.css, labs.css에서 사용) */
+:root {
+  --bg: #F6F2E9;
+  --surface: #fffef8;
+  --text: #192643;
+  --muted: #7c8599;
+  --line: #E6E0D4;
+  --accent: #FBAE91;
+  --radius: 18px;
+  --shadow: 0 10px 30px rgba(0,0,0,.08);
+}

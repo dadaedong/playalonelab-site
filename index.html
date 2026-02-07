@@ -14,21 +14,16 @@
     <meta content="./images/PLAY_ALONE_LAB_CI.png" property="og:image"/>
     <meta content="https://playalonelab.com" property="og:url"/>
     <meta content="summary_large_image" name="twitter:card"/>
-    <link href="./images/pallab_favicon.png" rel="icon" type="image/png"/>
-    <link href="./images/pallab_favicon.png" rel="apple-touch-icon"/>
+    <link href="/images/pallab_favicon.png?v=3" rel="icon" type="image/png"/>
+    <link href="/images/pallab_favicon.png?v=3" rel="apple-touch-icon"/>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&amp;display=swap"
           rel="stylesheet"/>
     <link href="style.css" rel="stylesheet"/>
     <link href="labs/labs.css" rel="stylesheet"/>
     <link href="/site-header.css" rel="stylesheet"/>
     <script>document.documentElement.classList.add('js');</script>
-    </meta></meta>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700&amp;display=swap"
           rel="stylesheet"/>
-    <style>
-
-    </style>
-
 </head>
 <body>
 <a class="skip" href="#main">본문으로 바로가기</a>
@@ -42,11 +37,7 @@
             <a href="/#about">About</a>
             <a href="/#philosophy">Lab Charter</a>
             <a href="/#projects">Projects</a>
-            <a href="/labs/index">Studios</a>
-            <a href="/#contact">Contact</a>
-            <a href="/terms">Terms</a>
-            <a href="/privacy">Privacy</a>
-            <a href="/account-deletion">Delete Account</a>
+            <a href="/labs/">Studios</a>
         </nav>
         <div class="nav-cta">
             <!--<button id="themeBtn" class="btn btn&#45;&#45;ghost" aria-label="테마 전환">🌓</button>-->
@@ -58,11 +49,7 @@
         <a href="/#about">About</a>
         <a href="/#philosophy">Lab Charter</a>
         <a href="/#projects">Projects</a>
-        <a href="/labs/index">Studios</a>
-        <a href="/#contact">Contact</a>
-        <a href="/terms">Terms</a>
-        <a href="/privacy">Privacy</a>
-        <a href="/account-deletion">Delete Account</a>
+        <a href="/labs/">Studios</a>
     </div>
 </header>
 <main id="main">
@@ -303,8 +290,8 @@
         </div>
         <div>
             <small>
-                <a href="/terms">이용약관</a> ·
-                <a href="/privacy">개인정보처리방침</a> <br/>
+                <a href="/terms.html">이용약관</a> ·
+                <a href="/privacy.html">개인정보처리방침</a> <br/>
                 <!--<a href="#" id="copyLinkBtn">링크 복사</a><br/>-->
                 <span>Defined by no one but myself.</span>
             </small>
@@ -464,185 +451,7 @@
     </div>
 </div>
 <script src="/site-header.js"></script>
-<script>
-    // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Theme toggle
-    const themeBtn = document.getElementById('themeBtn');
-    const root = document.documentElement;
-    const saved = localStorage.getItem('pal-theme');
-    if (saved) root.setAttribute('data-theme', saved);
-    else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        root.setAttribute('data-theme', 'dark');
-    }
-    themeBtn?.addEventListener('click', () => {
-        const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-        root.setAttribute('data-theme', next);
-        localStorage.setItem('pal-theme', next);
-    });
-
-    // Copy helpers & scroll
-    const copyLinkBtn = document.getElementById('copyLinkBtn');
-    copyLinkBtn?.addEventListener('click', (e) => {
-        e.preventDefault();
-        copyToClipboard(window.location.href);
-    });
-    document.getElementById('scrollToTopBtn')?.addEventListener('click', () => window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    }));
-
-    function copyToClipboard(text, ok = '✓ 복사됨') {
-        navigator.clipboard.writeText(text).then(() => {
-            const t = document.title;
-            document.title = ok;
-            setTimeout(() => document.title = t, 800);
-        })
-            .catch(() => alert('클립보드 복사 실패'));
-    }
-
-    // ===== Modal Logic =====
-    const body = document.body;
-    const modals = {
-        terms: document.getElementById('modal-terms'),
-        privacy: document.getElementById('modal-privacy'),
-        ddongle: document.getElementById('modal-ddongle'),
-        gaeddong: document.getElementById('modal-gaeddong')
-    };
-    const triggers = {
-        terms: document.getElementById('openTos'),
-        privacy: document.getElementById('openPp'),
-        ddongle: document.getElementById('openDdongle'),
-        gaeddong: document.getElementById('openGaeddong')
-    };
-
-    function getFocusable(container) {
-        return container.querySelectorAll('a[href], button, textarea, input, select, [tabindex]:not([tabindex="-1"])');
-    }
-
-    function openModal(key) {
-        const m = modals[key];
-        if (!m) return;
-        m.classList.add('open');
-        m.setAttribute('aria-hidden', 'false');
-        const dialog = m.querySelector('.dialog');
-        const firstFocus = dialog.querySelector('h2') || dialog;
-        firstFocus.setAttribute('tabindex', '-1');
-        firstFocus.focus();
-        body.style.overflow = 'hidden';
-        // hash update
-        if (key === 'terms') location.hash = '#terms';
-        if (key === 'privacy') location.hash = '#privacy';
-        if (key === 'ddongle') location.hash = '#ddongle';
-        if (key === 'gaeddong') location.hash = '#gaeddong';
-        // trap
-        const focusables = [...getFocusable(dialog)];
-
-        function trap(e) {
-            if (e.key === 'Tab' && focusables.length) {
-                const idx = focusables.indexOf(document.activeElement);
-                if (e.shiftKey && (idx <= 0)) {
-                    e.preventDefault();
-                    focusables[focusables.length - 1].focus();
-                } else if (!e.shiftKey && (idx === focusables.length - 1)) {
-                    e.preventDefault();
-                    focusables[0].focus();
-                }
-            }
-            if (e.key === 'Escape') {
-                closeModal(key);
-            }
-        }
-
-        dialog.addEventListener('keydown', trap);
-        m._trap = trap;
-    }
-
-    function closeModal(key) {
-        const m = modals[key];
-        if (!m) return;
-        m.classList.remove('open');
-        m.setAttribute('aria-hidden', 'true');
-        body.style.overflow = '';
-        const dialog = m.querySelector('.dialog');
-        dialog.removeEventListener('keydown', m._trap || (() => {
-        }));
-        // clean hash
-        if (location.hash === '#terms' || location.hash === '#privacy' || location.hash === '#ddongle' || location.hash === '#gaeddong') history.replaceState(null, '', ' ');
-        // return focus
-        (triggers[key] || document.body).focus?.();
-    }
-
-    // click triggers
-    triggers.terms?.addEventListener('click', (e) => {
-        e.preventDefault();
-        openModal('terms');
-    });
-    triggers.privacy?.addEventListener('click', (e) => {
-        e.preventDefault();
-        openModal('privacy');
-    });
-    triggers.ddongle?.addEventListener('click', (e) => {
-        e.preventDefault();
-        openModal('ddongle');
-    });
-    triggers.gaeddong?.addEventListener('click', (e) => {
-        e.preventDefault();
-        openModal('gaeddong');
-    });
-
-    // backdrop / close buttons
-    document.querySelectorAll('[data-close="terms"]').forEach(el => el.addEventListener('click', () => closeModal('terms')));
-    document.querySelectorAll('[data-close="privacy"]').forEach(el => el.addEventListener('click', () => closeModal('privacy')));
-    document.querySelectorAll('[data-close="ddongle"]').forEach(el => el.addEventListener('click', () => closeModal('ddongle')));
-    document.querySelectorAll('[data-close="gaeddong"]').forEach(el => el.addEventListener('click', () => closeModal('gaeddong')));
-
-    // hash open (deep link)
-    window.addEventListener('load', () => {
-        if (location.hash === '#terms') openModal('terms');
-        if (location.hash === '#privacy') openModal('privacy');
-        if (location.hash === '#ddongle') openModal('ddongle');
-        if (location.hash === '#gaeddong') openModal('gaeddong');
-    });
-</script>
-<script>
-    (function () {
-        const els = document.querySelectorAll('[data-animate]');
-
-        // IO 미지원 또는 에러 시: 전부 즉시 표시
-        function showAll() {
-            els.forEach(el => el.classList.add('in'));
-        }
-
-        try {
-            if (!('IntersectionObserver' in window)) {
-                showAll();
-                return;
-            }
-            const io = new IntersectionObserver((entries) => {
-                entries.forEach(e => {
-                    if (e.isIntersecting) {
-                        e.target.classList.add('in');
-                        io.unobserve(e.target);
-                    }
-                });
-            }, {rootMargin: '0px 0px -10% 0px', threshold: 0.01});
-
-            els.forEach(el => io.observe(el));
-
-            // 로드 타이밍 문제 대비: 첫 페인트 뒤에도 아직 숨겨져 있으면 강제 표시
-            window.addEventListener('load', () => {
-                setTimeout(() => {
-                    const anyHidden = Array.from(els).some(el => !el.classList.contains('in'));
-                    if (anyHidden) showAll();
-                }, 500);
-            });
-        } catch (e) {
-            showAll();
-        }
-    })();
-</script>
+<script src="/script.js"></script>
 <script type="application/ld+json">
     {
         "@context": "https://schema.org",
