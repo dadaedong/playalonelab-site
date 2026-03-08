@@ -30,7 +30,14 @@
         <a href="/labs/">Studios</a>
     </div>
 </header>
-<main class="container doc" id="main">
+<main class="container doc" id="main" data-doc-title-ko="개인정보 처리방침 | 똥글똥글" data-doc-title-en="Privacy Policy | Ddongle" data-doc-title-ja="プライバシーポリシー | 똥글똥글">
+    <div class="doc-lang-switcher" role="group" aria-label="언어 선택">
+        <button type="button" data-lang="ko" aria-pressed="true">한국어</button>
+        <button type="button" data-lang="en" aria-pressed="false">English</button>
+        <button type="button" data-lang="ja" aria-pressed="false">日本語</button>
+    </div>
+
+    <div class="doc-lang-content is-active" data-lang="ko">
     <h1>개인정보 처리방침</h1>
     <div class="meta">PRIVACY_VERSION: 2025-09-06</div>
     본 방침은 Play Alone Lab(이하 “회사”)이 제공하는 똥글똥글 모바일 애플리케이션(번들 ID: com.playalonelab.ddongle)과
@@ -116,7 +123,135 @@
         <div>이전 버전 열람: 요청 시 제공</div>
         <div>관련 문서: <a href="/terms.html">이용약관</a></div>
     </div>
+    </div>
+
+    <div class="doc-lang-content" data-lang="en">
+    <h1>Privacy Policy</h1>
+    <div class="meta">PRIVACY_VERSION: 2025-09-06</div>
+    <p>This policy describes how Play Alone Lab (“Company”) collects, uses, stores, and disposes of personal information in connection with the Ddongle mobile application (bundle ID: com.playalonelab.ddongle).</p>
+    <p>This policy applies to the app and related websites (e.g. playalonelab.com).</p>
+    <h2>Article 1 (Personal Information Collected)</h2>
+    <ol>
+        <li><strong>Required:</strong><br>Account identification: email (from social login provider), Supabase user ID. Authentication/access tokens: session token (required for app operation).</li>
+        <li><strong>Optional:</strong><br>Marketing consent (email/push): consent flag. Password hint: user-entered hint string.</li>
+        <li><strong>User-generated content (UGC):</strong><br>Ddongle/comment content: encrypted (AES) on device, then stored on server.</li>
+        <li><strong>Automatically collected:</strong><br>Device/app info: app version, platform (OS), error logs (for critical crash tracking only, no sensitive data).</li>
+    </ol>
+    <h2>Article 2 (Purpose of Collection and Use)</h2>
+    <ol>
+        <li>User identification and login (Google/Apple OAuth, etc.)</li>
+        <li>Service provision: personal record storage, retrieval, sync</li>
+        <li>Security: session management, unauthorized access prevention, encryption key management</li>
+        <li>Support: failure analysis, bug handling, notices (and marketing if consented)</li>
+    </ol>
+    <h2>Article 3 (Retention and Processing Period)</h2>
+    <ol>
+        <li>Account and consent history: until account deletion</li>
+        <li>UGC: deleted when user deletes or upon account deletion (backup delay possible)</li>
+        <li>Error/access logs: retained for a reasonable period for analysis, then deleted or de-identified</li>
+    </ol>
+    <h2>Article 4 (Third-Party Provision and International Transfer)</h2>
+    <div class="box">
+        The Company may process data with the following subcontractors. Data may be transferred abroad depending on server locations.<br><br>
+        Supabase (auth/DB/storage) — account, consent flags, encrypted UGC<br>
+        Apple / Google OAuth — minimal profile (e.g. email) for login/account linking<br>
+        Expo / Apple / Google — app update and distribution infrastructure<br><br>
+        The Company does not sell or rent personal information without legal basis or prior consent.
+    </div>
+    <h2>Article 5 (Security Measures)</h2>
+    <div class="box">
+        On-device encryption: UGC encrypted with a key derived from the user’s password, then stored on the server.<br>
+        Transport: TLS (HTTPS).<br>
+        Access control: Row Level Security (RLS) and other DB-level protection.
+    </div>
+    <h2>Article 6 (Your Rights)</h2>
+    <ol>
+        <li>You may request access, correction, deletion, or withdrawal of consent.</li>
+        <li>Upon account deletion, related data is deleted and cannot be recovered.</li>
+        <li>You may exercise your rights via the contact below.</li>
+    </ol>
+    <h2>Article 7 (Children’s Privacy)</h2>
+    <div class="box">This service is not directed at children under 13; we do not knowingly collect their information.</div>
+    <h2>Article 8 (Privacy Contact)</h2>
+    <div class="box">
+        Privacy officer: Kim Gwandae (Representative)<br>
+        Email: <a href="mailto:hello@playalonelab.com">hello@playalonelab.com</a><br>
+        Phone: 010-4865-5914<br>
+        Address: Saha-gu, Busan, Korea (see business registration for full address)
+    </div>
+    <h2>Article 9 (Policy Changes)</h2>
+    <div class="box">This policy may be updated; material changes will be notified via in-app notice or email.</div>
+    <div class="footer">
+        <div>Effective: 2025-09-06</div>
+        <div>Previous versions: available on request</div>
+        <div>Related: <a href="/terms.html">Terms of Service</a></div>
+    </div>
+    </div>
+
+    <div class="doc-lang-content" data-lang="ja">
+    <h1>プライバシーポリシー</h1>
+    <div class="meta">PRIVACY_VERSION: 2025-09-06</div>
+    <p>本ポリシーは、Play Alone Lab（以下「当社」）が提供する똥글똥글（トングルトングル）モバイルアプリ（バンドルID: com.playalonelab.ddongle）において、利用者の個人情報をどのように収集・利用・保管・破棄するかを説明するものです。</p>
+    <p>本ポリシーはアプリおよび関連ウェブサイト（例: playalonelab.com）に適用されます。</p>
+    <h2>第1条（収集する個人情報）</h2>
+    <ol>
+        <li><strong>必須：</strong><br>アカウント識別情報（メールアドレス・ソーシャルログインから取得）、SupabaseユーザーID。認証トークン：セッショントークン（アプリ動作に必須）。</li>
+        <li><strong>任意：</strong><br>マーケティング受信同意（メール/プッシュ）、パスワードヒント。</li>
+        <li><strong>UGC：</strong><br>똥글・コメント：端末でAES暗号化のうえサーバーに保存。</li>
+        <li><strong>自動収集：</strong><br>端末/アプリ情報、アプリバージョン、OS、エラーログ（重大クラッシュ追跡目的、機密情報を除く）。</li>
+    </ol>
+    <h2>第2条（収集・利用の目的）</h2>
+    <ol>
+        <li>会員識別・ログイン提供（Google/Apple OAuth等）</li>
+        <li>サービス提供：個人記録の保存・照会・同期</li>
+        <li>セキュリティ：セッション管理、不正アクセス防止、暗号鍵管理</li>
+        <li>サポート：障害分析、バグ対応、お知らせ（同意時はマーケティング含む）</li>
+    </ol>
+    <h2>第3条（処理・保管期間）</h2>
+    <ol>
+        <li>アカウント・同意履歴：アカウント削除まで</li>
+        <li>UGC：利用者が削除またはアカウント削除時に破棄（バックアップ遅延の可能性あり）</li>
+        <li>エラー/アクセスログ：分析目的の合理的期間後、破棄または非識別化</li>
+    </ol>
+    <h2>第4条（第三者提供・国外移転）</h2>
+    <div class="box">
+        当社は以下の委託・連携サービスでデータを処理することがあります。サーバー所在地に応じ国外へ移転する場合があります。<br><br>
+        Supabase（認証/DB/ストレージ）— アカウント、同意フラグ、暗号化UGC<br>
+        Apple / Google OAuth — ログイン・連携に必要な最小限のプロフィール（メール等）<br>
+        Expo / Apple / Google — アプリ配信・更新インフラ<br><br>
+        当社は法令に基づくか、利用者の事前同意なく個人情報を販売・貸与しません。
+    </div>
+    <h2>第5条（セキュリティ措置）</h2>
+    <div class="box">
+        端末での暗号化：利用者パスワードから導出した鍵でUGCをAES暗号化しサーバーに保存。<br>
+        通信保護：TLS（HTTPS）。<br>
+        アクセス制御：Row Level Security（RLS）等のDBレベル保護。
+    </div>
+    <h2>第6条（利用者の権利）</h2>
+    <ol>
+        <li>個人情報の閲覧・訂正・削除・同意の撤回を請求できます。</li>
+        <li>アカウント削除時、関連データは復元不可で削除されます。</li>
+        <li>下記問い合わせ先で権利を行使できます。</li>
+    </ol>
+    <h2>第7条（児童の個人情報）</h2>
+    <div class="box">本サービスは13歳未満を対象とせず、当該年齢の情報を故意に収集しません。</div>
+    <h2>第8条（お問い合わせ）</h2>
+    <div class="box">
+        個人情報保護責任者：キム・グァンデ（代表）<br>
+        メール: <a href="mailto:hello@playalonelab.com">hello@playalonelab.com</a><br>
+        電話: 010-4865-5914<br>
+        住所: 釜山広域市沙下区（詳細は事業者登録等参照）
+    </div>
+    <h2>第9条（ポリシー変更）</h2>
+    <div class="box">法令・サービス変更に伴い本ポリシーは更新されることがあり、重要な変更時はアプリ内通知またはメールでお知らせします。</div>
+    <div class="footer">
+        <div>施行日: 2025-09-06</div>
+        <div>過去版の閲覧: 請求時に提供</div>
+        <div>関連: <a href="/terms.html">利用規約</a></div>
+    </div>
+    </div>
 </main>
 <script src="/site-header.js"></script>
+<script src="/doc-lang.js"></script>
 </body>
 </html>

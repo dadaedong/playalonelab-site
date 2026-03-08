@@ -25,6 +25,46 @@ body.doc {
   margin-bottom: 22px;
 }
 
+/* 언어 선택 (privacy, terms) */
+.doc-lang-switcher {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #E6E0D4;
+}
+
+.doc-lang-switcher button {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid #E6E0D4;
+  background: #fff;
+  color: #192643;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.doc-lang-switcher button:hover {
+  background: #faf7f0;
+  border-color: #c9c0b0;
+}
+
+.doc-lang-switcher button[aria-pressed="true"] {
+  background: #192643;
+  color: #fff;
+  border-color: #192643;
+}
+
+.doc-lang-content {
+  display: none;
+}
+
+.doc-lang-content.is-active {
+  display: block;
+}
+
 .doc main h2 {
   font-size: 20px;
   margin-top: 28px;
