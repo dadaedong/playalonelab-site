@@ -37,14 +37,10 @@
 
   // Modal
   const modals = {
-    terms: document.getElementById('modal-terms'),
-    privacy: document.getElementById('modal-privacy'),
     ddongle: document.getElementById('modal-ddongle'),
     gaeddong: document.getElementById('modal-gaeddong')
   };
   const triggers = {
-    terms: document.getElementById('openTos'),
-    privacy: document.getElementById('openPp'),
     ddongle: document.getElementById('openDdongle'),
     gaeddong: document.getElementById('openGaeddong')
   };
@@ -65,8 +61,6 @@
       firstFocus.setAttribute('tabindex', '-1');
       firstFocus.focus();
     }
-    if (key === 'terms') location.hash = '#terms';
-    if (key === 'privacy') location.hash = '#privacy';
     if (key === 'ddongle') location.hash = '#ddongle';
     if (key === 'gaeddong') location.hash = '#gaeddong';
     const focusables = [...getFocusable(dialog || m)];
@@ -95,7 +89,7 @@
     document.body.style.overflow = '';
     const dialog = m.querySelector('.dialog');
     dialog?.removeEventListener('keydown', m._trap || (() => {}));
-    if (['#terms', '#privacy', '#ddongle', '#gaeddong'].includes(location.hash)) {
+    if (['#ddongle', '#gaeddong'].includes(location.hash)) {
       history.replaceState(null, '', ' ');
     }
     (triggers[key] || document.body).focus?.();
@@ -107,14 +101,10 @@
       openModal(key);
     });
   });
-  document.querySelectorAll('[data-close="terms"]').forEach(el => el.addEventListener('click', () => closeModal('terms')));
-  document.querySelectorAll('[data-close="privacy"]').forEach(el => el.addEventListener('click', () => closeModal('privacy')));
   document.querySelectorAll('[data-close="ddongle"]').forEach(el => el.addEventListener('click', () => closeModal('ddongle')));
   document.querySelectorAll('[data-close="gaeddong"]').forEach(el => el.addEventListener('click', () => closeModal('gaeddong')));
 
   window.addEventListener('load', () => {
-    if (location.hash === '#terms') openModal('terms');
-    if (location.hash === '#privacy') openModal('privacy');
     if (location.hash === '#ddongle') openModal('ddongle');
     if (location.hash === '#gaeddong') openModal('gaeddong');
   });

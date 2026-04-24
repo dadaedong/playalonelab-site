@@ -1,11 +1,27 @@
 /* 공통 디자인 토큰 (style.css, labs.css에서 사용) */
 :root {
+  /* Color */
   --bg: #F6F2E9;
   --surface: #fffef8;
   --text: #192643;
   --muted: #7c8599;
   --line: #E6E0D4;
   --accent: #FBAE91;
+  --accent-contrast: #192643;
+
+  /* Typography */
+  --font-sans: "Nanum Gothic", "Pretendard", "Noto Sans KR", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-serif: "Nanum Myeongjo", Georgia, serif;
+
+  /* Layout */
+  --container: 1120px;
   --radius: 18px;
+  --space-1: 12px;
+  --space-2: 18px;
+  --space-3: 22px;
+  --space-4: 32px;
+
+  /* Effect */
   --shadow: 0 10px 30px rgba(0,0,0,.08);
+  --ring: 0 0 0 3px rgba(25, 38, 67, 0.15);
 }
