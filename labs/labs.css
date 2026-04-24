@@ -325,6 +325,7 @@ img {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: var(--space-2);
+  align-items: stretch;
 }
 
 .lab-index-card {
@@ -336,6 +337,11 @@ img {
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
+  height: 100%;
+}
+
+.lab-index-card .lab-link {
+  margin-top: auto;
 }
 
 .lab-index-card h2 {
