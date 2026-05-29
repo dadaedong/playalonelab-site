@@ -363,4 +363,30 @@
     "sideEffects": "없음",
     "quote": "다음주부턴 테이퍼링 시작"
   }
+  ,{
+    "week": 28,
+    "phase": "2.5mg",
+    "datetime": "2026-05-17",
+    "period": "2026.05.17-2026.05.23",
+    "dose": "2.5 mg (2주당 1회)",
+    "weight": "65.4kg",
+    "waist": "78cm",
+    "appetite": "건강검진 오피셜 체중,허리사이즈. ",
+    "focus": "흠...",
+    "sideEffects": "없음",
+    "quote": "이제부터 2주에 한번씩 투약"
+  }
+  ,{
+    "week": 29,
+    "phase": "-",
+    "datetime": "2026-05-24",
+    "period": "2026.05.24-2026.05.30",
+    "dose": "2.5 mg (2주당 1회)",
+    "weight": "65.4kg",
+    "waist": "78cm",
+    "appetite": "식욕이 터짐.... 위기관리를 해야함",
+    "focus": "배고픈게 강렬하게 느껴짐",
+    "sideEffects": "없음",
+    "quote": "이것도 적응을 해야한다"
+  }
 ]
