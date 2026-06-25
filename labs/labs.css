@@ -187,20 +187,12 @@ img {
   margin-top: 16px;
 }
 
-.lab-meta--deconstruction {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-
 .lab-meta__item {
   border: 1px solid var(--lab-line);
   border-radius: var(--lab-radius);
   padding: 14px 16px;
   background: var(--lab-surface);
   box-shadow: var(--lab-shadow);
-}
-
-.lab-meta__break {
-  display: block;
 }
 
 .lab-meta__label {
@@ -257,14 +249,6 @@ img {
   grid-column: 1 / -1;
 }
 @media (max-width: 768px) {
-  .lab-meta--deconstruction {
-    grid-template-columns: 1fr;
-  }
-
-  .lab-meta__break {
-    display: none;
-  }
-
   .lab-timeline {
     grid-template-columns: 1fr;
   }
