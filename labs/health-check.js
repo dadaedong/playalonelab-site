@@ -168,7 +168,7 @@
   }
 
   renderTable();
-  summary.textContent = "이미지 기준 수치로 직접 정리한 건강검진 비교표입니다.";
+  summary.textContent = "체중 감량 결과 모든 수치가 다시 정상으로 돌아옴.";
 
   openButton.addEventListener("click", () => {
     if (panel.hidden) {

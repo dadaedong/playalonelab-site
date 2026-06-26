@@ -94,6 +94,7 @@ img {
     linear-gradient(135deg, rgba(251, 174, 145, 0.12), transparent 40%),
     var(--lab-surface);
   box-shadow: var(--lab-shadow);
+  margin-top: 40px;
 }
 
 .health-check-panel[hidden] {
