@@ -365,7 +365,7 @@
   }
   ,{
     "week": 28,
-    "phase": "2.5mg",
+    "phase": "Tapering",
     "datetime": "2026-05-17",
     "period": "2026.05.17-2026.05.23",
     "dose": "2.5 mg (2주당 1회)",
@@ -378,10 +378,10 @@
   }
   ,{
     "week": 29,
-    "phase": "",
+    "phase": "Tapering",
     "datetime": "2026-05-24",
     "period": "2026.05.24-2026.05.30",
-    "dose": "2.5 mg (2주당 1회)",
+    "dose": "X",
     "weight": "65.4kg",
     "waist": "78cm",
     "appetite": "식욕이 터짐.... 위기관리를 해야함",
@@ -391,7 +391,7 @@
   }
   ,{
     "week": 30,
-    "phase": "2.5mg",
+    "phase": "Tapering",
     "datetime": "2026-05-31",
     "period": "2026.05.31-2026.06.06",
     "dose": "2.5 mg (2주당 1회)",
@@ -404,10 +404,10 @@
   }
   ,{
     "week": 31,
-    "phase": "",
+    "phase": "Tapering",
     "datetime": "2026-06-07",
     "period": "2026.06.07-2026.06.13",
-    "dose": "2.5 mg (2주당 1회)",
+    "dose": "X",
     "weight": "67.77kg",
     "waist": "80cm",
     "appetite": "지금 거의 매일 술마심",
@@ -417,7 +417,7 @@
   }
   ,{
     "week": 32,
-    "phase": "2.5mg",
+    "phase": "Tapering",
     "datetime": "2026-06-14",
     "period": "2026.06.14-2026.06.20",
     "dose": "2.5 mg (2주당 1회)",
@@ -430,10 +430,10 @@
   }
   ,{
     "week": 33,
-    "phase": "",
+    "phase": "Tapering",
     "datetime": "2026-06-21",
     "period": "2026.06.21-2026.06.27",
-    "dose": "2.5 mg (2주당 1회)",
+    "dose": "X",
     "weight": "65.3kg",
     "waist": "80cm",
     "appetite": "식욕이 다스려진다",
