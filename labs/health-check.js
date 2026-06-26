@@ -3,61 +3,38 @@
   const closeButton = document.getElementById("healthCheckClose");
   const panel = document.getElementById("healthCheckPanel");
   const summary = document.getElementById("healthCheckSummary");
-  const controls = document.getElementById("healthCheckControls");
-  const grid = document.getElementById("healthCheckGrid");
-  const raw = document.getElementById("healthCheckRaw");
+  const tableWrap = document.getElementById("healthCheckTableWrap");
 
-  if (!openButton || !closeButton || !panel || !summary || !controls || !grid || !raw) {
+  if (!openButton || !closeButton || !panel || !summary || !tableWrap) {
     return;
   }
 
-  const fieldLabelMap = {
-    SBP: "수축기 혈압",
-    DBP: "이완기 혈압",
-    BMI: "체질량지수",
-    "AST(SGOT)": "AST(SGOT)",
-    "ALT(SGPT)": "ALT(SGPT)",
-    "GAMMA-GTP": "감마지티피",
-    HEIGHT: "신장",
-    WEIGHT: "체중",
-    WAIST: "허리둘레",
-    HEMOGLOBIN: "혈색소",
-    GLUCOSE: "공복혈당",
-    CREATININE: "혈청크레아티닌",
-    EGFR: "eGFR",
-    URINE_PROTEIN: "요단백",
-    LEFT_VISION: "시력(좌)",
-    RIGHT_VISION: "시력(우)",
-    HEARING: "청력"
-  };
+  const years = ["2017", "2023", "2025", "2026"];
 
-  const fieldPriority = [
-    "HEIGHT",
-    "WEIGHT",
-    "WAIST",
-    "BMI",
-    "SBP",
-    "DBP",
-    "HEMOGLOBIN",
-    "GLUCOSE",
-    "CREATININE",
-    "EGFR",
-    "AST(SGOT)",
-    "ALT(SGPT)",
-    "GAMMA-GTP",
-    "URINE_PROTEIN",
-    "LEFT_VISION",
-    "RIGHT_VISION",
-    "HEARING"
+  const rows = [
+    { type: "date", values: { "2017": "12/27", "2023": "11/03", "2025": "06/17", "2026": "05/22" } },
+    { section: "계측검사", goal: "비만", item: "신장", unit: "Cm", values: { "2017": "167.7", "2023": "166.2", "2025": "167.0", "2026": "166.5" } },
+    { goal: "", item: "체중", unit: "Kg", values: { "2017": "72.0", "2023": "91.6", "2025": "88.1", "2026": "66.5" } },
+    { goal: "", item: "허리둘레", unit: "Cm", values: { "2017": "85.0", "2023": "106.0", "2025": "101.5", "2026": "78.8" } },
+    { goal: "", item: "체질량지수", unit: "kg/m2", values: { "2017": "25.6", "2023": "33.2", "2025": "31.6", "2026": "24.0" } },
+    { goal: "시각이상", item: "시력(좌/우)", unit: "", values: { "2017": "0.9/0.9", "2023": "0.8/0.8", "2025": "0.9/1.0", "2026": "0.6/0.9" } },
+    { goal: "청각이상", item: "청각(좌/우)", unit: "", values: { "2017": "정상/정상", "2023": "정상/정상", "2025": "정상/정상", "2026": "정상/정상" } },
+    { goal: "고혈압", item: "혈압(최고/최저)", unit: "mmHg", values: { "2017": "110/70", "2023": "146/99", "2025": "120/80", "2026": "92/64" }, tones: { "2023": "warning", "2025": "warning", "2026": "recovered" } },
+    { section: "요검사", goal: "신장질환", item: "요단백", unit: "", values: { "2017": "음성", "2023": "음성", "2025": "음성", "2026": "음성" } },
+    { section: "혈액검사", goal: "빈혈", item: "혈색소", unit: "g/dL", values: { "2017": "16.5", "2023": "16.2", "2025": "15.8", "2026": "15.2" } },
+    { goal: "당뇨병", item: "공복혈당", unit: "mg/dL", values: { "2017": "110", "2023": "121", "2025": "113", "2026": "98" }, tones: { "2017": "warning", "2023": "warning", "2025": "warning", "2026": "recovered" } },
+    { goal: "이상지질혈증", item: "총콜레스테롤", unit: "mg/dL", values: { "2017": "161", "2023": "203", "2025": "", "2026": "" }, tones: { "2023": "warning" } },
+    { goal: "", item: "고밀도(HDL) 콜레스테롤", unit: "mg/dL", values: { "2017": "52", "2023": "49", "2025": "", "2026": "" }, tones: { "2017": "warning", "2023": "warning" } },
+    { goal: "", item: "중성지방", unit: "mg/dL", values: { "2017": "166", "2023": "241", "2025": "", "2026": "" }, tones: { "2017": "warning", "2023": "warning" } },
+    { goal: "", item: "저밀도(LDL) 콜레스테롤", unit: "mg/dL", values: { "2017": "75", "2023": "106", "2025": "", "2026": "" } },
+    { goal: "신장질환", item: "혈청크레아티닌", unit: "mg/dL", values: { "2017": "0.7", "2023": "0.6", "2025": "0.90", "2026": "0.64" }, tones: { "2026": "recovered" } },
+    { goal: "", item: "신사구체여과율(GFR)", unit: "mL/min /1.73m2", values: { "2017": "140", "2023": "162", "2025": "107", "2026": "123" }, tones: { "2026": "recovered" } },
+    { goal: "간장질환", item: "에이에스티(AST, SGOT)", unit: "U/L", values: { "2017": "20", "2023": "37", "2025": "20", "2026": "28" } },
+    { goal: "", item: "에이엘티(ALT, SGPT)", unit: "U/L", values: { "2017": "16", "2023": "62", "2025": "32", "2026": "24" }, tones: { "2023": "warning", "2026": "recovered" } },
+    { goal: "", item: "감마지티피(γ-GTP)", unit: "U/L", values: { "2017": "37", "2023": "250", "2025": "149", "2026": "47" }, tones: { "2023": "warning", "2025": "warning", "2026": "recovered" } },
+    { section: "영상검사", goal: "폐결핵 및 기타흉부질환", item: "흉부방사선촬영", unit: "", values: { "2017": "정상", "2023": "정상", "2025": "정상", "2026": "정상" } },
+    { type: "judgement", values: { "2017": "정상", "2023": "의심", "2025": "의심", "2026": "정상" }, tones: { "2017": "recovered", "2023": "warning", "2025": "warning", "2026": "recovered" } }
   ];
-
-  const dateFormatter = new Intl.DateTimeFormat("ko-KR", {
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit"
-  });
-
-  let loaded = false;
 
   function escapeHtml(value) {
     return String(value ?? "")
@@ -68,179 +45,119 @@
       .replaceAll("'", "&#39;");
   }
 
-  function getFirstMatch(text, regex) {
-    const match = text.match(regex);
-    return match ? match[1].trim() : "";
+  function getToneClass(row, year) {
+    const tone = row.tones?.[year];
+    if (tone === "warning") return "health-check-table__value--warning";
+    if (tone === "recovered") return "health-check-table__value--recovered";
+    return "";
   }
 
-  function normalizeFieldKey(result) {
-    const description = result.description.toUpperCase();
-    const objectId = result.objectId;
-
-    if (description === "SBP") return "SBP";
-    if (description === "DBP") return "DBP";
-    if (description === "BMI") return "BMI";
-    if (description.includes("AST")) return "AST(SGOT)";
-    if (description.includes("ALT")) return "ALT(SGPT)";
-    if (description.includes("GFR")) return "EGFR";
-
-    if (objectId.endsWith("00001")) return "HEIGHT";
-    if (objectId.endsWith("00002")) return "WEIGHT";
-    if (objectId.endsWith("00003")) return result.date >= "2026-01-01" ? "URINE_PROTEIN" : "WAIST";
-    if (objectId.endsWith("00004")) return result.date >= "2026-01-01" ? "HEMOGLOBIN" : "BMI";
-    if (objectId.endsWith("00005")) return result.date >= "2026-01-01" ? "GLUCOSE" : "LEFT_VISION";
-    if (objectId.endsWith("00006")) return result.date >= "2026-01-01" ? "CREATININE" : "RIGHT_VISION";
-    if (objectId.endsWith("00007")) return result.date >= "2026-01-01" ? "EGFR" : "HEARING";
-    if (objectId.endsWith("00010")) return "CREATININE";
-    if (objectId.endsWith("00011")) return "EGFR";
-    if (objectId.endsWith("00014")) return "GAMMA-GTP";
-
-    return result.description || result.type || "검사 항목";
+  function countSectionRows(startIndex) {
+    let count = 1;
+    for (let index = startIndex + 1; index < rows.length; index += 1) {
+      if (rows[index].section || rows[index].type) {
+        break;
+      }
+      count += 1;
+    }
+    return count;
   }
 
-  function parseResults(xmlText) {
-    const blocks = [...xmlText.matchAll(/<ccr:Result>([\s\S]*?)<\/ccr:Result>/g)];
+  function renderYearCells(row, useBadge = false) {
+    return years.map((year) => {
+      const value = row.values?.[year] || "";
+      const toneClass = getToneClass(row, year);
 
-    return blocks
-      .map(([, block]) => ({
-        objectId: getFirstMatch(block, /<ccr:CCRDataObjectID>([\s\S]*?)<\/ccr:CCRDataObjectID>/),
-        date: getFirstMatch(block, /<ccr:ExactDateTime>([\s\S]*?)<\/ccr:ExactDateTime>/),
-        type: getFirstMatch(block, /<ccr:Type>\s*<ccr:Text>([\s\S]*?)<\/ccr:Text>/),
-        description: getFirstMatch(block, /<ccr:Description>\s*<ccr:Text>([\s\S]*?)<\/ccr:Text>/),
-        value: getFirstMatch(block, /<ccr:TestResult>\s*<ccr:Value>([\s\S]*?)<\/ccr:Value>/),
-        unit: getFirstMatch(block, /<ccr:Units>\s*<ccr:Unit>([\s\S]*?)<\/ccr:Unit>/)
-      }))
-      .filter((item) => item.date && item.value)
-      .map((item) => ({
-        ...item,
-        fieldKey: normalizeFieldKey(item),
-        year: item.date.slice(0, 4)
-      }));
-  }
-
-  function formatDisplayDate(dateString) {
-    const date = new Date(`${dateString}T00:00:00`);
-    return Number.isNaN(date.getTime()) ? dateString : dateFormatter.format(date);
-  }
-
-  function buildComparisonModel(results) {
-    const years = [...new Set(results.map((item) => item.year))].sort((left, right) => right.localeCompare(left));
-    const fieldMap = new Map();
-
-    results.forEach((item) => {
-      const label = fieldLabelMap[item.fieldKey] || item.fieldKey;
-      const current = fieldMap.get(item.fieldKey) || {
-        fieldKey: item.fieldKey,
-        label,
-        years: {}
-      };
-
-      const previous = current.years[item.year];
-      if (!previous || item.date > previous.date) {
-        current.years[item.year] = {
-          value: item.unit ? `${item.value} ${item.unit}` : item.value,
-          date: item.date
-        };
+      if (useBadge) {
+        return `
+          <td class="health-check-table__year">
+            <span class="health-check-table__badge ${toneClass}">${escapeHtml(value)}</span>
+          </td>
+        `;
       }
 
-      fieldMap.set(item.fieldKey, current);
-    });
-
-    const fields = [...fieldMap.values()].sort((left, right) => {
-      const leftIndex = fieldPriority.indexOf(left.fieldKey);
-      const rightIndex = fieldPriority.indexOf(right.fieldKey);
-      return (leftIndex === -1 ? 99 : leftIndex) - (rightIndex === -1 ? 99 : rightIndex);
-    });
-
-    return { years, fields };
+      return `<td class="health-check-table__year ${toneClass}">${escapeHtml(value)}</td>`;
+    }).join("");
   }
 
-  function renderComparisonCards(model) {
-    grid.innerHTML = model.fields
-      .map((field) => {
-        const comparison = model.years
-          .map((year) => {
-            const item = field.years[year];
-            if (!item) {
-              return `
-                <div class="health-check-comparison__item">
-                  <span class="health-check-comparison__year">${escapeHtml(year)}</span>
-                  <strong class="health-check-comparison__value">-</strong>
-                  <span class="health-check-comparison__date">기록 없음</span>
-                </div>
-              `;
-            }
-
-            return `
-              <div class="health-check-comparison__item">
-                <span class="health-check-comparison__year">${escapeHtml(year)}</span>
-                <strong class="health-check-comparison__value">${escapeHtml(item.value)}</strong>
-                <span class="health-check-comparison__date">${escapeHtml(formatDisplayDate(item.date))}</span>
-              </div>
-            `;
-          })
-          .join("");
-
-        return `
-          <article class="health-check-card health-check-card--comparison">
-            <span class="health-check-card__label">${escapeHtml(field.label)}</span>
-            <div class="health-check-comparison">
-              ${comparison}
-            </div>
-          </article>
-        `;
-      })
-      .join("");
+  function renderDateRow(row) {
+    return `
+      <tr>
+        <th class="health-check-table__section">검진일자</th>
+        <td></td>
+        <td></td>
+        ${renderYearCells(row)}
+        <td></td>
+      </tr>
+    `;
   }
 
-  async function loadHealthCheckData() {
-    const response = await fetch("/labs/data/health-check-result.xml", { cache: "no-store" });
-    if (!response.ok) {
-      throw new Error(`Failed to load health check data: ${response.status}`);
-    }
-
-    const xmlText = await response.text();
-    raw.textContent = xmlText;
-    controls.hidden = true;
-    controls.innerHTML = "";
-
-    const results = parseResults(xmlText);
-    const model = buildComparisonModel(results);
-
-    if (!model.years.length || !model.fields.length) {
-      summary.textContent = "표시할 건강검진 결과를 찾지 못했습니다.";
-      grid.innerHTML = "";
-      return;
-    }
-
-    summary.textContent = `${model.years.join(", ")} 기록을 항목별로 비교합니다.`;
-    renderComparisonCards(model);
+  function renderJudgementRow(row) {
+    return `
+      <tr>
+        <th class="health-check-table__section"></th>
+        <td class="health-check-table__center">판정</td>
+        <td></td>
+        ${renderYearCells(row, true)}
+        <td></td>
+      </tr>
+    `;
   }
 
-  async function ensureLoaded() {
-    if (loaded) {
-      return;
-    }
+  function renderRows() {
+    return rows.map((row, index) => {
+      if (row.type === "date") {
+        return renderDateRow(row);
+      }
 
-    try {
-      await loadHealthCheckData();
-      loaded = true;
-    } catch (error) {
-      console.error(error);
-      summary.textContent = "건강검진 데이터를 불러오지 못했습니다.";
-      grid.innerHTML = `
-        <article class="health-check-card">
-          <span class="health-check-card__label">상태</span>
-          <strong class="health-check-card__value">로드 실패</strong>
-        </article>
+      if (row.type === "judgement") {
+        return renderJudgementRow(row);
+      }
+
+      const sectionCell = row.section
+        ? `<th class="health-check-table__section" rowspan="${countSectionRows(index)}">${escapeHtml(row.section)}</th>`
+        : "";
+
+      return `
+        <tr>
+          ${sectionCell}
+          <td class="health-check-table__goal">${escapeHtml(row.goal || "")}</td>
+          <td>${escapeHtml(row.item || "")}</td>
+          ${renderYearCells(row)}
+          <td class="health-check-table__unit">${escapeHtml(row.unit || "")}</td>
+        </tr>
       `;
-    }
+    }).join("");
+  }
+
+  function renderTable() {
+    tableWrap.innerHTML = `
+      <table class="health-check-table">
+        <thead>
+          <tr>
+            <th rowspan="2">구분</th>
+            <th rowspan="2">목표질환</th>
+            <th rowspan="2">검사항목</th>
+            <th class="health-check-table__center" colspan="4">검진결과</th>
+            <th rowspan="2">단위</th>
+          </tr>
+          <tr>
+            <th class="health-check-table__year">2017년</th>
+            <th class="health-check-table__year">2023년</th>
+            <th class="health-check-table__year">2025년</th>
+            <th class="health-check-table__year">2026년</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${renderRows()}
+        </tbody>
+      </table>
+    `;
   }
 
   function openPanel() {
     panel.hidden = false;
     openButton.setAttribute("aria-expanded", "true");
-    ensureLoaded();
     panel.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
@@ -249,6 +166,9 @@
     openButton.setAttribute("aria-expanded", "false");
     openButton.focus();
   }
+
+  renderTable();
+  summary.textContent = "이미지 기준 수치로 직접 정리한 건강검진 비교표입니다.";
 
   openButton.addEventListener("click", () => {
     if (panel.hidden) {

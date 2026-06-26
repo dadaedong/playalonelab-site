@@ -151,109 +151,102 @@ img {
   font: inherit;
 }
 
-.health-check-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
-}
-
-.health-check-card {
-  padding: 16px 18px;
+.health-check-table-wrap {
+  overflow-x: auto;
   border: 1px solid var(--lab-line);
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.55);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.56);
 }
 
-.health-check-card--comparison {
-  display: grid;
-  gap: 14px;
+.health-check-table {
+  width: 100%;
+  min-width: 1080px;
+  border-collapse: collapse;
+  table-layout: fixed;
 }
 
-.health-check-card__label,
-.health-check-card__date {
-  display: block;
+.health-check-table th,
+.health-check-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--lab-line);
+  vertical-align: top;
+  text-align: left;
+  word-break: keep-all;
 }
 
-.health-check-card__label {
-  margin-bottom: 8px;
-  font-size: 0.78rem;
-  color: var(--lab-sub);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.health-check-card__value {
-  font-size: 1.35rem;
-  font-weight: 800;
-  letter-spacing: -0.03em;
-}
-
-.health-check-card__date {
-  margin-top: 8px;
-  font-size: 0.82rem;
-  color: var(--lab-sub);
-}
-
-.health-check-comparison {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
-  gap: 10px;
-}
-
-.health-check-comparison__item {
-  padding: 12px;
-  border-radius: 14px;
-  background: rgba(246, 242, 233, 0.7);
-  border: 1px dashed var(--lab-line);
-}
-
-.health-check-comparison__year,
-.health-check-comparison__date {
-  display: block;
-  color: var(--lab-sub);
-}
-
-.health-check-comparison__year {
-  font-size: 0.74rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.health-check-comparison__value {
-  display: block;
-  margin: 4px 0;
-  font-size: 1.05rem;
+.health-check-table thead th {
+  background: rgba(235, 237, 245, 0.78);
+  font-size: 0.95rem;
   font-weight: 800;
 }
 
-.health-check-comparison__date {
-  font-size: 0.76rem;
+.health-check-table thead tr:first-child th {
+  border-bottom: 1px solid #b8bfd8;
 }
 
-.health-check-raw {
-  border-top: 1px solid var(--lab-line);
-  padding-top: 16px;
+.health-check-table__center {
+  text-align: center !important;
 }
 
-.health-check-raw summary {
-  cursor: pointer;
+.health-check-table__section {
+  width: 102px;
+  background: rgba(235, 237, 245, 0.72);
+  font-weight: 800;
+}
+
+.health-check-table__goal {
+  color: #2347c6;
   font-weight: 700;
 }
 
-.health-check-raw__content {
-  margin: 14px 0 0;
-  padding: 16px;
-  max-height: 420px;
-  overflow: auto;
-  border-radius: 18px;
-  background: #16181d;
-  color: #f3f4f8;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 0.84rem;
-  line-height: 1.55;
-  white-space: pre-wrap;
-  word-break: break-word;
+.health-check-table__year {
+  text-align: center !important;
+  font-weight: 700;
+}
+
+.health-check-table__unit,
+.health-check-table__ref {
+  color: #2f3750;
+  white-space: nowrap;
+}
+
+.health-check-table__value--warning {
+  color: #ff2b2b;
+}
+
+.health-check-table__value--recovered {
+  color: #157f66;
+  font-weight: 800;
+}
+
+.health-check-table__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 54px;
+  padding: 7px 14px;
+  border-radius: 8px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.health-check-table__badge.health-check-table__value--warning {
+  color: #fff;
+  background: #3f7cf0;
+}
+
+.health-check-table__badge.health-check-table__value--recovered {
+  color: #fff;
+  background: #0a9b2d;
+}
+
+.health-check-table__muted {
+  color: var(--lab-sub);
+}
+
+.health-check-table tbody tr:last-child td,
+.health-check-table tbody tr:last-child th {
+  border-bottom: 0;
 }
 
 .lab-crumbs {
@@ -456,9 +449,6 @@ img {
   }
   .health-check-panel__head {
     flex-direction: column;
-  }
-  .health-check-grid {
-    grid-template-columns: 1fr;
   }
   .lab-timeline {
     grid-template-columns: 1fr;

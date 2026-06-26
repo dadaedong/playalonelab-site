@@ -66,13 +66,8 @@
       </div>
       <button class="health-check-panel__close" id="healthCheckClose" type="button" aria-label="건강검진결과 닫기">닫기</button>
     </div>
-    <p class="health-check-panel__summary" id="healthCheckSummary">검진 데이터를 불러오는 중입니다.</p>
-    <div class="health-check-controls" id="healthCheckControls" hidden></div>
-    <div class="health-check-grid" id="healthCheckGrid" aria-live="polite"></div>
-    <details class="health-check-raw">
-      <summary>원본 XML 보기</summary>
-      <pre class="health-check-raw__content" id="healthCheckRaw"></pre>
-    </details>
+    <p class="health-check-panel__summary" id="healthCheckSummary">캡처 기준으로 정리한 건강검진 비교표입니다.</p>
+    <div class="health-check-table-wrap" id="healthCheckTableWrap" aria-live="polite"></div>
   </section>
 
   <hr class="lab-divider" role="separator" aria-hidden="true">
