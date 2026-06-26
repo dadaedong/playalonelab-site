@@ -96,6 +96,10 @@ img {
   box-shadow: var(--lab-shadow);
 }
 
+.health-check-panel[hidden] {
+  display: none;
+}
+
 .health-check-panel__head {
   display: flex;
   align-items: flex-start;
@@ -160,6 +164,11 @@ img {
   background: rgba(255, 255, 255, 0.55);
 }
 
+.health-check-card--comparison {
+  display: grid;
+  gap: 14px;
+}
+
 .health-check-card__label,
 .health-check-card__date {
   display: block;
@@ -183,6 +192,42 @@ img {
   margin-top: 8px;
   font-size: 0.82rem;
   color: var(--lab-sub);
+}
+
+.health-check-comparison {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 10px;
+}
+
+.health-check-comparison__item {
+  padding: 12px;
+  border-radius: 14px;
+  background: rgba(246, 242, 233, 0.7);
+  border: 1px dashed var(--lab-line);
+}
+
+.health-check-comparison__year,
+.health-check-comparison__date {
+  display: block;
+  color: var(--lab-sub);
+}
+
+.health-check-comparison__year {
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.health-check-comparison__value {
+  display: block;
+  margin: 4px 0;
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.health-check-comparison__date {
+  font-size: 0.76rem;
 }
 
 .health-check-raw {

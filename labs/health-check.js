@@ -31,7 +31,27 @@
     HEARING: "청력"
   };
 
-  const dateLabel = new Intl.DateTimeFormat("ko-KR", {
+  const fieldPriority = [
+    "HEIGHT",
+    "WEIGHT",
+    "WAIST",
+    "BMI",
+    "SBP",
+    "DBP",
+    "HEMOGLOBIN",
+    "GLUCOSE",
+    "CREATININE",
+    "EGFR",
+    "AST(SGOT)",
+    "ALT(SGPT)",
+    "GAMMA-GTP",
+    "URINE_PROTEIN",
+    "LEFT_VISION",
+    "RIGHT_VISION",
+    "HEARING"
+  ];
+
+  const dateFormatter = new Intl.DateTimeFormat("ko-KR", {
     year: "numeric",
     month: "2-digit",
     day: "2-digit"
@@ -54,26 +74,26 @@
   }
 
   function normalizeFieldKey(result) {
-    const desc = result.description.toUpperCase();
-    const id = result.objectId;
+    const description = result.description.toUpperCase();
+    const objectId = result.objectId;
 
-    if (desc === "SBP") return "SBP";
-    if (desc === "DBP") return "DBP";
-    if (desc === "BMI") return "BMI";
-    if (desc.includes("AST")) return "AST(SGOT)";
-    if (desc.includes("ALT")) return "ALT(SGPT)";
-    if (desc.includes("GFR")) return "EGFR";
+    if (description === "SBP") return "SBP";
+    if (description === "DBP") return "DBP";
+    if (description === "BMI") return "BMI";
+    if (description.includes("AST")) return "AST(SGOT)";
+    if (description.includes("ALT")) return "ALT(SGPT)";
+    if (description.includes("GFR")) return "EGFR";
 
-    if (id.endsWith("00001")) return "HEIGHT";
-    if (id.endsWith("00002")) return "WEIGHT";
-    if (id.endsWith("00003")) return result.date >= "2026-01-01" ? "URINE_PROTEIN" : "WAIST";
-    if (id.endsWith("00004")) return result.date >= "2026-01-01" ? "HEMOGLOBIN" : "BMI";
-    if (id.endsWith("00005")) return result.date >= "2026-01-01" ? "GLUCOSE" : "LEFT_VISION";
-    if (id.endsWith("00006")) return result.date >= "2026-01-01" ? "CREATININE" : "RIGHT_VISION";
-    if (id.endsWith("00007")) return result.date >= "2026-01-01" ? "EGFR" : "HEARING";
-    if (id.endsWith("00010")) return "CREATININE";
-    if (id.endsWith("00011")) return "EGFR";
-    if (id.endsWith("00014")) return "GAMMA-GTP";
+    if (objectId.endsWith("00001")) return "HEIGHT";
+    if (objectId.endsWith("00002")) return "WEIGHT";
+    if (objectId.endsWith("00003")) return result.date >= "2026-01-01" ? "URINE_PROTEIN" : "WAIST";
+    if (objectId.endsWith("00004")) return result.date >= "2026-01-01" ? "HEMOGLOBIN" : "BMI";
+    if (objectId.endsWith("00005")) return result.date >= "2026-01-01" ? "GLUCOSE" : "LEFT_VISION";
+    if (objectId.endsWith("00006")) return result.date >= "2026-01-01" ? "CREATININE" : "RIGHT_VISION";
+    if (objectId.endsWith("00007")) return result.date >= "2026-01-01" ? "EGFR" : "HEARING";
+    if (objectId.endsWith("00010")) return "CREATININE";
+    if (objectId.endsWith("00011")) return "EGFR";
+    if (objectId.endsWith("00014")) return "GAMMA-GTP";
 
     return result.description || result.type || "검사 항목";
   }
@@ -82,97 +102,95 @@
     const blocks = [...xmlText.matchAll(/<ccr:Result>([\s\S]*?)<\/ccr:Result>/g)];
 
     return blocks
-      .map(([, block]) => {
-        const objectId = getFirstMatch(block, /<ccr:CCRDataObjectID>([\s\S]*?)<\/ccr:CCRDataObjectID>/);
-        const date = getFirstMatch(block, /<ccr:ExactDateTime>([\s\S]*?)<\/ccr:ExactDateTime>/);
-        const type = getFirstMatch(block, /<ccr:Type>\s*<ccr:Text>([\s\S]*?)<\/ccr:Text>/);
-        const description = getFirstMatch(block, /<ccr:Description>\s*<ccr:Text>([\s\S]*?)<\/ccr:Text>/);
-        const value = getFirstMatch(block, /<ccr:TestResult>\s*<ccr:Value>([\s\S]*?)<\/ccr:Value>/);
-        const unit = getFirstMatch(block, /<ccr:Units>\s*<ccr:Unit>([\s\S]*?)<\/ccr:Unit>/);
-
-        return { objectId, date, type, description, value, unit };
-      })
-      .filter((item) => item.date && item.value);
-  }
-
-  function groupByDate(results) {
-    return results.reduce((accumulator, item) => {
-      const key = item.date;
-      if (!accumulator[key]) {
-        accumulator[key] = [];
-      }
-      accumulator[key].push({
+      .map(([, block]) => ({
+        objectId: getFirstMatch(block, /<ccr:CCRDataObjectID>([\s\S]*?)<\/ccr:CCRDataObjectID>/),
+        date: getFirstMatch(block, /<ccr:ExactDateTime>([\s\S]*?)<\/ccr:ExactDateTime>/),
+        type: getFirstMatch(block, /<ccr:Type>\s*<ccr:Text>([\s\S]*?)<\/ccr:Text>/),
+        description: getFirstMatch(block, /<ccr:Description>\s*<ccr:Text>([\s\S]*?)<\/ccr:Text>/),
+        value: getFirstMatch(block, /<ccr:TestResult>\s*<ccr:Value>([\s\S]*?)<\/ccr:Value>/),
+        unit: getFirstMatch(block, /<ccr:Units>\s*<ccr:Unit>([\s\S]*?)<\/ccr:Unit>/)
+      }))
+      .filter((item) => item.date && item.value)
+      .map((item) => ({
         ...item,
-        fieldKey: normalizeFieldKey(item)
-      });
-      return accumulator;
-    }, {});
+        fieldKey: normalizeFieldKey(item),
+        year: item.date.slice(0, 4)
+      }));
   }
 
-  function renderCards(items) {
-    const priority = [
-      "HEIGHT",
-      "WEIGHT",
-      "WAIST",
-      "BMI",
-      "SBP",
-      "DBP",
-      "HEMOGLOBIN",
-      "GLUCOSE",
-      "CREATININE",
-      "EGFR",
-      "AST(SGOT)",
-      "ALT(SGPT)",
-      "GAMMA-GTP",
-      "URINE_PROTEIN",
-      "LEFT_VISION",
-      "RIGHT_VISION",
-      "HEARING"
-    ];
+  function formatDisplayDate(dateString) {
+    const date = new Date(`${dateString}T00:00:00`);
+    return Number.isNaN(date.getTime()) ? dateString : dateFormatter.format(date);
+  }
 
-    const sorted = [...items].sort((left, right) => {
-      const leftIndex = priority.indexOf(left.fieldKey);
-      const rightIndex = priority.indexOf(right.fieldKey);
+  function buildComparisonModel(results) {
+    const years = [...new Set(results.map((item) => item.year))].sort((left, right) => right.localeCompare(left));
+    const fieldMap = new Map();
+
+    results.forEach((item) => {
+      const label = fieldLabelMap[item.fieldKey] || item.fieldKey;
+      const current = fieldMap.get(item.fieldKey) || {
+        fieldKey: item.fieldKey,
+        label,
+        years: {}
+      };
+
+      const previous = current.years[item.year];
+      if (!previous || item.date > previous.date) {
+        current.years[item.year] = {
+          value: item.unit ? `${item.value} ${item.unit}` : item.value,
+          date: item.date
+        };
+      }
+
+      fieldMap.set(item.fieldKey, current);
+    });
+
+    const fields = [...fieldMap.values()].sort((left, right) => {
+      const leftIndex = fieldPriority.indexOf(left.fieldKey);
+      const rightIndex = fieldPriority.indexOf(right.fieldKey);
       return (leftIndex === -1 ? 99 : leftIndex) - (rightIndex === -1 ? 99 : rightIndex);
     });
 
-    grid.innerHTML = sorted
-      .map((item) => {
-        const label = fieldLabelMap[item.fieldKey] || item.fieldKey;
-        const value = item.unit ? `${item.value} ${item.unit}` : item.value;
+    return { years, fields };
+  }
+
+  function renderComparisonCards(model) {
+    grid.innerHTML = model.fields
+      .map((field) => {
+        const comparison = model.years
+          .map((year) => {
+            const item = field.years[year];
+            if (!item) {
+              return `
+                <div class="health-check-comparison__item">
+                  <span class="health-check-comparison__year">${escapeHtml(year)}</span>
+                  <strong class="health-check-comparison__value">-</strong>
+                  <span class="health-check-comparison__date">기록 없음</span>
+                </div>
+              `;
+            }
+
+            return `
+              <div class="health-check-comparison__item">
+                <span class="health-check-comparison__year">${escapeHtml(year)}</span>
+                <strong class="health-check-comparison__value">${escapeHtml(item.value)}</strong>
+                <span class="health-check-comparison__date">${escapeHtml(formatDisplayDate(item.date))}</span>
+              </div>
+            `;
+          })
+          .join("");
+
         return `
-          <article class="health-check-card">
-            <span class="health-check-card__label">${escapeHtml(label)}</span>
-            <strong class="health-check-card__value">${escapeHtml(value)}</strong>
-            <span class="health-check-card__date">${escapeHtml(item.date)}</span>
+          <article class="health-check-card health-check-card--comparison">
+            <span class="health-check-card__label">${escapeHtml(field.label)}</span>
+            <div class="health-check-comparison">
+              ${comparison}
+            </div>
           </article>
         `;
       })
       .join("");
-  }
-
-  function renderDateSelector(dateKeys, grouped) {
-    if (dateKeys.length <= 1) {
-      controls.hidden = true;
-      return;
-    }
-
-    controls.hidden = false;
-    controls.innerHTML = `
-      <label for="healthCheckDate">검진일 선택</label>
-      <select id="healthCheckDate">
-        ${dateKeys
-          .map((date) => `<option value="${escapeHtml(date)}">${escapeHtml(date)}</option>`)
-          .join("")}
-      </select>
-    `;
-
-    const select = document.getElementById("healthCheckDate");
-    select.addEventListener("change", () => {
-      const selectedItems = grouped[select.value] || [];
-      summary.textContent = `${select.value} 검진 데이터 ${selectedItems.length}개 항목`;
-      renderCards(selectedItems);
-    });
   }
 
   async function loadHealthCheckData() {
@@ -183,24 +201,20 @@
 
     const xmlText = await response.text();
     raw.textContent = xmlText;
+    controls.hidden = true;
+    controls.innerHTML = "";
 
     const results = parseResults(xmlText);
-    const grouped = groupByDate(results);
-    const dateKeys = Object.keys(grouped).sort((left, right) => right.localeCompare(left));
+    const model = buildComparisonModel(results);
 
-    if (!dateKeys.length) {
-      summary.textContent = "표시할 검진 항목을 찾지 못했습니다.";
+    if (!model.years.length || !model.fields.length) {
+      summary.textContent = "표시할 건강검진 결과를 찾지 못했습니다.";
       grid.innerHTML = "";
       return;
     }
 
-    const initialDate = dateKeys[0];
-    const initialItems = grouped[initialDate];
-    const formattedDate = dateLabel.format(new Date(initialDate));
-
-    summary.textContent = `가장 최근 검진일 ${formattedDate} 기준 ${initialItems.length}개 항목`;
-    renderDateSelector(dateKeys, grouped);
-    renderCards(initialItems);
+    summary.textContent = `${model.years.join(", ")} 기록을 항목별로 비교합니다.`;
+    renderComparisonCards(model);
   }
 
   async function ensureLoaded() {
@@ -233,6 +247,7 @@
   function closePanel() {
     panel.hidden = true;
     openButton.setAttribute("aria-expanded", "false");
+    openButton.focus();
   }
 
   openButton.addEventListener("click", () => {
@@ -244,5 +259,15 @@
     closePanel();
   });
 
-  closeButton.addEventListener("click", closePanel);
+  closeButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    closePanel();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !panel.hidden) {
+      closePanel();
+    }
+  });
 })();
