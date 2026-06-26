@@ -36,6 +36,11 @@
 <main class="wrap" id="main">
   <header class="lab-hero">
     <div>
+      <div class="lab-hero__actions">
+        <button class="lab-health-button" id="healthCheckButton" type="button" aria-controls="healthCheckPanel" aria-expanded="false">
+          건강검진결과
+        </button>
+      </div>
       <div class="lab-crumbs"><a href="./index.html">Studios</a> · <a href="./lab42.html">LAB.42</a> · 해체(解體)</div>
       <div class="lab-badge" aria-label="LAB.42 badge">
         <span class="dot" aria-hidden="true"></span>
@@ -53,6 +58,23 @@
     <div class="lab-meta__item"><span class="lab-meta__label">마운자로 관찰 항목</span><span class="lab-meta__value">식욕 · 감정 · 체중 · 집중력 · 수면</span></div>
   </section>
 
+  <section class="health-check-panel" id="healthCheckPanel" aria-labelledby="healthCheckTitle" hidden>
+    <div class="health-check-panel__head">
+      <div>
+        <p class="health-check-panel__eyebrow">National Health Insurance XML</p>
+        <h2 class="health-check-panel__title" id="healthCheckTitle">건강검진결과</h2>
+      </div>
+      <button class="health-check-panel__close" id="healthCheckClose" type="button" aria-label="건강검진결과 닫기">닫기</button>
+    </div>
+    <p class="health-check-panel__summary" id="healthCheckSummary">검진 데이터를 불러오는 중입니다.</p>
+    <div class="health-check-controls" id="healthCheckControls" hidden></div>
+    <div class="health-check-grid" id="healthCheckGrid" aria-live="polite"></div>
+    <details class="health-check-raw">
+      <summary>원본 XML 보기</summary>
+      <pre class="health-check-raw__content" id="healthCheckRaw"></pre>
+    </details>
+  </section>
+
   <hr class="lab-divider" role="separator" aria-hidden="true">
 
   <section class="lab-timeline" aria-label="주차별 기록">
@@ -62,5 +84,6 @@
 </main>
 <script src="/site-header.js"></script>
 <script src="/labs/deconstruction-log.js" defer></script>
+<script src="/labs/health-check.js" defer></script>
 </body>
 </html>
