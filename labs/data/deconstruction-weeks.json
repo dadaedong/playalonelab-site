@@ -365,7 +365,7 @@
   }
   ,{
     "week": 28,
-    "phase": "Tapering",
+    "phase": "점차감량기",
     "datetime": "2026-05-17",
     "period": "2026.05.17-2026.05.23",
     "dose": "2.5 mg (2주당 1회)",
@@ -378,7 +378,7 @@
   }
   ,{
     "week": 29,
-    "phase": "Tapering",
+    "phase": "점차감량기",
     "datetime": "2026-05-24",
     "period": "2026.05.24-2026.05.30",
     "dose": "X",
@@ -391,7 +391,7 @@
   }
   ,{
     "week": 30,
-    "phase": "Tapering",
+    "phase": "점차감량기",
     "datetime": "2026-05-31",
     "period": "2026.05.31-2026.06.06",
     "dose": "2.5 mg (2주당 1회)",
@@ -404,7 +404,7 @@
   }
   ,{
     "week": 31,
-    "phase": "Tapering",
+    "phase": "점차감량기",
     "datetime": "2026-06-07",
     "period": "2026.06.07-2026.06.13",
     "dose": "X",
@@ -417,7 +417,7 @@
   }
   ,{
     "week": 32,
-    "phase": "Tapering",
+    "phase": "점차감량기",
     "datetime": "2026-06-14",
     "period": "2026.06.14-2026.06.20",
     "dose": "2.5 mg (2주당 1회)",
@@ -430,7 +430,7 @@
   }
   ,{
     "week": 33,
-    "phase": "Tapering",
+    "phase": "점차감량기",
     "datetime": "2026-06-21",
     "period": "2026.06.21-2026.06.27",
     "dose": "X",
@@ -443,7 +443,7 @@
   }
   ,{
     "week": 34,
-    "phase": "Tapering",
+    "phase": "점차감량기",
     "datetime": "2026-06-28",
     "period": "2026.06.28-2026.07.04",
     "dose": "2.5 mg (2주당 1회)",
@@ -456,7 +456,7 @@
   }
 ,{
   "week": 35,
-  "phase": "Discontinuation",
+  "phase": "단약기",
   "datetime": "2026-07-05",
   "period": "2026.07.05-2026.07.11",
   "dose": "0",
