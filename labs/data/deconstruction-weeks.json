@@ -532,4 +532,30 @@
   "sideEffects": "없음",
   "quote": "루틴대로만 살자. 하지만 그건 너무나도 어려운 일이지"
 }
+,{
+  "week": 41,
+  "phase": "단약기",
+  "datetime": "2026-08-16",
+  "period": "2026.08.16-2026.08.22",
+  "dose": "X",
+  "weight": "72.3kg",
+  "waist": "84cm",
+  "appetite": "미쳐서 날뛰고 있음",
+  "focus": "먹는데에만 집중",
+  "sideEffects": "없음",
+  "quote": "체중 변동성이 국장급"
+}
+,{
+  "week": 42,
+  "phase": "단약기",
+  "datetime": "2026-08-23",
+  "period": "2026.08.23-2026.08.29",
+  "dose": "X",
+  "weight": "67.8kg",
+  "waist": "82cm",
+  "appetite": "억제기 재생성",
+  "focus": "차라리 노는거에 집중하자",
+  "sideEffects": "없음",
+  "quote": "맥주를 적당히 마시자. 적당히."
+}
 ]
