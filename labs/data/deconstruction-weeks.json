@@ -558,4 +558,17 @@
   "sideEffects": "없음",
   "quote": "맥주를 적당히 마시자. 적당히."
 }
+,{
+  "week": 43,
+  "phase": "단약기",
+  "datetime": "2026-08-30",
+  "period": "2026.08.30-2026.09.06",
+  "dose": "X",
+  "weight": "67.8kg",
+  "waist": "82cm",
+  "appetite": "술이 너무 맛있다",
+  "focus": "이대로는 안된다",
+  "sideEffects": "없음",
+  "quote": "맥주만 마시자..."
+}
 ]
