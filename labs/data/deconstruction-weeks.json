@@ -562,7 +562,7 @@
   "week": 43,
   "phase": "단약기",
   "datetime": "2026-08-30",
-  "period": "2026.08.30-2026.09.06",
+  "period": "2026.08.30-2026.09.05",
   "dose": "X",
   "weight": "67.8kg",
   "waist": "82cm",
@@ -570,5 +570,18 @@
   "focus": "이대로는 안된다",
   "sideEffects": "없음",
   "quote": "맥주만 마시자..."
+}
+,{
+  "week": 44,
+  "phase": "단약기",
+  "datetime": "2026-09-06",
+  "period": "2026.09.06-2026.09.12",
+  "dose": "X",
+  "weight": "69.8kg",
+  "waist": "84cm",
+  "appetite": "옛날 식욕 돌아옴",
+  "focus": "요요다",
+  "sideEffects": "없음",
+  "quote": "해체 종료까지 3주 그 안에 64.8kg로 돌아간다"
 }
 ]
